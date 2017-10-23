@@ -10,15 +10,16 @@
 		<div id="log">
 		<img src="logo.png" id="logo" />
 		
-		<p>
+		<form action="/LoginServlet" method="post">
 		<label> Usuário:   </label>
-		<input type="text" id="txtUser" />
-		<p>
-		<label> Senha:   </label>
-		<input type="password" id="txtSenha" />
-		<p>
+		<input type="text" id="txtUser" name="usuario"/>
+		<p/>
+                <label> Senha:   </label>
+		<input type="password" id="txtSenha" name="senha"/>
+		<p/>
 		<input type="submit" id="inpSubmit" />
 		<a href="#">Esqueceu a senha?</a>
+                </form>
 		</div>
 	</body>
 </html>
