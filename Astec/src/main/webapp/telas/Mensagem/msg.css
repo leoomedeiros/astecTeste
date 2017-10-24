@@ -63,64 +63,6 @@ h5{
 }
 
 
-h6{
-    color: gray;
-    padding: 0px;
-    margin: 0px;
-    font-family: "Arial",sans-serif;
-
-}
-    /*-------------------------*/
-
-/* -------------------------*/
-
-/* sub Menus --------------------*/
-
-.sub {
-    visibility: hidden;
-    background: #febe10;
-    width:210px;
-    position: fixed;
-    
-}
-.sub .submenu a {
-    
-    color: #0a1337;     
-    border-top: 1px solid #0a1337;
-    border-bottom: 1px solid #0a1337;
-    text-align: left;
-    display: block; /* Make the links appear below each other */
-    padding: 12px; /* Add some padding */
-
-    text-decoration: none; /* Remove underline from links */
-}
-/*Sub menus fim -----------*/
-
-#subProduto {
-    position: fixed;
-    left: 226px;
-    top: 140px;
-    
-}
-#subCliente{    
-    position: fixed;
-    left: 226px;
-    top: 183px;
-}
-#subRelatorio{
-    
-    position: fixed;
-    left: 226px;
-    top: 269px;
-}
-#subUsuario {
-    position: fixed;
-    left: 226px;
-    top: 312px;
-}
-
-/* conteudo --------------*/
-
 #direito{    
     position: absolute;
     left: 240px;
@@ -140,19 +82,39 @@ h6{
     border: 2px solid #0a1337;
     border-radius:10px;
     height: 500px;
-
-    margin-top: 20px;
+	margin-top: 20px;
 }
 
-h1{
-    color: white;
+h1{ color: white;
     text-shadow: 2px 2px 4px #000000;
     font-family: "Arial",sans-serif;
     margin: 0px;
     padding: 0px;
 }
+
+
 .logo{
     position: absolute;
     right: 20px;
     top: 10px;
+}
+
+
+
+h2{
+	color: red;
+	font-family: "Arial",sans-serif;
+	position:auto;
+	top:50%;
+	left:50%;
+    margin: 0px;
+    padding: 0px;
+}
+
+#imagemErro{
+	width:100px;
+	height:100px;
+	position:absolute;
+	top:50%;
+	left:50%;
 }
