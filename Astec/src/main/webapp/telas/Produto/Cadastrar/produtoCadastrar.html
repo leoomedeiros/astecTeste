@@ -18,7 +18,7 @@
             </div>
             
             <div id="conteudo">
-                <form action="" method="">  
+                <form action="${pageContext.request.contextPath}/produtoCadastrarServlet" method="post">  
                     <div id="contEsq" class="divisoria">
                         <h4>Nome do Produto:<br></h4>
                         <input type="text" name="nomeProduto"><br>
@@ -27,7 +27,7 @@
                         <input type="text" name="categoria"><br>
 
                         <h4>Tamanho:<br></h4>
-                        <input type="number" name="Tamanho"><br>
+                        <input type="number" name="tamanho"><br>
 
                         <h4>Preço:<br></h4>
                         <input type="number" name="preco" step="0.01"><br>
