@@ -5,52 +5,42 @@
  */
 package br.com.astec.model.produto;
 
-import java.security.Timestamp;
+import java.io.Serializable;
+import java.sql.Timestamp;
+import java.util.GregorianCalendar;
 
-/**
- *
- * @author Fernando
- */
-public class Produto {
-    private Integer id;
-    private Timestamp dataDeCadastro;
-    private String nome;
-    private Integer codigoProduto;
+
+public class Produto implements Serializable{
+    private int codigoBanco;
+    private Timestamp dtCadastro;
+    private String nomeProduto;
+    private int codigoProduto;
     private String categoria;
     private String cor;
-    private String tamanho;
-    private Integer qdeEstoque;
-    private String descricao;
-
-    public Integer getId() {
-        return id;
+    private int tamanho;
+    private int quantidade;
+    
+    public int getCodigoBanco() {
+        return codigoBanco;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setCodigoBanco(int codigoBanco) {
+        this.codigoBanco = codigoBanco;
     }
 
-    public Timestamp getDataDeCadastro() {
-        return dataDeCadastro;
+    public String getNomeProduto() {
+        return nomeProduto;
     }
 
-    public void setDataDeCadastro(Timestamp dataDeCadastro) {
-        this.dataDeCadastro = dataDeCadastro;
+    public void setNomeProduto(String nomeProduto) {
+        this.nomeProduto = nomeProduto;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public Integer getCodigoProduto() {
+    public int getCodigoProduto() {
         return codigoProduto;
     }
 
-    public void setCodigoProduto(Integer codigoProduto) {
+    public void setCodigoProduto(int codigoProduto) {
         this.codigoProduto = codigoProduto;
     }
 
@@ -70,20 +60,20 @@ public class Produto {
         this.cor = cor;
     }
 
-    public String getTamanho() {
+    public int getTamanho() {
         return tamanho;
     }
 
-    public void setTamanho(String tamanho) {
+    public void setTamanho(int tamanho) {
         this.tamanho = tamanho;
     }
 
-    public Integer getQdeEstoque() {
-        return qdeEstoque;
+    public int getQuantidade() {
+        return quantidade;
     }
 
-    public void setQdeEstoque(Integer qdeEstoque) {
-        this.qdeEstoque = qdeEstoque;
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 
     public String getDescricao() {
@@ -94,12 +84,42 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public Double getPreco() {
+    public double getPreco() {
         return preco;
     }
 
-    public void setPreco(Double preco) {
+    public void setPreco(double preco) {
         this.preco = preco;
     }
-    private Double preco;
+
+    public Produto(int codigoBanco, Timestamp dtCadastro, String nomeProduto, int codigoProduto, 
+            String categoria, String cor, int tamanho, int quantidade, 
+            String descricao, double preco) {
+        this.codigoBanco = codigoBanco;
+        this.dtCadastro = dtCadastro;
+        this.nomeProduto = nomeProduto;
+        this.codigoProduto = codigoProduto;
+        this.categoria = categoria;
+        this.cor = cor;
+        this.tamanho = tamanho;
+        this.quantidade = quantidade;
+        this.descricao = descricao;
+        this.preco = preco;
+    }
+
+    public Timestamp getDtCadastro() {
+        return dtCadastro;
+    }
+
+    public void setDtCadastro(Timestamp dtCadastro) {
+        this.dtCadastro = dtCadastro;
+    }
+    
+    public Produto (){
+        
+    }
+    private String descricao;
+    private double preco;
 }
+
+    

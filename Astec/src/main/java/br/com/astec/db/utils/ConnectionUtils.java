@@ -15,7 +15,7 @@ import java.util.Properties;
  *
  * @author Fernando
  */
-public class ConnectionUtils {
+public class ConnectionUtils extends MainConstants{
     public static Connection getConnection() {
         Connection connection = null;
         try {

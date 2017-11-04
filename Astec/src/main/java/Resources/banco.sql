@@ -31,7 +31,7 @@ codigo_produto INT NOT NULL,
 categoria VARCHAR(100) NOT NULL ,
 cor VARCHAR(100) NOT NULL,
 tamanho INT NOT NULL ,
-quantodade_estoque INT NOT NULL,
+quantidade_estoque INT NOT NULL,
 descr VARCHAR(255),
 preco DOUBLE NOT NULL,
 PRIMARY KEY (id_prod)
