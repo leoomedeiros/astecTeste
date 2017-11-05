@@ -28,7 +28,6 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "produtoCadastrarServlet", urlPatterns = {"/produtoCadastrarServlet"})
 public class produtoCadastrarServlet extends HttpServlet {
 
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -48,18 +47,17 @@ public class produtoCadastrarServlet extends HttpServlet {
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher(destino);
         dispatcher.forward(request, response);
-        
-        
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
         java.util.Date utilDate = new java.util.Date();
         java.sql.Timestamp sq = new java.sql.Timestamp(utilDate.getTime());
-        
+
         String nomeProduto = request.getParameter("nomeProduto");
         String categoria = request.getParameter("categoria");
         int tamanho = Integer.parseInt(request.getParameter("tamanho"));
@@ -70,13 +68,15 @@ public class produtoCadastrarServlet extends HttpServlet {
         int codigoProduto = 01;
         int codigoBanco = 02;
 
-        Produto novo = new Produto(codigoBanco, sq, nomeProduto, codigoProduto, 
+        Produto novo = new Produto(codigoBanco, sq, nomeProduto, codigoProduto,
                 categoria, cor, tamanho, quantidade, descricao, preco);
 
         HttpSession sessao = request.getSession();
         sessao.setAttribute("novoProduto", novo);
+
         try {
-            DaoProduto.inserir(novo);
+            DaoProduto produto = new DaoProduto();
+            produto.inserir(novo);
         } catch (Exception ex) {
             Logger.getLogger(produtoCadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -90,5 +90,6 @@ public class produtoCadastrarServlet extends HttpServlet {
         response.sendRedirect(request.getContextPath() + "/produtoCadastrarServlet");
 
     }
+    
 
 }

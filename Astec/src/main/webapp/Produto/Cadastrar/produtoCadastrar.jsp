@@ -23,27 +23,27 @@
                 <form action="${pageContext.request.contextPath}/produtoCadastrarServlet" method="post">  
                     <div id="contEsq" class="divisoria">
                         <h4>Nome do Produto:<br></h4>
-                        <input type="text" name="nomeProduto" value="puma"><br>
+                        <input type="text" name="nomeProduto" ><br>
 
                         <h4>Categoria:<br></h4>
-                        <input type="text" name="categoria" value="tenis"><br>
+                        <input type="text" name="categoria" ><br>
 
                         <h4>Tamanho:<br></h4>
-                        <input type="number" name="tamanho" value="39"><br>
+                        <input type="number" name="tamanho" ><br>
 
                         <h4>Preço:<br></h4>
-                        <input type="number" name="preco" step="0.01" value="150"><br>
+                        <input type="number" name="preco" step="0.01" ><br>
                     </div>
 
                     <div id="contDir" class="divisoria">
                             <h4>Cor:<br></h4>
-                            <input type="text" name="cor" value="preto"><br>
+                            <input type="text" name="cor" ><br>
                             
                             <h4>Quantidade:<br></h4>
-                            <input type="number" name="quantidade" value="2"><br>
+                            <input type="number" name="quantidade" ><br>
                             
                             <h4>Descrição:<br></h4>
-                            <input type="text" name="descricao" value="masculino"><br>
+                            <input type="text" name="descricao" ><br>
 
                             
                     </div>
