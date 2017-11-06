@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.astec.model.produto;
+package br.com.astec.model.entidades;
 
-import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.GregorianCalendar;
 
 
-public class Produto implements Serializable{
+public class Produto extends AbstractEntity {
     private int codigoBanco;
     private Timestamp dtCadastro;
     private String nomeProduto;

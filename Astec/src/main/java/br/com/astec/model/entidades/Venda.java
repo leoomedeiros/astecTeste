@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.astec.model.venda;
+package br.com.astec.model.entidades;
 
-import br.com.astec.model.cliente.Cliente;
+import br.com.astec.model.entidades.Cliente;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -14,7 +14,7 @@ import java.util.List;
  *
  * @author Fernando
  */
-public class Venda {
+public class Venda extends AbstractEntity{
 
     public Integer getId() {
         return id;

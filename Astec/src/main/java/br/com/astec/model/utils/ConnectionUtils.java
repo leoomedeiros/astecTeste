@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.astec.db.utils;
+package br.com.astec.model.utils;
 
-import br.com.astec.constants.MainConstants;
+import br.com.astec.model.constants.MainConstants;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;

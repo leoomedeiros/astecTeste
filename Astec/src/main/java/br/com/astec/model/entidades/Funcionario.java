@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.astec.model.funcionario;
+package br.com.astec.model.entidades;
 
 import java.security.Timestamp;
 
@@ -11,7 +11,7 @@ import java.security.Timestamp;
  *
  * @author Fernando
  */
-public class Funcionario {
+public class Funcionario extends AbstractEntity{
     private Integer id;
     private Timestamp dataDeCadastro;
     private String nome;

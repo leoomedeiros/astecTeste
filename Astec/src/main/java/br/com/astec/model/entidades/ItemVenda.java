@@ -3,15 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.astec.model.venda;
-
-import br.com.astec.model.produto.Produto;
+package br.com.astec.model.entidades;
 
 /**
  *
  * @author Fernando
  */
-public class ItemVenda {
+public class ItemVenda extends AbstractEntity{
     private Integer id;
     private Produto produto;
     private Venda idvenda;

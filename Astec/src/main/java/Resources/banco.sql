@@ -86,6 +86,21 @@ CREATE TABLE ITEMVENDA (
     FOREIGN KEY (id_venda) REFERENCES VENDA (id_venda)
 );
 
+
+/*LOG DO FUNCIONÁRIO*/  
+CREATE TABLE LOG_FUNCIONARIO (
+    id INT NOT NULL 
+        GENERATED ALWAYS AS IDENTITY
+        (START WITH 1, INCREMENT BY 1),
+    id_funcionario INT NOT NULL,
+    acao VARCHAR NOT NULL, -- Incluiu, Alterou, Removeu, Consultou
+    id_registro INT NOT NULL,
+    nm_tabela VARCHAR NOT NULL,
+    data_acao TIMESTAMP NOT NULL
+    FOREIGN KEY (id_funcionario) REFERENCES FUNCIONARIO (id_funcionario)
+);
+
+
 /*
 temos que ver como gravar os eventos
 

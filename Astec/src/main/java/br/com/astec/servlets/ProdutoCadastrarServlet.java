@@ -1,16 +1,13 @@
+package br.com.astec.servlets;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import br.com.astec.db.dao.DaoProduto;
-import br.com.astec.model.produto.Produto;
+import br.com.astec.model.dao.ProdutoDao;
+import br.com.astec.model.entidades.Produto;
 import java.io.IOException;
-import java.*;
-import java.security.Timestamp;
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -26,7 +23,7 @@ import javax.servlet.http.HttpSession;
  * @author rafael.abarbosa1
  */
 @WebServlet(name = "produtoCadastrarServlet", urlPatterns = {"/produtoCadastrarServlet"})
-public class produtoCadastrarServlet extends HttpServlet {
+public class ProdutoCadastrarServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -75,16 +72,16 @@ public class produtoCadastrarServlet extends HttpServlet {
         sessao.setAttribute("novoProduto", novo);
 
         try {
-            DaoProduto produto = new DaoProduto();
-            produto.inserir(novo);
+            ProdutoDao produto = new ProdutoDao();
+            produto.incluir(novo);
         } catch (Exception ex) {
-            Logger.getLogger(produtoCadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProdutoCadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         try {
 
         } catch (Exception ex) {
-            Logger.getLogger(produtoCadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProdutoCadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         response.sendRedirect(request.getContextPath() + "/produtoCadastrarServlet");
