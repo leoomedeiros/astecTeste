@@ -11,7 +11,7 @@ package br.com.astec.model.constants;
  */
 public class MainConstants {
     public static final String DB_ADDRESS
-            = "jdbc:derby://localhost:1527/dbAstec1";
+            = "jdbc:derby://localhost:1527/dbAstec";
     public static final String DB_USER = "root";
     public static final String DB_PASS = "root";
 }
