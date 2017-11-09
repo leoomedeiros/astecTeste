@@ -99,10 +99,10 @@
         <div id="subProduto" class="sub">
             <ul class="submenu">
                 <li>
-                    <a href="cadastroProduto.html">Cadastrar Produto</a>
+                    <a href="produtoCadastrar.jsp">Cadastrar Produto</a>
                 </li>
                 <li>
-                    <a href="../consultaProduto/consultaProduto.html">Consultar Produto</a>
+                    <a href="../consultaProduto/produtoConsultarExcluir.html">Consultar Produto</a>
                 </li>
             </ul>
         </div>
