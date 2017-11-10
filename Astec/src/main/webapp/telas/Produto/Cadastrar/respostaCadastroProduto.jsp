@@ -13,8 +13,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>produto cadastrado:</h1>
-        <p><c:out value="${novoProd.nomeProduto}" /></p>
+        <h1>precisamos decidir como será este retorno ao usuário</h1>
+        <%--<p><c:out value="${novoProd.nomeProduto}" /></p>
         <p><c:out value="${novoProd.categoria}" /></p>
         <p><c:out value="${novoProd.tamanho}" /></p>
         <p><c:out value="${novoProd.preco}" /></p>
@@ -23,7 +23,7 @@
         <p><c:out value="${novoProd.descricao}" /></p>
         <p><c:out value="${novoProd.codigoProduto}" /></p>
         <p><c:out value="${novoProd.codigoBanco}" /></p>
-        <p><c:out value="${novoProd.dtCadastro}" /></p>
+        <p><c:out value="${novoProd.dtCadastro}" /></p>--%>
         
     </body>
 </html>
