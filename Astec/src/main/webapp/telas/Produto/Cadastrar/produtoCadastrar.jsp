@@ -20,7 +20,7 @@
             </div>
 
             <div id="conteudo">
-                <form action="${pageContext.request.contextPath}/produtoCadastrarServlet" method="post">  
+                <form action="${pageContext.request.contextPath}/ProdutoCadastrarServlet" method="post">  
                     <div id="contEsq" class="divisoria">
                         <h4>Nome do Produto:<br></h4>
                         <input type="text" name="nomeProduto" value="nike"><br>

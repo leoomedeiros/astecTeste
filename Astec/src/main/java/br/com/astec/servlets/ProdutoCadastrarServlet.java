@@ -22,13 +22,12 @@ import javax.servlet.http.HttpSession;
  *
  * @author rafael.abarbosa1
  */
-@WebServlet(name = "produtoCadastrarServlet", urlPatterns = {"/produtoCadastrarServlet"})
+@WebServlet(name = "ProdutoCadastrarServlet", urlPatterns = {"/ProdutoCadastrarServlet"})
 public class ProdutoCadastrarServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
 
         HttpSession sessao = request.getSession();
         Produto novo = (Produto) sessao.getAttribute("novoProduto");
@@ -37,9 +36,9 @@ public class ProdutoCadastrarServlet extends HttpServlet {
             request.setAttribute("novoProd", novo);
 
             sessao.removeAttribute("novoProd");
-            destino = "respostaCadastroProduto.jsp";
+            destino = "telas/Produto/Cadastrar/respostaCadastroProduto.jsp";
         } else { // usuario acessou normalmente
-            destino = "produtoCadastar.jsp";
+            destino = "telas/Produto/Cadastrar/produtoCadastar.jsp";
         }
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher(destino);
@@ -50,7 +49,6 @@ public class ProdutoCadastrarServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
 
         java.util.Date utilDate = new java.util.Date();
         java.sql.Timestamp sq = new java.sql.Timestamp(utilDate.getTime());
@@ -84,7 +82,7 @@ public class ProdutoCadastrarServlet extends HttpServlet {
             Logger.getLogger(ProdutoCadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        response.sendRedirect(request.getContextPath() + "/produtoCadastrarServlet");
+        response.sendRedirect(request.getContextPath() + "/ProdutoCadastrarServlet");
 
     }
     
