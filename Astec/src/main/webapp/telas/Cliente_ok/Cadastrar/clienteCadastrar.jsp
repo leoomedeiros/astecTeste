@@ -1,11 +1,19 @@
+<%-- 
+    Document   : clienteCadastrar
+    Created on : 10/11/2017, 12:16:33
+    Author     : Fernando
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
         <title>Cadastrar de Cliente:</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="ClienteCadastrar.css" rel="stylesheet">
-        <script src="ClienteCadastrar.js" type="text/javascript"></script>
+        <link href="clienteCadastrar.css" rel="stylesheet">
+        <script src="clienteCadastrar.js" type="text/javascript"></script>
     </head>
     <body>
         <div id="direito">
@@ -18,7 +26,7 @@
             </div>
             
             <div id="conteudo">
-                <form action="" method="">  
+                <form action="${pageContext.request.contextPath}/CadastrarCliente" method="post">  
                     <div id="contEsq" class="divisoria">
                         <h4>Nome completo:<br></h4>
                         <input type="text" name="nomeCliente"><br>
@@ -27,7 +35,7 @@
                         <input type="number" name="cpf"><br>
 
                         <h4>Endereço:<br></h4>
-                        <input type="text" name="endereço"><br>
+                        <input type="text" name="endereco"><br>
 
                         <h4>Telefone:<br></h4>
                         <input type="number" name="telefone" <br>
