@@ -1,3 +1,9 @@
+<%-- 
+    Document   : respostaProdutoAlterado
+    Created on : Nov 13, 2017, 2:19:16 PM
+    Author     : r.almeida.barbosa
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -12,47 +18,28 @@
     <body>
         <div id="direito">
             <div id="cabecalho">
-                <!--<img class="logo" src="https://i.imgur.com/mgK1d4U.jpg"/> -->
                 <img class="logo" src="http://i65.tinypic.com/2uenpch.png"/>
                 <h1>Alteração</h1>
 
 
             </div>
-
             <div id="conteudo">
-                <form action="${pageContext.request.contextPath}/ProdutoAlteracaoSalvar" method="post">  
-                    <div id="contEsq" class="divisoria">
-                        <h4>Nome do Produto:<br></h4>
-                        <input type="text" name="nomeProduto" value="${sessionScope.produtoConsultado.nomeProduto}"><br>
 
-                        <h4>Categoria:<br></h4>
-                        <input type="text" name="categoria" value="${sessionScope.produtoConsultado.categoria}"><br>
+                Produto<h1><c:out value="${sessionScope.produtoConsultado.nomeProduto}" /></h1> alterado com sucesso.
+                <a href="../produtoConsultarExcluir.jsp">OK</a>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
 
-                        <h4>Tamanho:<br></h4>
-                        <input type="number" name="tamanho" value="${sessionScope.produtoConsultado.tamanho}"><br>
-
-                        <h4>Preço:<br></h4>
-                        <input type="number" name="preco" step="0.01" value="${sessionScope.produtoConsultado.preco}"><br>
-                    </div>
-
-                    <div id="contDir" class="divisoria">
-                            <h4>Cor:<br></h4>
-                            <input type="text" name="cor" value="${sessionScope.produtoConsultado.cor}"><br>
-                            
-                            <h4>Quantidade:<br></h4>
-                            <input type="number" name="quantidade" value="${sessionScope.produtoConsultado.quantidade}"><br>
-                            
-                            <h4>Descrição:<br></h4>
-                            <input type="text" name="descricao" value="${sessionScope.produtoConsultado.descricao}"><br>
-
-                            
-                    </div>
-
-
-                    <input name="enviar" type="submit" value="Salvar">
-
-
-                </form>
             </div>
 
         </div>
@@ -87,7 +74,7 @@
 
                 </li>
                 <li type="visible">
-                    <a href="#">Usuários</a>
+                    <a>Usuários</a>
 
                 </li>
                 <li type="visible">
@@ -99,10 +86,10 @@
         <div id="subProduto" class="sub">
             <ul class="submenu">
                 <li>
-                    <a href="/telas/Produto/Cadastrar/produtoCadastrar.jsp">Cadastrar Produto</a>
+                    <a href="telas/Produto/Cadastrar/produtoCadastrar.jsp">Cadastrar Produto</a>
                 </li>
                 <li>
-                    <a href="/telas/Produto/ConsultarExcluir/produtoConsultarExcluir.jsp">Consultar Produto</a>
+                    <a href="telas/Produto/ConsultarExcluir/produtoConsultarExcluir.jsp">Consultar Produto</a>
                 </li>
             </ul>
         </div>

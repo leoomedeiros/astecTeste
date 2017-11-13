@@ -24,8 +24,9 @@ import javax.servlet.http.HttpSession;
  * @author r.almeida.barbosa
  */
 @WebServlet(name = "ProdutoConsultarExcluirServlet", urlPatterns = {"/ProdutoConsultarExcluirServletConsulta",
-    "/ProdutoConsultarExcluirServletAlteracao", "/ProdutoConsultarExcluirServletExclusao"})
-//"/ProdutoConsultarExcluirServletAltExc"})
+    "/ProdutoConsultarExcluirServletAlteracao", "/ProdutoConsultarExcluirServletExclusao",
+    "/ProdutoAlteracaoSalvar"})
+
 public class ProdutoConsultarExcluirServlet extends HttpServlet {
 
     java.util.Date utilDate = new java.util.Date();
@@ -36,13 +37,14 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
             throws ServletException, IOException {
 
     }*/
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        int codigoAltExc = 0;
+
         if (request.getServletPath().equalsIgnoreCase("/ProdutoConsultarExcluirServletAlteracao")) {
             String temporario = request.getParameter("inserirCodigo");
-            int codigoAltExc = Integer.parseInt(temporario);
+            codigoAltExc = Integer.parseInt(temporario);
 
             HttpSession sessao = request.getSession();
             sessao.setAttribute("codigoAltExc", codigoAltExc);
@@ -67,16 +69,47 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
             RequestDispatcher dispatcher
                     = request.getRequestDispatcher("telas/Produto/ConsultarExcluir/respostaAlteracao/respostaConsultarExcluirAlteracao.jsp");
             dispatcher.forward(request, response);
-        } 
-        
-        else if (request.getServletPath().equalsIgnoreCase("/ProdutoConsultarExcluirServletExclusao")) {
+
+        } else if (request.getServletPath().equalsIgnoreCase("/ProdutoAlteracaoSalvar")) {
+            //String temporario = request.getParameter("inserirCodigo");
+            //int codigoAltExc = Integer.parseInt(temporario);
+
+            String nomeProduto = request.getParameter("nomeProduto");
+            String categoria = request.getParameter("categoria");
+            int tamanho = Integer.parseInt(request.getParameter("tamanho"));
+            double preco = Double.parseDouble(request.getParameter("preco"));
+            String cor = request.getParameter("cor");
+            int quantidade = Integer.parseInt(request.getParameter("quantidade"));
+            String descricao = request.getParameter("descricao");
+
+            Produto novo = new Produto(sq, nomeProduto, categoria, cor, tamanho,
+                    quantidade, descricao, preco);
+
+            HttpSession sessao = request.getSession();
+            sessao.setAttribute("produtoAlterado", novo);
+            sessao.getAttribute("codigoAltExc");
+
+            try {
+                ProdutoDao salvarAlteracao = new ProdutoDao();
+                salvarAlteracao.alterar(novo, codigoAltExc);
+
+                Produto atributosProduto = salvarAlteracao.alterar(novo, codigoAltExc);
+                sessao.setAttribute("produtoConsultado", atributosProduto);
+            } catch (Exception e) {
+            }
+
+            RequestDispatcher dispatcher
+                    = request.getRequestDispatcher("telas/Produto/ConsultarExcluir/respostaAlteracao/respostaProdutoAlterado.jsp");
+            dispatcher.forward(request, response);
+
+        } else if (request.getServletPath().equalsIgnoreCase("/ProdutoConsultarExcluirServletExclusao")) {
             String temporario = request.getParameter("inserirCodigo");
             int codigoExclusao = Integer.parseInt(temporario);
 
             HttpSession sessao = request.getSession();
             sessao.setAttribute("codigoAltExc", codigoExclusao);
-            //sessao.setAttribute("produtoConsultado", consultado);
 
+            //sessao.setAttribute("produtoConsultado", consultado);
             try {
                 //if (codigoAltExc == codigoBanco){
                 //consultando para saber se o código resgata do banco
@@ -100,9 +133,7 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
                     = request.getRequestDispatcher("/telas/Produto/ConsultarExcluir/respostaExclusao/respostaConsultarExcluirExclusao.jsp");
             dispatcher.forward(request, response);
 
-        } 
-        
-        //consulta não mudarei por enquanto
+        } //consulta não mudarei por enquanto
         else if (request.getServletPath().equalsIgnoreCase("/ProdutoConsultarExcluirServletConsulta")) {
 
             //String nome = request.getParameter("nomeProduto");

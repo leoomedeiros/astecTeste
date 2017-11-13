@@ -20,7 +20,7 @@ public abstract class AbstractDao <t extends AbstractEntity>{
     
     
     public abstract boolean incluir(t entity) throws SQLException, Exception;
-    public abstract boolean alterar(t entity) throws SQLException, Exception;
+    public abstract Produto alterar(t entity, int id) throws SQLException, Exception;
     public abstract boolean remover(int id) throws SQLException, Exception;
     public abstract List<t> consultar() throws SQLException, Exception;
     public abstract t consultarPorId(Integer id) throws SQLException, Exception;

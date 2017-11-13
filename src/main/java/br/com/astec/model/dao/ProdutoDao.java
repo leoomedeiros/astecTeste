@@ -76,7 +76,7 @@ public class ProdutoDao extends AbstractDao<Produto> {
     }
 
     @Override
-    public boolean alterar(Produto entity) throws SQLException, Exception {
+    public Produto alterar(Produto entity, int id) throws SQLException, Exception {
         _log.log(2, Produto.class.getName(), LogAcao.ALTERACAO);
         
         String sql = "UPDATE produto SET datas=?, nome=?, categoria=?, cor=?, tamanho=?, quantidade_estoque=?, descr=?, preco=?"
@@ -94,8 +94,11 @@ public class ProdutoDao extends AbstractDao<Produto> {
             preparedStatement.setInt(6, entity.getQuantidade());
             preparedStatement.setString(7, entity.getDescricao());
             preparedStatement.setDouble(8, entity.getPreco());
+            preparedStatement.setInt(9, id);
 
             preparedStatement.execute();
+            
+            return entity;
         } finally {
             if (preparedStatement != null && !preparedStatement.isClosed()) {
                 preparedStatement.close();
@@ -104,7 +107,6 @@ public class ProdutoDao extends AbstractDao<Produto> {
                 connection.close();
             }
         }
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
