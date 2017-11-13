@@ -1,0 +1,49 @@
+#log{
+	width:500px;
+    height:1000px;
+    position:absolute;
+    top:20%;
+    left:40%;
+    margin-top:-50px;
+    margin-left:-50px;;
+
+}
+
+#log img{
+	max-width:450px;
+    max-height:200px;
+    width: auto;
+    height: auto;
+	margin-bottom:40px;
+}
+
+
+
+#log label{
+	font-size:30px;
+	font-family: Verdana;
+}
+#log a{
+	font-family: Verdana;
+	color: #091138;
+	text-decoration:none;
+	margin-left:340px;
+}
+#txtUser{
+	width:70%;
+	height:50px;
+	margin-left:5px;
+	 font-size: 30px;
+}
+#txtSenha{
+	width:70%;
+	height:50px;
+	margin-left:25px;
+	 font-size: 30px;
+}
+#inpSubmit{
+	width:71%;
+	height:50px;
+	margin-left:144px;
+}
+
