@@ -13,8 +13,8 @@
         <title>Produto Consultado</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="produtoConsultarExcluir.css" rel="stylesheet">
-        <script src="produtoConsultarExcluir.js" type="text/javascript"></script>
+        <link href="produtoConsultarExcluir1.1.css" rel="stylesheet">
+        <script src="produtoConsultarExcluir1.1.js" type="text/javascript"></script>
     </head>
     <body>
         <div id="direito">

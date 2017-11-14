@@ -12,8 +12,8 @@
         <title>Alteração de produto:</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="produtoCadastrar.css" rel="stylesheet">
-        <script src="produtoCadastrar.js" type="text/javascript"></script>
+        <link href="produtoCadastrar1.css" rel="stylesheet">
+        <script src="produtoCadastrar1.js" type="text/javascript"></script>
     </head>
     <body>
         <div id="direito">

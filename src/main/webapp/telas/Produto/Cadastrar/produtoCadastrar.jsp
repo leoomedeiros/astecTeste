@@ -6,7 +6,7 @@
         <title>Cadastro de Produto:</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="produtoCadastrar.css" rel="stylesheet">
+        <link href="produtoCadastrar0.css" rel="stylesheet">
         <script src="produtoCadastrar.js" type="text/javascript"></script>
     </head>
     <body>
