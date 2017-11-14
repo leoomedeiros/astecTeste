@@ -24,7 +24,6 @@ and open the template in the editor.
     <body>
         <div id="direito">
             <div id="cabecalho">
-                <!--<img class="logo" src="https://i.imgur.com/mgK1d4U.jpg"/> -->
                 <img class="logo" src="http://i65.tinypic.com/2uenpch.png"/>
                 <h1>Home:</h1>
                     
@@ -49,7 +48,7 @@ and open the template in the editor.
              
             <ul class="menu">
                 <li type="visible">
-                    <a href="home/home.jsp">Home</a>
+                    <a href="home.jsp">Home</a>
                 </li>
                 <li type="visible">
                     <a>CRUD Produto</a>

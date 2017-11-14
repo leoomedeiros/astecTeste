@@ -99,10 +99,10 @@
         <div id="subProduto" class="sub">
             <ul class="submenu">
                 <li>
-                    <a href="/telas/Produto/Cadastrar/produtoCadastrar.jsp">Cadastrar Produto</a>
+                    <a href="produtoCadastrar.jsp">Cadastrar Produto</a>
                 </li>
                 <li>
-                    <a href="/telas/Produto/ConsultarExcluir/produtoConsultarExcluir.jsp">Consultar Produto</a>
+                    <a href="../ConsultarExcluir/produtoConsultarExcluir.jsp">Consultar Produto</a>
                 </li>
             </ul>
         </div>
