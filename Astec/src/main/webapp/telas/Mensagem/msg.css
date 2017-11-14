@@ -1,0 +1,120 @@
+/*menu ----------------------- */
+ul {
+    list-style-type:none;
+    margin: 0;
+    padding-left: 0px; 
+    font-family: "Arial",sans-serif;
+}
+ul.menu li:hover{
+    background: #febe10;
+    color: #0a1337;
+    transition: 250ms;
+}
+ul.menu li a:hover{
+    
+    color: #0a1337;
+    transition: 250ms;
+}
+
+.menu.principal {
+    background: #0a1337;
+    width:210px;
+    height:100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    padding: 8px;
+    
+    
+}
+
+.menu.principal a {
+    
+    color: white; /* Black text color */
+
+    border-top: 1px solid white;
+    text-align: left;
+    display: block; /* Make the links appear below each other */
+    padding: 12px; /* Add some padding */
+
+    text-decoration: none; /* Remove underline from links */
+}
+    /* info dos usuarios --------*/
+.imagemPerfil {
+    height: 65px;
+    width: 65px;
+    padding: 10px;
+    border-radius:50px;
+    left:10px;
+    
+}
+    
+.informacoes{
+    
+    position:absolute;
+    left:100px;
+    top: 40px;
+}
+h5{
+    color: white;
+    padding: 0px;
+    margin: 0px;
+    font-family: "Arial",sans-serif;
+}
+
+
+#direito{    
+    position: absolute;
+    left: 240px;
+}
+
+#cabecalho{
+    width: 1000px;
+    background: #febe10;
+    
+    padding: 25px;
+    border-radius:10px;
+    box-shadow: 0px 2px 4px #000000;
+    
+
+}
+#conteudo{
+    border: 2px solid #0a1337;
+    border-radius:10px;
+    height: 500px;
+	margin-top: 20px;
+}
+
+h1{ color: white;
+    text-shadow: 2px 2px 4px #000000;
+    font-family: "Arial",sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.logo{
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+
+
+
+h2{
+	color: red;
+	font-family: "Arial",sans-serif;
+	position:auto;
+	top:50%;
+	left:50%;
+    margin: 0px;
+    padding: 0px;
+}
+
+#imagemErro{
+	width:100px;
+	height:100px;
+	position:absolute;
+	top:50%;
+	left:50%;
+}
