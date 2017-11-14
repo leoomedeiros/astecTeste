@@ -18,27 +18,27 @@ public class LogDao extends AbstractDao<LogFuncionario>{
 
     @Override
     public boolean incluir(LogFuncionario entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("1 Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public Produto alterar(LogFuncionario entity, int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("2 Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public boolean remover(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("3 Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public List<LogFuncionario> consultar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("4 Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public LogFuncionario consultarPorId(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("5 Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

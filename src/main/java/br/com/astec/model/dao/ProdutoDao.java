@@ -4,10 +4,12 @@ import br.com.astec.model.constants.LogAcao;
 import br.com.astec.model.utils.ConnectionUtils;
 import br.com.astec.model.entidades.Produto;
 import br.com.astec.model.utils.LogFactory;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.client.Entity;
@@ -77,8 +79,7 @@ public class ProdutoDao extends AbstractDao<Produto> {
 
     @Override
     public Produto alterar(Produto entity, int id) throws SQLException, Exception {
-        _log.log(2, Produto.class.getName(), LogAcao.ALTERACAO);
-        
+        //_log.log(2, Produto.class.getName(), LogAcao.ALTERACAO);
         String sql = "UPDATE produto SET datas=?, nome=?, categoria=?, cor=?, tamanho=?, quantidade_estoque=?, descr=?, preco=?"
                 + "WHERE (id_prod=?)";
         Connection connection = null;
@@ -86,7 +87,7 @@ public class ProdutoDao extends AbstractDao<Produto> {
         try {
             connection = ConnectionUtils.getConnection();
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setTimestamp(1, entity.getDtCadastro());
+            preparedStatement.setTimestamp(1, sq);//entity.getDtCadastro());
             preparedStatement.setString(2, entity.getNomeProduto());
             preparedStatement.setString(3, entity.getCategoria());
             preparedStatement.setString(4, entity.getCor());
@@ -96,10 +97,18 @@ public class ProdutoDao extends AbstractDao<Produto> {
             preparedStatement.setDouble(8, entity.getPreco());
             preparedStatement.setInt(9, id);
 
-            preparedStatement.execute();
+            preparedStatement.executeUpdate();
             
+            /*if (preparedStatement.executeUpdate() == 0) {
+                System.out.println("Falha na gravação, verifique se o código do Filme ja existe!");
+            } else {
+                System.out.println("Dados armazenados com sucesso!");
+            }*/ 
+
             return entity;
+
         } finally {
+
             if (preparedStatement != null && !preparedStatement.isClosed()) {
                 preparedStatement.close();
             }
@@ -129,22 +138,20 @@ public class ProdutoDao extends AbstractDao<Produto> {
                 connection.close();
             }
         }
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("6 Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public List<Produto> consultar() throws SQLException, Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("7 Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public Produto consultarPorId(Integer codigoAltExc) throws SQLException, Exception {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("8 Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 
-        
         //esta pesquisa deverá ser modifica para pesquisar pelo codigo_produto e não pelo id_prod)
         String sql = "SELECT * FROM produto WHERE id_prod=?";
-        
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -154,9 +161,8 @@ public class ProdutoDao extends AbstractDao<Produto> {
             connection = ConnectionUtils.getConnection();
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, codigoAltExc);
-            
-            //preparedStatement.setBoolean(2, true);
 
+            //preparedStatement.setBoolean(2, true);
             result = preparedStatement.executeQuery();
 
             while (result.next()) {
@@ -184,7 +190,6 @@ public class ProdutoDao extends AbstractDao<Produto> {
                 connection.close();
             }
         }
-        
 
         return null;
     }

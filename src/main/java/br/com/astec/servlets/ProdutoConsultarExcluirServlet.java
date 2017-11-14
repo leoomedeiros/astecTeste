@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.enterprise.context.SessionScoped;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 /**
  *
@@ -40,11 +42,10 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int codigoAltExc = 0;
 
         if (request.getServletPath().equalsIgnoreCase("/ProdutoConsultarExcluirServletAlteracao")) {
             String temporario = request.getParameter("inserirCodigo");
-            codigoAltExc = Integer.parseInt(temporario);
+            int codigoAltExc = Integer.parseInt(temporario);
 
             HttpSession sessao = request.getSession();
             sessao.setAttribute("codigoAltExc", codigoAltExc);
@@ -87,7 +88,12 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
 
             HttpSession sessao = request.getSession();
             sessao.setAttribute("produtoAlterado", novo);
-            sessao.getAttribute("codigoAltExc");
+            int codigoAltExc = (Integer)sessao.getAttribute("codigoAltExc");
+            //Session codigoAltExc = (Session)sessao.getAttribute("codigoAltExc");
+            //sessao.setAttribute("codigoAltExc", codigoAltExc);
+            
+            //Integer.parseInt("codigoAltExc");
+            
 
             try {
                 ProdutoDao salvarAlteracao = new ProdutoDao();
@@ -96,6 +102,7 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
                 Produto atributosProduto = salvarAlteracao.alterar(novo, codigoAltExc);
                 sessao.setAttribute("produtoConsultado", atributosProduto);
             } catch (Exception e) {
+                Logger.getLogger(ProdutoConsultarExcluirServlet.class.getName()).log(Level.SEVERE, null, e);
             }
 
             RequestDispatcher dispatcher

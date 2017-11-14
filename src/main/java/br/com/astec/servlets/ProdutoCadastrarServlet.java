@@ -60,8 +60,6 @@ public class ProdutoCadastrarServlet extends HttpServlet {
         String cor = request.getParameter("cor");
         int quantidade = Integer.parseInt(request.getParameter("quantidade"));
         String descricao = request.getParameter("descricao");
-        //int codigoProduto = 01;
-        //int codigoBanco = 02;
 
         Produto novo = new Produto(sq, nomeProduto, categoria, cor, tamanho, 
                 quantidade, descricao, preco);
