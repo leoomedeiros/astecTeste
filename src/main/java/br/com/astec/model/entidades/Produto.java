@@ -9,6 +9,9 @@ import java.sql.Timestamp;
 
 
 public class Produto extends AbstractEntity {
+    private int id;
+
+    
     private Timestamp dtCadastro;
     private String nomeProduto;
     private String categoria;
@@ -17,6 +20,14 @@ public class Produto extends AbstractEntity {
     private int quantidade;
     private String descricao;
     private Double preco;
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
         
     public String getNomeProduto() {
         return nomeProduto;
@@ -77,6 +88,7 @@ public class Produto extends AbstractEntity {
     public Produto(Timestamp dtCadastro, String nomeProduto, 
             String categoria, String cor, int tamanho, int quantidade, 
             String descricao, double preco) {
+        
         this.dtCadastro = dtCadastro;
         this.nomeProduto = nomeProduto;
         this.categoria = categoria;

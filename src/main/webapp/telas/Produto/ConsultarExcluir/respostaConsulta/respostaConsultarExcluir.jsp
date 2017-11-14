@@ -59,6 +59,16 @@
                                     <th>Descrição:</th>
                                     <th>Preço:</th>
                                 </tr>
+                                <tr>
+                                    <th>${sessionScope.produtoConsultado.id}</th>
+                                    <th>${sessionScope.produtoConsultado.nomeProduto}</th>
+                                    <th>${sessionScope.produtoConsultado.categoria}</th>
+                                    <th>${sessionScope.produtoConsultado.cor}</th>
+                                    <th>${sessionScope.produtoConsultado.tamanho}</th>
+                                    <th>${sessionScope.produtoConsultado.quantidade}</th>
+                                    <th>${sessionScope.produtoConsultado.descricao}</th>
+                                    <th>${sessionScope.produtoConsultado.preco}</th>
+                                </tr>
                                 <!--<tr>
                                     <th>123</th>
                                     <th>Air Max</th>
@@ -103,7 +113,7 @@
              
             <ul class="menu">
                 <li type="visible">
-                    <a href="../../home/home.jsp">Home</a>
+                    <a href="../../../home/home.jsp">Home</a>
                 </li>
                 <li type="visible">
                     <a>CRUD Produto</a>
@@ -133,10 +143,10 @@
         <div id="subProduto" class="sub">
             <ul class="submenu">
                     <li>
-                        <a href="telas/Produto/Cadastrar/produtoCadastrar.jsp">Cadastrar Produto</a>
+                        <a href="../../Cadastrar/produtoCadastrar.jsp">Cadastrar Produto</a>
                     </li>
                     <li>
-                        <a href="telas/Produto/ConsultarExcluir/produtoConsultarExcluir.jsp">Consultar Produto</a>
+                        <a href="../produtoConsultarExcluir.jsp">Consultar Produto</a>
                     </li>
             </ul>
         </div>

@@ -32,8 +32,6 @@ public class ProdutoDao extends AbstractDao<Produto> {
 
     @Override
     public boolean incluir(Produto entity) throws SQLException, Exception {
-        //java.util.Date utilDate = new java.util.Date();
-        //java.sql.Timestamp sq = new java.sql.Timestamp(utilDate.getTime());
 
         String sql = "INSERT INTO produto (datas, nome, categoria, cor, tamanho, "
                 + "quantidade_estoque, descr, preco)"
@@ -98,12 +96,6 @@ public class ProdutoDao extends AbstractDao<Produto> {
             preparedStatement.setInt(9, id);
 
             preparedStatement.executeUpdate();
-            
-            /*if (preparedStatement.executeUpdate() == 0) {
-                System.out.println("Falha na gravação, verifique se o código do Filme ja existe!");
-            } else {
-                System.out.println("Dados armazenados com sucesso!");
-            }*/ 
 
             return entity;
 
@@ -126,7 +118,6 @@ public class ProdutoDao extends AbstractDao<Produto> {
         try {
             connection = ConnectionUtils.getConnection();
             preparedStatement = connection.prepareStatement(sql);
-            //preparedStatement.setBoolean(1, false);
             preparedStatement.setInt(1, id);
 
             preparedStatement.execute();
@@ -159,14 +150,23 @@ public class ProdutoDao extends AbstractDao<Produto> {
         try {
             //Produto entity = new Produto();
             connection = ConnectionUtils.getConnection();
-            preparedStatement = connection.prepareStatement(sql);
+            //preparedStatement = connection.prepareStatement(sql);
+            preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setInt(1, codigoAltExc);
 
-            //preparedStatement.setBoolean(2, true);
             result = preparedStatement.executeQuery();
+            
+            //ResultSet rs = preparedStatement.getGeneratedKeys();
+            
+            /*if (rs.next()) {
+                int id = rs.getInt("id_prod");
+            }*/
 
             while (result.next()) {
+                //ProdutoDao consultaBanco = new ProdutoDao();
                 Produto consultar = new Produto();
+                //consultaBanco.consultarPorId(codigoAltExc).
+                consultar.setId(result.getInt("id_prod"));
                 consultar.setDtCadastro(result.getTimestamp("datas"));
                 consultar.setNomeProduto(result.getString("nome"));
                 //consultar.setCodigoProduto(result.getInt("codigo_produto"));

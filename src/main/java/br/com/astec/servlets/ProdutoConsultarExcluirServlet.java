@@ -83,7 +83,7 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
             int quantidade = Integer.parseInt(request.getParameter("quantidade"));
             String descricao = request.getParameter("descricao");
 
-            Produto novo = new Produto(sq, nomeProduto, categoria, cor, tamanho,
+            Produto novo = new Produto(sq, nomeProduto, categoria, cor, tamanho, 
                     quantidade, descricao, preco);
 
             HttpSession sessao = request.getSession();
@@ -143,10 +143,35 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
         } //consulta não mudarei por enquanto
         else if (request.getServletPath().equalsIgnoreCase("/ProdutoConsultarExcluirServletConsulta")) {
 
-            //String nome = request.getParameter("nomeProduto");
-            //HttpSession sessao = request.getSession();
-            //sessao.setAttribute("novaConsulta", nome);
-            //request.setAttribute("novaConsulta", nome);
+            /*String nome = request.getParameter("nomeProduto");
+            HttpSession sessao = request.getSession();
+            sessao.setAttribute("novaConsulta", nome);
+            request.setAttribute("novaConsulta", nome);*/
+            
+            String temporario = request.getParameter("nomeProduto");
+            int codigoAltExc = Integer.parseInt(temporario);
+
+            HttpSession sessao = request.getSession();
+            sessao.setAttribute("codigoAltExc", codigoAltExc);
+            //sessao.setAttribute("produtoConsultado", consultado);
+
+            try {
+                //if (codigoAltExc == codigoBanco){
+                ProdutoDao consultarCodigo = new ProdutoDao();
+                consultarCodigo.consultarPorId(codigoAltExc);
+                Produto atributosProduto = consultarCodigo.consultarPorId(codigoAltExc);
+                sessao.setAttribute("produtoConsultado", atributosProduto);
+                //}
+            } catch (Exception ex) {
+                Logger.getLogger(ProdutoCadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+
+            } catch (Exception ex) {
+                Logger.getLogger(ProdutoConsultarExcluirServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            
             RequestDispatcher dispatcher
                     = request.getRequestDispatcher("telas/Produto/ConsultarExcluir/respostaConsulta/respostaConsultarExcluir.jsp");
             dispatcher.forward(request, response);
