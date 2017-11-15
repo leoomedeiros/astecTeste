@@ -12,8 +12,8 @@
         <title>Alteração de produto:</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="produtoCadastrar1.css" rel="stylesheet">
-        <script src="produtoCadastrar1.js" type="text/javascript"></script>
+        <link href="telas/Produto/ConsultarExcluir/respostaAlteracao/produtoCadastrar1.css" rel="stylesheet">
+        <script src="telas/Produto/ConsultarExcluir/respostaAlteracao/produtoCadastrar1.js" type="text/javascript"></script>
     </head>
     <body>
         <div id="direito">
@@ -26,7 +26,7 @@
             <div id="conteudo">
 
                 Produto<h1><c:out value="${sessionScope.produtoConsultado.nomeProduto}" /></h1> alterado com sucesso.
-                <a href="../produtoConsultarExcluir.jsp">OK</a>
+                <a href="telas/Produto/ConsultarExcluir/produtoConsultarExcluir.jsp">OK</a>
                 <br>
                 <br>
                 <br>
@@ -56,7 +56,7 @@
 
             <ul class="menu">
                 <li type="visible">
-                    <a href="../../home/home.jsp">Home</a>
+                    <a href="telas/home/home.jsp">Home</a>
                 </li>
                 <li type="visible">
                     <a>CRUD Produto</a>

@@ -18,7 +18,7 @@
 
             <div id="conteudo">
                 <h1>Produto cadastrado com sucesso!!!</h1>
-                <a href="/telas/home/home.jsp">OK</a>
+                <a href="telas/Produto/Cadastrar/produtoCadastrar.jsp">OK</a>
 
             </div>
 
@@ -41,7 +41,7 @@
 
             <ul class="menu">
                 <li type="visible">
-                    <a href="../../home/home.jsp">Home</a>
+                    <a href="telas/home/home.jsp">Home</a>
                 </li>
                 <li type="visible">
                     <a>CRUD Produto</a>
@@ -71,10 +71,10 @@
         <div id="subProduto" class="sub">
             <ul class="submenu">
                 <li>
-                    <a href="produtoCadastrar.jsp">Cadastrar Produto</a>
+                    <a href="telas/Produto/Cadastrar/produtoCadastrar.jsp">Cadastrar Produto</a>
                 </li>
                 <li>
-                    <a href="../consultaProduto/produtoConsultarExcluir.jsp">Consultar Produto</a>
+                    <a href="telas/Produto/ConsultarExcluir/produtoConsultarExcluir.jsp">Consultar Produto</a>
                 </li>
             </ul>
         </div>

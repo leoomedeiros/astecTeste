@@ -13,8 +13,8 @@
         <title>Produto Consultado</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="produtoConsultarExcluir1.1.css" rel="stylesheet">
-        <script src="produtoConsultarExcluir1.1.js" type="text/javascript"></script>
+        <link href="telas/Produto/ConsultarExcluir/respostaConsulta/produtoConsultarExcluir1.1.css" rel="stylesheet">
+        <script src="telas/Produto/ConsultarExcluir/respostaConsulta/produtoConsultarExcluir1.1.js" type="text/javascript"></script>
     </head>
     <body>
         <div id="direito">
@@ -113,7 +113,7 @@
              
             <ul class="menu">
                 <li type="visible">
-                    <a href="../../../home/home.jsp">Home</a>
+                    <a href="telas/home/home.jsp">Home</a>
                 </li>
                 <li type="visible">
                     <a>CRUD Produto</a>
@@ -143,10 +143,10 @@
         <div id="subProduto" class="sub">
             <ul class="submenu">
                     <li>
-                        <a href="../../Cadastrar/produtoCadastrar.jsp">Cadastrar Produto</a>
+                        <a href="telas/Produto/Cadastrar/produtoCadastrar.jsp">Cadastrar Produto</a>
                     </li>
                     <li>
-                        <a href="../produtoConsultarExcluir.jsp">Consultar Produto</a>
+                        <a href="telas/Produto/ConsultarExcluir/produtoConsultarExcluir.jsp">Consultar Produto</a>
                     </li>
             </ul>
         </div>
