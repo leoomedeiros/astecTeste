@@ -6,8 +6,8 @@
         <title>Cadastro de Produto:</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="telas/Produto/Cadastrar/produtoCadastrar0.css" rel="stylesheet">
-        <script src="telas/Produto/Cadastrar/produtoCadastrar0.js" type="text/javascript"></script>
+        <link href="produtoCadastrar0.css" rel="stylesheet">
+        <script src="produtoCadastrar0.js" type="text/javascript"></script>
     </head>
     <body>
         <div id="direito">
@@ -18,7 +18,7 @@
 
             <div id="conteudo">
                 <h1>Produto cadastrado com sucesso!!!</h1>
-                <a href="telas/Produto/Cadastrar/produtoCadastrar.jsp">OK</a>
+                <a href="produtoCadastrar.jsp">OK</a>
 
             </div>
 
