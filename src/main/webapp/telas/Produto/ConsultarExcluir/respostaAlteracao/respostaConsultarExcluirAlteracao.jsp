@@ -6,8 +6,8 @@
         <title>Alteração de produto:</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="telas/Produto/ConsultarExcluir/respostaAlteracao/produtoCadastrar1.css" rel="stylesheet">
-        <script src="telas/Produto/ConsultarExcluir/respostaAlteracao/produtoCadastrar1.js" type="text/javascript"></script>
+        <link href="produtoCadastrar1.css" rel="stylesheet">
+        <script src="produtoCadastrar1.js" type="text/javascript"></script>
     </head>
     <body>
         <div id="direito">
@@ -69,7 +69,7 @@
 
             <ul class="menu">
                 <li type="visible">
-                    <a href="telas/home/home.jsp">Home</a>
+                    <a href="../../../home/home.jsp">Home</a>
                 </li>
                 <li type="visible">
                     <a>CRUD Produto</a>
@@ -99,10 +99,10 @@
         <div id="subProduto" class="sub">
             <ul class="submenu">
                 <li>
-                    <a href="telas/Produto/Cadastrar/produtoCadastrar.jsp">Cadastrar Produto</a>
+                    <a href="../../Cadastrar/produtoCadastrar.jsp">Cadastrar Produto</a>
                 </li>
                 <li>
-                    <a href="telas/Produto/ConsultarExcluir/produtoConsultarExcluir.jsp">Consultar Produto</a>
+                    <a href="../produtoConsultarExcluir.jsp">Consultar Produto</a>
                 </li>
             </ul>
         </div>

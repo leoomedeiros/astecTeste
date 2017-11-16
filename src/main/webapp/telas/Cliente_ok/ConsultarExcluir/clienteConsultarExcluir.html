@@ -13,17 +13,17 @@
                 <!--<img class="logo" src="https://i.imgur.com/mgK1d4U.jpg"/> -->
                 <img class="logo" src="http://i65.tinypic.com/2uenpch.png"/>
                 <h1>Consulta de Cliente:</h1>
-                    
-                
+
+
             </div>
-            
+
             <div id="conteudo">
                 <form class="pesquisa" action="" method="get">  
                     <div id="contEsq" class="divisoria">
                         <h4><br></h4>
                         <input type="text" name="nomeCliente" placeholder="Digite aqui o que deseja buscar..."><br>
 
-                        
+
                     </div>
 
                     <div id="contDir" class="divisoria">
@@ -33,69 +33,75 @@
                             <option value="1">Nome</option>
                             <option value="2">CPF</option>
                         </select>
-                            
+
                     </div>
-                    
+
                     <input class="botao" name="buscar" type="submit" value="Buscar">
                 </form>
                 <div class="divTabela">
-                        <table>
-                                <tr>
-                                    <th>Codigo:</th>
-                                    <th>Nome:</th>
-                                    <th>CPF:</th>
-                                    <th>Endereço:</th>
-                                    <th>Telefone:</th>
-                                </tr>
-                                <tr>
-                                    <th>1</th>
-                                    <th>Felipe Ferreira</th>
-                                    <th>123.456.789-00</th>
-                                    <th>Rua Um, 01</th>
-                                    <th>98765-4321</th>
-                                </tr>
-                                <tr>
-                                    <th>2</th>
-                                    <th>Fernando Americo</th>
-                                    <th>123.456.789-00</th>
-                                    <th>Rua Um, 01</th>
-                                    <th>98765-4321</th>
-                                </tr>
-                                <tr>
-                                    <th>3</th>
-                                    <th>Leonardo Medeiros</th>
-                                    <th>123.456.789-00</th>
-                                    <th>Rua Um, 01</th>
-                                    <th>98765-4321</th>
-                                </tr>
-                                <tr>
-									<th>4</th>
-                                    <th>Rafael Barbosa</th>
-                                    <th>123.456.789-00</th>
-                                    <th>Rua Um, 01</th>
-                                    <th>98765-4321</th>
-                                </tr>
+                    <table>
+                        <tr>
+                            <th>Codigo:</th>
+                            <th>Nome:</th>
+                            <th>CPF:</th>
+                            <th>Endereço:</th>
+                            <th>Telefone:</th>
+                        </tr>
+                        <tr>
+                            <th>1</th>
+                            <th>Felipe Ferreira</th>
+                            <th>123.456.789-00</th>
+                            <th>Rua Um, 01</th>
+                            <th>98765-4321</th>
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <th>Fernando Americo</th>
+                            <th>123.456.789-00</th>
+                            <th>Rua Um, 01</th>
+                            <th>98765-4321</th>
+                        </tr>
+                        <tr>
+                            <th>3</th>
+                            <th>Leonardo Medeiros</th>
+                            <th>123.456.789-00</th>
+                            <th>Rua Um, 01</th>
+                            <th>98765-4321</th>
+                        </tr>
+                        <tr>
+                            <th>4</th>
+                            <th>Rafael Barbosa</th>
+                            <th>123.456.789-00</th>
+                            <th>Rua Um, 01</th>
+                            <th>98765-4321</th>
+                        </tr>
 
-                            </table>
-                                
+                    </table>
+
                 </div>
 
                 <hr>
 
-                <form class="excluirAlterar" action="" method="">
-                    <h4>Digite o codigo do Cliente:</h4>
-                    <input type="number" name="inserirCodigo"><br>
+                <form class="excluirAlterar" action="${pageContext.request.contextPath}/ProdutoConsultarExcluirServletAlteracao" method="post">
+                    <h4>Digite o codigo do Produto:</h4>
+                    <input type="number" name="inserirCodigo" ><br>
                     <div class="boxBotoes">
-                        <input class="botao" name="alterar" type="submit" value="Alterar Cliente">
-                        <input class="botao" name="Excluir" type="submit" value="Excluir Cliente">
+                        <input class="botao" name="alterar" type="submit" value="Alterar Produto">
                     </div>
                 </form>
-                
-            
+                <form class="excluirAlterar" action="${pageContext.request.contextPath}/ProdutoConsultarExcluirServletExclusao" method="post">
+                    <h4>Digite o codigo do Produto:</h4>
+                    <input type="number" name="inserirCodigo" ><br>
+                    <div class="boxBotoes">
+                        <input class="botao" name="excluir" type="submit" value="Excluir Produto">
+                    </div>
+                </form>
+
+
             </div>
 
         </div>
-        
+
 
         <div class="menu principal">
             <div class="usuario">
@@ -105,29 +111,29 @@
                 </div>
                 <img class="imagemPerfil" src="http://i63.tinypic.com/2zspjlh.jpg"/>
             </div>
-             
+
             <ul class="menu">
                 <li type="visible">
                     <a href="../../home/homeindex.html">Home</a>
                 </li>
                 <li type="visible">
                     <a>CRUD Cliente</a>
-                      
+
                 </li>
                 <li type="visible">
                     <a>CRUD Cliente</a>
-                    
+
                 </li>
                 <li type="visible">
                     <a href="../../venda/venda.html">Venda</a>                    
                 </li>
                 <li type="visible">
                     <a>Relatórios</a>
-                    
+
                 </li>
                 <li type="visible">
                     <a>Usuários</a>
-                    
+
                 </li>
                 <li type="visible">
                     <a href="#">Sair</a>
@@ -137,50 +143,50 @@
 
         <div id="subCliente" class="sub">
             <ul class="submenu">
-                    <li>
-                        <a href="../cadastroCliente/cadastroCliente.html">Cadastrar Cliente</a>
-                    </li>
-                    <li>
-                        <a href="consultaCliente.html">Consultar Cliente</a>
-                    </li>
+                <li>
+                    <a href="../cadastroCliente/cadastroCliente.html">Cadastrar Cliente</a>
+                </li>
+                <li>
+                    <a href="consultaCliente.html">Consultar Cliente</a>
+                </li>
             </ul>
         </div>
 
         <div id="subCliente" class="sub">
             <ul class="submenu">
-                    <li>
-                        <a href="#">Cadastrar Cliente</a>
-                    </li>
-                    <li>
-                        <a href="#">Consultar Cliente</a>
-                    </li>
+                <li>
+                    <a href="#">Cadastrar Cliente</a>
+                </li>
+                <li>
+                    <a href="#">Consultar Cliente</a>
+                </li>
             </ul>
-            </div>
+        </div>
 
-            <div id="subRelatorio" class="sub">
-                <ul class="submenu">
-                        <li id="relCliente" type="hidden">
-                            <a href="#">Relatório de Cliente</a>
-                        </li>
-                        <li id="relVenda" type="hidden">
-                            <a href="#">Relatório de Venda</a>
-                        </li>
-                        <li id="relLog" type="hidden">
-                            <a href="#">Relatório de Log</a>
-                        </li>
-                </ul>
-            </div>
+        <div id="subRelatorio" class="sub">
+            <ul class="submenu">
+                <li id="relCliente" type="hidden">
+                    <a href="#">Relatório de Cliente</a>
+                </li>
+                <li id="relVenda" type="hidden">
+                    <a href="#">Relatório de Venda</a>
+                </li>
+                <li id="relLog" type="hidden">
+                    <a href="#">Relatório de Log</a>
+                </li>
+            </ul>
+        </div>
 
-            <div id="subUsuario" class="sub">
-                 <ul class="submenu" >
-                    <li>
-                        <a href="#">Cadastrar Usuário</a>
-                    </li>
-                    <li>
-                        <a href="#">Consultar Usuário</a>
-                    </li>
-                </ul>
-            </div>
-    
+        <div id="subUsuario" class="sub">
+            <ul class="submenu" >
+                <li>
+                    <a href="#">Cadastrar Usuário</a>
+                </li>
+                <li>
+                    <a href="#">Consultar Usuário</a>
+                </li>
+            </ul>
+        </div>
+
     </body>
 </html>

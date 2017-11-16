@@ -14,11 +14,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Produto Consultado</title>
+        <title>Produto Consultado:</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="telas/Produto/ConsultarExcluir/respostaConsulta/produtoConsultarExcluir1.1.css" rel="stylesheet">
-        <script src="telas/Produto/ConsultarExcluir/respostaConsulta/produtoConsultarExcluir1.1.js" type="text/javascript"></script>
+        <link href="produtoConsultarExcluir1.1.css" rel="stylesheet">
+        <script src="produtoConsultarExcluir1.1.js" type="text/javascript"></script>
     </head>
     <body>
         <div id="direito">
@@ -92,12 +92,18 @@
 
                 <hr>
 
-                <form class="excluirAlterar" action="${pageContext.request.contextPath}/ProdutoConsultarExcluirServletAltExc" method="post">
+                <form class="excluirAlterar" action="${pageContext.request.contextPath}/ProdutoConsultarExcluirServletAlteracao" method="post">
                     <h4>Digite o codigo do Produto:</h4>
                     <input type="number" name="inserirCodigo" ><br>
                     <div class="boxBotoes">
                         <input class="botao" name="alterar" type="submit" value="Alterar Produto">
-                        <input class="botao" name="Excluir" type="submit" value="Excluir Produto">
+                    </div>
+                </form>
+                <form class="excluirAlterar" action="${pageContext.request.contextPath}/ProdutoConsultarExcluirServletExclusao" method="post">
+                    <h4>Digite o codigo do Produto:</h4>
+                    <input type="number" name="inserirCodigo" ><br>
+                    <div class="boxBotoes">
+                        <input class="botao" name="excluir" type="submit" value="Excluir Produto">
                     </div>
                 </form>
 
@@ -118,7 +124,7 @@
 
             <ul class="menu">
                 <li type="visible">
-                    <a href="telas/home/home.jsp">Home</a>
+                    <a href="../../../home/home.jsp">Home</a>
                 </li>
                 <li type="visible">
                     <a>CRUD Produto</a>
@@ -148,10 +154,10 @@
         <div id="subProduto" class="sub">
             <ul class="submenu">
                 <li>
-                    <a href="telas/Produto/Cadastrar/produtoCadastrar.jsp">Cadastrar Produto</a>
+                    <a href="../../Cadastrar/produtoCadastrar.jsp">Cadastrar Produto</a>
                 </li>
                 <li>
-                    <a href="telas/Produto/ConsultarExcluir/produtoConsultarExcluir.jsp">Consultar Produto</a>
+                    <a href="../../ConsultarExcluir/produtoConsultarExcluir.jsp">Consultar Produto</a>
                 </li>
             </ul>
         </div>
