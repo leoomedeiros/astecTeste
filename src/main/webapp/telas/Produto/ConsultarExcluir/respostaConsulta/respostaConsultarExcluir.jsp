@@ -52,11 +52,11 @@
                     <input class="botao" name="buscar" type="submit" value="Buscar">
                 </form>
                 <div class="divTabela">
-                    
+
 
 
                     <table >
-                        
+
                         <tr>
                             <th>Codigo:</th>
                             <th>Nome:</th>
@@ -68,9 +68,10 @@
                             <th>Preço:</th>
                         </tr>
 
-                        <tr class="linhas">
-                        
-                            <c:forEach var="listaProdutos" items="${sessionScope.listaProdutos}">
+
+
+                        <c:forEach var="listaProdutos" items="${sessionScope.listaProdutos}">
+                            <tr class="linhas">
                                 <td><c:out value="${listaProdutos.id}"/></td>
                                 <td><c:out value="${listaProdutos.nomeProduto}"/></td>
                                 <td><c:out value="${listaProdutos.categoria}"/></td>
@@ -78,13 +79,14 @@
                                 <td><c:out value="${listaProdutos.tamanho}"/></td>
                                 <td><c:out value="${listaProdutos.quantidade}"/></td>
                                 <td><c:out value="${listaProdutos.descricao}"/></td>
-                                <td><c:out value="${listaProdutos.preco}"/> </td>    
-                            </c:forEach>
-                        </tr>
+                                <td><c:out value="${listaProdutos.preco}"/> </td>
+                            </tr>
+                        </c:forEach>
+
 
                     </table>
 
-                    
+
 
                 </div>
 
