@@ -145,7 +145,7 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
             sessao.setAttribute("selectConsulta", selectConsulta);
             
             
-            if (inputConsulta.isEmpty() || selectConsulta.equals("todos")) {
+            if (inputConsulta.isEmpty() || selectConsulta.equalsIgnoreCase("todos")) {
                 //retornar todos os produto no banco 
                 try {
                     ProdutoDao consultarTodos = new ProdutoDao();
@@ -153,15 +153,25 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
                     //recupera os dados do produto consultar e passa para a jsp...
                     List listaProdutos = consultarTodos.consultarTodos();
                     sessao.setAttribute("listaProdutos", listaProdutos);
-                    int tamanhoLista = listaProdutos.size();
-                    sessao.setAttribute("tamanhoLista", tamanhoLista);
                     
                 } catch (Exception e) {
                     Logger.getLogger(ProdutoConsultarExcluirServlet.class.getName()).log(Level.SEVERE, null, e);
                 }
+                
             } else if (selectConsulta.equalsIgnoreCase("nome")) {
                 //filtrar pelo nome do produto
+                try {
+                    ProdutoDao consultaPorNome = new ProdutoDao();
+                    consultaPorNome.consultarPorNome(inputConsulta);
+                    //recupera os dados do produto consultar e passa para a jsp...
+                    List listaProdutos = consultaPorNome.consultarPorNome(inputConsulta);
+                    sessao.setAttribute("listaProdutos", listaProdutos);
+                    
+                } catch (Exception ex) {
+                    Logger.getLogger(ProdutoConsultarExcluirServlet.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
+            
             RequestDispatcher dispatcher
                     = request.getRequestDispatcher("/telas/Produto/ConsultarExcluir/respostaConsulta/respostaConsultarExcluir.jsp");
             dispatcher.forward(request, response);

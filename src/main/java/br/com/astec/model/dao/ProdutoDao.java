@@ -137,9 +137,9 @@ public class ProdutoDao extends AbstractDao<Produto> {
     @Override
     public List<Produto> consultarTodos() throws SQLException, Exception {
         //throw new UnsupportedOperationException("7 Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        List <Produto> listaProdutos = new ArrayList();
+        List<Produto> listaProdutos = new ArrayList();
         String sql = "SELECT * FROM produto ORDER BY id_prod";
-        
+
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet result = null;
@@ -159,7 +159,7 @@ public class ProdutoDao extends AbstractDao<Produto> {
                 consultado.setQuantidade(result.getInt("quantidade_estoque"));
                 consultado.setDescricao(result.getString("descr"));
                 consultado.setPreco(result.getDouble("preco"));
-                
+
                 listaProdutos.add(consultado);
 
             }
@@ -177,7 +177,7 @@ public class ProdutoDao extends AbstractDao<Produto> {
         }
     }
 
-    @Override
+    @Override//método usado como suporte para excluir e alterar.
     public Produto consultarPorId(Integer codigoAltExc) throws SQLException, Exception {
         //throw new UnsupportedOperationException("8 Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 
@@ -187,28 +187,17 @@ public class ProdutoDao extends AbstractDao<Produto> {
         PreparedStatement preparedStatement = null;
         ResultSet result = null;
         try {
-            //Produto entity = new Produto();
             connection = ConnectionUtils.getConnection();
-            //preparedStatement = connection.prepareStatement(sql);
             preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setInt(1, codigoAltExc);
 
             result = preparedStatement.executeQuery();
-            
-            //ResultSet rs = preparedStatement.getGeneratedKeys();
-            
-            /*if (rs.next()) {
-                int id = rs.getInt("id_prod");
-            }*/
 
             while (result.next()) {
-                //ProdutoDao consultaBanco = new ProdutoDao();
                 Produto consultar = new Produto();
-                //consultaBanco.consultarPorId(codigoAltExc).
                 consultar.setId(result.getInt("id_prod"));
                 consultar.setDtCadastro(result.getTimestamp("datas"));
                 consultar.setNomeProduto(result.getString("nome"));
-                //consultar.setCodigoProduto(result.getInt("codigo_produto"));
                 consultar.setCategoria(result.getString("categoria"));
                 consultar.setCor(result.getString("cor"));
                 consultar.setTamanho(result.getInt("tamanho"));
@@ -231,5 +220,50 @@ public class ProdutoDao extends AbstractDao<Produto> {
         }
 
         return null;
+    }
+
+    @Override
+    public List<Produto> consultarPorNome(String nomeConsultado) throws SQLException, Exception {
+        String sql = "SELECT * FROM produto WHERE nome=?";
+
+        List<Produto> listaProdutos = new ArrayList();
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet result = null;
+        try {
+            connection = ConnectionUtils.getConnection();
+            preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, nomeConsultado);
+
+            result = preparedStatement.executeQuery();
+
+            while (result.next()) {
+                Produto consultado = new Produto();
+                consultado.setId(result.getInt("id_prod"));
+                consultado.setDtCadastro(result.getTimestamp("datas"));
+                consultado.setNomeProduto(result.getString("nome"));
+                consultado.setCategoria(result.getString("categoria"));
+                consultado.setCor(result.getString("cor"));
+                consultado.setTamanho(result.getInt("tamanho"));
+                consultado.setQuantidade(result.getInt("quantidade_estoque"));
+                consultado.setDescricao(result.getString("descr"));
+                consultado.setPreco(result.getDouble("preco"));
+
+                listaProdutos.add(consultado);
+
+            }
+            return listaProdutos;
+        } finally {
+            if (result != null && !result.isClosed()) {
+                result.close();
+            }
+            if (preparedStatement != null && !preparedStatement.isClosed()) {
+                preparedStatement.close();
+            }
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        }
+
     }
 }

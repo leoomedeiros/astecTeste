@@ -40,6 +40,11 @@ public class LogDao extends AbstractDao<LogFuncionario>{
     public LogFuncionario consultarPorId(Integer id) {
         throw new UnsupportedOperationException("5 Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    @Override
+    public List<Produto> consultarPorNome(String nomeConsultado) {
+        throw new UnsupportedOperationException("6 Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     
 }

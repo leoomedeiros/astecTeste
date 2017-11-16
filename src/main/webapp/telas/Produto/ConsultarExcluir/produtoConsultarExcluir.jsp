@@ -59,18 +59,7 @@
                                     <th>Descrição:</th>
                                     <th>Preço:</th>
                                 </tr>
-                                <!--<tr>
-                                    <th>123</th>
-                                    <th>Air Max</th>
-                                    <th>Masulino</th>
-                                    <th>Branca</th>
-                                    <th>39</th>
-                                    <th>7</th>
-                                    <th>safsadasfo</th>
-                                    <th>99,90</th>
-                                </tr>-->
                                 
-
                             </table>
                                 
                 </div>
