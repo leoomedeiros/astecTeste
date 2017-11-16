@@ -9,6 +9,8 @@ import br.com.astec.model.dao.ProdutoDao;
 import br.com.astec.model.entidades.Produto;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.SessionScoped;
@@ -83,18 +85,16 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
             int quantidade = Integer.parseInt(request.getParameter("quantidade"));
             String descricao = request.getParameter("descricao");
 
-            Produto novo = new Produto(sq, nomeProduto, categoria, cor, tamanho, 
+            Produto novo = new Produto(sq, nomeProduto, categoria, cor, tamanho,
                     quantidade, descricao, preco);
 
             HttpSession sessao = request.getSession();
             sessao.setAttribute("produtoAlterado", novo);
-            int codigoAltExc = (Integer)sessao.getAttribute("codigoAltExc");
+            int codigoAltExc = (Integer) sessao.getAttribute("codigoAltExc");
             //Session codigoAltExc = (Session)sessao.getAttribute("codigoAltExc");
             //sessao.setAttribute("codigoAltExc", codigoAltExc);
-            
-            //Integer.parseInt("codigoAltExc");
-            
 
+            //Integer.parseInt("codigoAltExc");
             try {
                 ProdutoDao salvarAlteracao = new ProdutoDao();
                 salvarAlteracao.alterar(novo, codigoAltExc);
@@ -116,17 +116,11 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
             HttpSession sessao = request.getSession();
             sessao.setAttribute("codigoAltExc", codigoExclusao);
 
-            //sessao.setAttribute("produtoConsultado", consultado);
             try {
-                //if (codigoAltExc == codigoBanco){
-                //consultando para saber se o código resgata do banco
                 ProdutoDao excluir = new ProdutoDao();
-                //consultarCodigo.consultarPorId(codigoAltExc);
-                //recuperando os dados do produto
                 Produto atributosProduto = excluir.consultarPorId(codigoExclusao);
                 sessao.setAttribute("produtoConsultado", atributosProduto);
                 excluir.remover(codigoExclusao);
-                //}
             } catch (Exception ex) {
                 Logger.getLogger(ProdutoCadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -140,41 +134,38 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
                     = request.getRequestDispatcher("/telas/Produto/ConsultarExcluir/respostaExclusao/respostaConsultarExcluirExclusao.jsp");
             dispatcher.forward(request, response);
 
-        } //consulta não mudarei por enquanto
+        } 
         else if (request.getServletPath().equalsIgnoreCase("/ProdutoConsultarExcluirServletConsulta")) {
-
-            /*String nome = request.getParameter("nomeProduto");
-            HttpSession sessao = request.getSession();
-            sessao.setAttribute("novaConsulta", nome);
-            request.setAttribute("novaConsulta", nome);*/
             
-            String temporario = request.getParameter("nomeProduto");
-            int codigoAltExc = Integer.parseInt(temporario);
+            String inputConsulta = request.getParameter("nomeProduto");
+            String selectConsulta = request.getParameter("selectConsulta");
 
             HttpSession sessao = request.getSession();
-            sessao.setAttribute("codigoAltExc", codigoAltExc);
-            //sessao.setAttribute("produtoConsultado", consultado);
-
-            try {
-                //if (codigoAltExc == codigoBanco){
-                ProdutoDao consultarCodigo = new ProdutoDao();
-                consultarCodigo.consultarPorId(codigoAltExc);
-                Produto atributosProduto = consultarCodigo.consultarPorId(codigoAltExc);
-                sessao.setAttribute("produtoConsultado", atributosProduto);
-                //}
-            } catch (Exception ex) {
-                Logger.getLogger(ProdutoCadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            try {
-
-            } catch (Exception ex) {
-                Logger.getLogger(ProdutoConsultarExcluirServlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
+            sessao.setAttribute("inputConsulta", inputConsulta);
+            sessao.setAttribute("selectConsulta", selectConsulta);
             
+            
+            if (inputConsulta.isEmpty() || selectConsulta.equals("todos")) {
+                //retornar todos os produto no banco 
+                try {
+                    ProdutoDao consultarTodos = new ProdutoDao();
+                    consultarTodos.consultarTodos();
+                    //recupera os dados do produto consultar e passa para a jsp...
+                    List listaProdutos = consultarTodos.consultarTodos();
+                    sessao.setAttribute("listaProdutos", listaProdutos);
+                    int tamanhoLista = listaProdutos.size();
+                    sessao.setAttribute("tamanhoLista", tamanhoLista);
+                    
+                } catch (Exception e) {
+                    Logger.getLogger(ProdutoConsultarExcluirServlet.class.getName()).log(Level.SEVERE, null, e);
+                }
+            } else if (selectConsulta.equalsIgnoreCase("nome")) {
+                //filtrar pelo nome do produto
+            }
             RequestDispatcher dispatcher
-                    = request.getRequestDispatcher("telas/Produto/ConsultarExcluir/respostaConsulta/respostaConsultarExcluir.jsp");
+                    = request.getRequestDispatcher("/telas/Produto/ConsultarExcluir/respostaConsulta/respostaConsultarExcluir.jsp");
             dispatcher.forward(request, response);
+
         }
 
     }

@@ -10,8 +10,6 @@ import java.sql.Timestamp;
 
 public class Produto extends AbstractEntity {
     private int id;
-
-    
     private Timestamp dtCadastro;
     private String nomeProduto;
     private String categoria;

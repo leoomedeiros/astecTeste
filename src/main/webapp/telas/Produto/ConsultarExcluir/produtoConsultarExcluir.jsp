@@ -35,9 +35,11 @@
 
                     <div id="contDir" class="divisoria">
                         <h4>Pesquisar Por:</h4>    
-                        <select>
-                            <option value="0">Código</option>
-                            <option value="1">Nome</option>
+                        <select name="selectConsulta" placeholder="selecione o modo de busca">
+                            
+                            <option value="nome">Nome</option>
+                            <option value="todos">Todos</option>
+                            
                             
                         </select>
                             
@@ -136,10 +138,10 @@
         <div id="subProduto" class="sub">
             <ul class="submenu">
                     <li>
-                        <a href="../Cadastrar/produtoCadastrar.jsp">Cadastrar Produto</a>
+                        <a href="telas/Produto/Cadastrar/produtoCadastrar.jsp">Cadastrar Produto</a>
                     </li>
                     <li>
-                        <a href="produtoConsultarExcluir.jsp">Consultar Produto</a>
+                        <a href="telas/Produto/ConsultarExcluir/produtoConsultarExcluir.jsp">Consultar Produto</a>
                     </li>
             </ul>
         </div>

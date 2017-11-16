@@ -10,4 +10,4 @@
 
 
 INSERT INTO produto 
-VALUES (default, '1960-01-01 23:03:20', 'nike', 01, 'masculino', 'preto', 39, 2, 'esportivo', 150);
+VALUES (default, '1960-01-01 23:03:20', 'velho pra caralho', 'masculino', 'preto', 39, 2, 'esportivo', 150);

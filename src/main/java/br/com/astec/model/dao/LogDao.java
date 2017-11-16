@@ -32,7 +32,7 @@ public class LogDao extends AbstractDao<LogFuncionario>{
     }
 
     @Override
-    public List<LogFuncionario> consultar() {
+    public List<LogFuncionario> consultarTodos() {
         throw new UnsupportedOperationException("4 Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

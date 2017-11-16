@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.client.Entity;
@@ -133,15 +135,52 @@ public class ProdutoDao extends AbstractDao<Produto> {
     }
 
     @Override
-    public List<Produto> consultar() throws SQLException, Exception {
-        throw new UnsupportedOperationException("7 Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Produto> consultarTodos() throws SQLException, Exception {
+        //throw new UnsupportedOperationException("7 Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List <Produto> listaProdutos = new ArrayList();
+        String sql = "SELECT * FROM produto ORDER BY id_prod";
+        
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet result = null;
+        try {
+            connection = ConnectionUtils.getConnection();
+            preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            result = preparedStatement.executeQuery();
+
+            while (result.next()) {
+                Produto consultado = new Produto();
+                consultado.setId(result.getInt("id_prod"));
+                consultado.setDtCadastro(result.getTimestamp("datas"));
+                consultado.setNomeProduto(result.getString("nome"));
+                consultado.setCategoria(result.getString("categoria"));
+                consultado.setCor(result.getString("cor"));
+                consultado.setTamanho(result.getInt("tamanho"));
+                consultado.setQuantidade(result.getInt("quantidade_estoque"));
+                consultado.setDescricao(result.getString("descr"));
+                consultado.setPreco(result.getDouble("preco"));
+                
+                listaProdutos.add(consultado);
+
+            }
+            return listaProdutos;
+        } finally {
+            if (result != null && !result.isClosed()) {
+                result.close();
+            }
+            if (preparedStatement != null && !preparedStatement.isClosed()) {
+                preparedStatement.close();
+            }
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        }
     }
 
     @Override
     public Produto consultarPorId(Integer codigoAltExc) throws SQLException, Exception {
         //throw new UnsupportedOperationException("8 Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 
-        //esta pesquisa deverá ser modifica para pesquisar pelo codigo_produto e não pelo id_prod)
         String sql = "SELECT * FROM produto WHERE id_prod=?";
 
         Connection connection = null;

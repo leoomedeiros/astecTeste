@@ -251,7 +251,7 @@ hr{
 
 
 /* TABELA ---------------------*/
-table {
+table{
     top: 200px;
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -266,6 +266,7 @@ table {
     height: 300px;
     overflow: auto;
 }
+
 th {
     border: 1px solid #dddddd;
     text-align: left;

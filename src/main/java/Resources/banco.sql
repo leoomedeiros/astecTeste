@@ -1,12 +1,3 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- * Author:  Fernando
- * Created: 14/10/2017
- */
 
 CREATE TABLE CLIENTE (
 id_cliente INT NOT NULL 
@@ -98,20 +89,3 @@ CREATE TABLE LOG_FUNCIONARIO (
     data_acao TIMESTAMP NOT NULL,
     FOREIGN KEY (id_funcionario) REFERENCES FUNCIONARIO (id_funcionario)
 );
-
-
-/*
-temos que ver como gravar os eventos
-
-
-
-CREATE TABLE LOG(
-id_log INT NOT NULL 
-        GENERATED ALWAYS AS IDENTITY
-        (START WITH 1, INCREMENT BY 1),
-datas TIMESTAMP NOT NULL,
-id_funcionario INT NOT NULL,
-
-
-
-);*/

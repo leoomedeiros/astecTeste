@@ -251,26 +251,37 @@ hr{
 
 
 /* TABELA ---------------------*/
-table {
+table{
     top: 200px;
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
     
     
+    
     margin-top: 20px;
     margin-bottom: 20px;
     
+    
+}
+td{
+    text-align: center;
+    
+   
 }
 .divTabela{
     height: 300px;
     overflow: auto;
+    
+    
 }
+
 th {
     border: 1px solid #dddddd;
-    text-align: left;
+    text-align: center;
     padding: 8px;
 }
+
 tr:first-child{
     background: #febe10;
     border-top-right-radius: 50px; 
