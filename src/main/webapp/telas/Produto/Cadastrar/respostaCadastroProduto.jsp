@@ -19,8 +19,7 @@
             </div>
 
             <div id="conteudo">
-                <h2>Produto cadastrado com sucesso!!!</h2>
-                <hr>
+                <h2>Produto cadastrado com sucesso.</h2>
                 <a id="ok" href="produtoCadastrar.jsp">Voltar</a>
             </div>
 

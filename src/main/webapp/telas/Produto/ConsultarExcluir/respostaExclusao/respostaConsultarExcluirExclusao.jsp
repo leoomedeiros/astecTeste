@@ -27,7 +27,7 @@
             <div id="conteudo">
                 
                 <h2>Produto "<c:out value="${sessionScope.produtoConsultado.nomeProduto}" />" excluído com sucesso.</h2>
-                <a id="ok" href="../produtoConsultarExcluir.jsp">OK</a>
+                <a id="ok" href="../produtoConsultarExcluir.jsp">Voltar</a>
                 
             </div>
 
