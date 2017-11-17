@@ -15,15 +15,13 @@
         <div id="direito">
             <div id="cabecalho">
                 <img class="logo" src="http://i65.tinypic.com/2uenpch.png"/>
-                <h1>Cadastrar Produto</h1>
+                <h1>Cadastramento</h1>
             </div>
 
             <div id="conteudo">
                 <h2>Produto cadastrado com sucesso!!!</h2>
                 <hr>
-                <a id="ok" href="telas/Produto/Cadastrar/produtoCadastrar.jsp">Voltar</a>
-
-
+                <a id="ok" href="produtoCadastrar.jsp">Voltar</a>
             </div>
 
 
@@ -41,7 +39,7 @@
 
             <ul class="menu">
                 <li type="visible">
-                    <a href="telas/home/home.jsp">Home</a>
+                    <a href="../../home/home.jsp">Home</a>
                 </li>
                 <li type="visible">
                     <a>CRUD Produto</a>
@@ -71,10 +69,10 @@
         <div id="subProduto" class="sub">
             <ul class="submenu">
                 <li>
-                    <a href="telas/Produto/Cadastrar/produtoCadastrar.jsp">Cadastrar Produto</a>
+                    <a href="produtoCadastrar.jsp">Cadastrar Produto</a>
                 </li>
                 <li>
-                    <a href="telas/Produto/ConsultarExcluir/produtoConsultarExcluir.jsp">Consultar Produto</a>
+                    <a href="../ConsultarExcluir/produtoConsultarExcluir.jsp">Consultar Produto</a>
                 </li>
             </ul>
         </div>

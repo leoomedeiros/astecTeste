@@ -13,8 +13,8 @@
         <title>Exclusão de produtos</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="produtoConsultarExcluir2.css" rel="stylesheet">
-        <script src="produtoConsultarExcluir2.js" type="text/javascript"></script>
+        <link href="produtoConsultarExcluir2.css" type="text/css" rel="stylesheet">
+        <script src="produtoConsultarExcluir2.js" type="text/javascript" rel="javascript"></script>
     </head>
     <body>
         <div id="direito">
@@ -26,21 +26,9 @@
             </div>
             <div id="conteudo">
                 
-                Produto<h1><c:out value="${sessionScope.produtoConsultado.nomeProduto}" /></h1> excluído com sucesso.
-                <a href="../produtoConsultarExcluir.jsp">OK</a>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-
+                <h2>Produto "<c:out value="${sessionScope.produtoConsultado.nomeProduto}" />" excluído com sucesso.</h2>
+                <a id="ok" href="../produtoConsultarExcluir.jsp">OK</a>
+                
             </div>
 
         </div>

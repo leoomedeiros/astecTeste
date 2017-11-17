@@ -43,9 +43,11 @@ public class ProdutoCadastrarServlet extends HttpServlet {
         } else { // usuario acessou normalmente
             destino = "telas/Produto/Cadastrar/produtoCadastar.jsp";
         }
-        RequestDispatcher dispatcher
+        
+        response.sendRedirect(destino);
+        /*RequestDispatcher dispatcher
                 = request.getRequestDispatcher(destino);
-        dispatcher.forward(request, response);
+        dispatcher.forward(request, response);*/
 
     }
 
