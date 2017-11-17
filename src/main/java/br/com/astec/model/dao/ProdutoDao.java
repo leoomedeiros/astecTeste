@@ -113,7 +113,7 @@ public class ProdutoDao extends AbstractDao<Produto> {
 
     @Override
     public boolean remover(int id) throws SQLException, Exception {
-        String sql = "DELETE FROM produto WHERE (id_prod=?)";
+        String sql = "DELETE FROM produto WHERE id_prod=?";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         try {
@@ -122,6 +122,7 @@ public class ProdutoDao extends AbstractDao<Produto> {
             preparedStatement.setInt(1, id);
 
             preparedStatement.execute();
+            return true;
         } finally {
             if (preparedStatement != null && !preparedStatement.isClosed()) {
                 preparedStatement.close();
@@ -130,7 +131,7 @@ public class ProdutoDao extends AbstractDao<Produto> {
                 connection.close();
             }
         }
-        throw new UnsupportedOperationException("6 Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("6 Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

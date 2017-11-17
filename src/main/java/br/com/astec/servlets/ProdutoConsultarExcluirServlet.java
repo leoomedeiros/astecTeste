@@ -116,8 +116,10 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
                 if (!atributosProduto.isEmpty()) {
                     for (Produto c : atributosProduto) {
                         sessao.setAttribute("produtoConsultado", c);
-                        response.sendRedirect("telas/Produto/ConsultarExcluir/respostaExclusao/respostaConsultarExcluirExclusao.jsp");
                     }
+                    produtoDao.remover(codigoExclusao);
+                    response.sendRedirect("telas/Produto/ConsultarExcluir/respostaExclusao/respostaConsultarExcluirExclusao.jsp");
+                    
                 } else {
                     response.sendRedirect("telas/Produto/MensagemErro.jsp");
                 }
