@@ -35,7 +35,7 @@
 
                     <div id="contDir" class="divisoria">
                         <h4>Pesquisar Por:</h4>    
-                        <select name="selectConsulta" placeholder="selecione o modo de busca">
+                        <select name="selectConsulta" >
                             
                             <option value="nome">Nome</option>
                             <option value="todos">Todos</option>
