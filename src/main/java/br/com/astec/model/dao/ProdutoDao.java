@@ -224,16 +224,18 @@ public class ProdutoDao extends AbstractDao<Produto> {
 
     @Override
     public List<Produto> consultarPorNome(String nomeConsultado) throws SQLException, Exception {
-        String sql = "SELECT * FROM produto WHERE nome=?";
+        //String sql = "SELECT * FROM produto WHERE nome=?";
+        String sql = "select * from produto where nome like?";
 
         List<Produto> listaProdutos = new ArrayList();
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet result = null;
+        
         try {
             connection = ConnectionUtils.getConnection();
             preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setString(1, nomeConsultado);
+            preparedStatement.setString(1, "%" + nomeConsultado + "%");
 
             result = preparedStatement.executeQuery();
 

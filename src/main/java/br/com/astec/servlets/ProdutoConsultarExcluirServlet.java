@@ -68,10 +68,12 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
             } catch (Exception ex) {
                 Logger.getLogger(ProdutoConsultarExcluirServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
+            response.sendRedirect("telas/Produto/ConsultarExcluir/respostaAlteracao/respostaConsultarExcluirAlteracao.jsp");
 
-            RequestDispatcher dispatcher
+            /*RequestDispatcher dispatcher
                     = request.getRequestDispatcher("telas/Produto/ConsultarExcluir/respostaAlteracao/respostaConsultarExcluirAlteracao.jsp");
-            dispatcher.forward(request, response);
+            dispatcher.forward(request, response);*/
 
         } else if (request.getServletPath().equalsIgnoreCase("/ProdutoAlteracaoSalvar")) {
             //String temporario = request.getParameter("inserirCodigo");
@@ -104,10 +106,12 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
             } catch (Exception e) {
                 Logger.getLogger(ProdutoConsultarExcluirServlet.class.getName()).log(Level.SEVERE, null, e);
             }
+            
+            response.sendRedirect("telas/Produto/ConsultarExcluir/respostaAlteracao/respostaProdutoAlterado.jsp");
 
-            RequestDispatcher dispatcher
+            /*RequestDispatcher dispatcher
                     = request.getRequestDispatcher("telas/Produto/ConsultarExcluir/respostaAlteracao/respostaProdutoAlterado.jsp");
-            dispatcher.forward(request, response);
+            dispatcher.forward(request, response);*/
 
         } else if (request.getServletPath().equalsIgnoreCase("/ProdutoConsultarExcluirServletExclusao")) {
             String temporario = request.getParameter("inserirCodigo");
@@ -129,10 +133,12 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
             } catch (Exception ex) {
                 Logger.getLogger(ProdutoConsultarExcluirServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
+            response.sendRedirect("telas/Produto/ConsultarExcluir/respostaExclusao/respostaConsultarExcluirExclusao.jsp");
 
-            RequestDispatcher dispatcher
+            /*RequestDispatcher dispatcher
                     = request.getRequestDispatcher("/telas/Produto/ConsultarExcluir/respostaExclusao/respostaConsultarExcluirExclusao.jsp");
-            dispatcher.forward(request, response);
+            dispatcher.forward(request, response);*/
 
         } 
         else if (request.getServletPath().equalsIgnoreCase("/ProdutoConsultarExcluirServletConsulta")) {
@@ -146,7 +152,7 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
             
             
             if (inputConsulta.isEmpty() || selectConsulta.equalsIgnoreCase("todos")) {
-                //retornar todos os produto no banco 
+                //retornar todos os produtos no banco 
                 try {
                     ProdutoDao consultarTodos = new ProdutoDao();
                     consultarTodos.consultarTodos();
@@ -158,7 +164,9 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
                     Logger.getLogger(ProdutoConsultarExcluirServlet.class.getName()).log(Level.SEVERE, null, e);
                 }
                 
-            } else if (selectConsulta.equalsIgnoreCase("nome")) {
+                
+            }
+            else if (selectConsulta.equalsIgnoreCase("nome")) {
                 //filtrar pelo nome do produto
                 try {
                     ProdutoDao consultaPorNome = new ProdutoDao();
@@ -171,10 +179,11 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
                     Logger.getLogger(ProdutoConsultarExcluirServlet.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
+            response.sendRedirect("telas/Produto/ConsultarExcluir/respostaConsulta/respostaConsultarExcluir.jsp");
             
-            RequestDispatcher dispatcher
+            /*RequestDispatcher dispatcher
                     = request.getRequestDispatcher("/telas/Produto/ConsultarExcluir/respostaConsulta/respostaConsultarExcluir.jsp");
-            dispatcher.forward(request, response);
+            dispatcher.forward(request, response);*/
 
         }
 

@@ -4,21 +4,18 @@
     Author     : r.almeida.barbosa
 --%>
 
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.Arrays"%>
-<%@page import="java.util.List"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--<p><c:out value="${novaConsulta}" />--%>
+
 <!DOCTYPE html>
 <html>
     <head>
         <title>Produto Consultado:</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="produtoConsultarExcluir1.1.css" rel="stylesheet">
-        <script src="produtoConsultarExcluir1.1.js" type="text/javascript"></script>
+        <link href="produtoConsultarExcluir1.1.css" type="text/css" rel="stylesheet">
+        <script src="produtoConsultarExcluir1.1.js" type="text/javascript" rel="javascript"></script>
     </head>
     <body>
         <div id="direito">
@@ -41,7 +38,7 @@
 
                     <div id="contDir" class="divisoria">
                         <h4>Pesquisar Por:</h4>    
-                        <select>
+                        <select name="selectConsulta">
                             <option value="nome">Nome</option>
                             <option value="todos">Todos</option>
 
