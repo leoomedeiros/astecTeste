@@ -47,7 +47,6 @@ public class ProdutoDao extends AbstractDao<Produto> {
             //não é setado (preparedStatement.setInt(1, novo.getCodigoBanco()));
             preparedStatement.setTimestamp(1, sq);
             preparedStatement.setString(2, entity.getNomeProduto());
-            //preparedStatement.setInt(3, entity.getCodigoProduto());
             preparedStatement.setString(3, entity.getCategoria());
             preparedStatement.setString(4, entity.getCor());
             preparedStatement.setInt(5, entity.getTamanho());
@@ -164,7 +163,11 @@ public class ProdutoDao extends AbstractDao<Produto> {
 
             }
             return listaProdutos;
-        } finally {
+        } catch (SQLException e){
+            e.getMessage();
+            
+        } 
+        finally {
             if (result != null && !result.isClosed()) {
                 result.close();
             }
@@ -174,11 +177,11 @@ public class ProdutoDao extends AbstractDao<Produto> {
             if (connection != null && !connection.isClosed()) {
                 connection.close();
             }
-        }
+        } return listaProdutos;
     }
 
     @Override//método usado como suporte para excluir e alterar.
-    public Produto consultarPorId(Integer codigoAltExc) throws SQLException, Exception {
+    public List<Produto> consultarPorId(Integer codigoAltExc) throws SQLException, Exception {
         //throw new UnsupportedOperationException("8 Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 
         String sql = "SELECT * FROM produto WHERE id_prod=?";
@@ -186,6 +189,7 @@ public class ProdutoDao extends AbstractDao<Produto> {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet result = null;
+        List<Produto> temNalista = new ArrayList();
         try {
             connection = ConnectionUtils.getConnection();
             preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -204,9 +208,13 @@ public class ProdutoDao extends AbstractDao<Produto> {
                 consultar.setQuantidade(result.getInt("quantidade_estoque"));
                 consultar.setDescricao(result.getString("descr"));
                 consultar.setPreco(result.getDouble("preco"));
+                
+                temNalista.add(consultar);
 
-                return consultar;
-            }
+            } return temNalista;
+        } catch (SQLException e){
+            e.getMessage();
+            
         } finally {
             if (result != null && !result.isClosed()) {
                 result.close();
@@ -217,15 +225,12 @@ public class ProdutoDao extends AbstractDao<Produto> {
             if (connection != null && !connection.isClosed()) {
                 connection.close();
             }
-        }
-
-        return null;
+        } return temNalista;
     }
 
     @Override
     public List<Produto> consultarPorNome(String nomeConsultado) throws SQLException, Exception {
-        //String sql = "SELECT * FROM produto WHERE nome=?";
-        String sql = "select * from produto where nome like?";
+        String sql = "select * from produto where nome like? order by id_prod";
 
         List<Produto> listaProdutos = new ArrayList();
         Connection connection = null;
@@ -255,6 +260,9 @@ public class ProdutoDao extends AbstractDao<Produto> {
 
             }
             return listaProdutos;
+        } catch (SQLException e){
+            e.getMessage();
+            
         } finally {
             if (result != null && !result.isClosed()) {
                 result.close();
@@ -265,7 +273,6 @@ public class ProdutoDao extends AbstractDao<Produto> {
             if (connection != null && !connection.isClosed()) {
                 connection.close();
             }
-        }
-
-    }
+        } return listaProdutos;
+    } 
 }

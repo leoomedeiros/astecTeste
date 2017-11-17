@@ -42,7 +42,7 @@
 
             <ul class="menu">
                 <li type="visible">
-                    <a href="../../home/home.jsp">Home</a>
+                    <a href="../home/home.jsp">Home</a>
                 </li>
                 <li type="visible">
                     <a>CRUD Produto</a>
@@ -72,10 +72,10 @@
         <div id="subProduto" class="sub">
             <ul class="submenu">
                 <li>
-                    <a href="produtoCadastrar.jsp">Cadastrar Produto</a>
+                    <a href="Cadastrar/produtoCadastrar.jsp">Cadastrar Produto</a>
                 </li>
                 <li>
-                    <a href="../ConsultarExcluir/produtoConsultarExcluir.jsp">Consultar Produto</a>
+                    <a href="ConsultarExcluir/produtoConsultarExcluir.jsp">Consultar Produto</a>
                 </li>
             </ul>
         </div>

@@ -23,7 +23,7 @@ public abstract class AbstractDao <t extends AbstractEntity>{
     public abstract Produto alterar(t entity, int id) throws SQLException, Exception;
     public abstract boolean remover(int id) throws SQLException, Exception;
     public abstract List<t> consultarTodos() throws SQLException, Exception;
-    public abstract t consultarPorId(Integer id) throws SQLException, Exception;
+    public abstract List<Produto> consultarPorId(Integer id) throws SQLException, Exception;
     public abstract List<Produto> consultarPorNome(String nomeConsultado) throws SQLException, Exception;
     
     public Connection getConnection(){
