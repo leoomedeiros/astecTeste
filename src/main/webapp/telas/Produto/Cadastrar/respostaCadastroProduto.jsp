@@ -6,8 +6,10 @@
         <title>Cadastro de Produto:</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="telas/Produto/Cadastrar/produtoCadastrar0.css" rel="stylesheet">
-        <script src="telas/Produto/Cadastrar/produtoCadastrar0.js" type="text/javascript"></script>
+        <link href="telas/Produto/Cadastrar/produtoCadastrar0.css" type="text/css" rel="stylesheet">
+        <link href="produtoCadastrar0.css" type="text/css" rel="stylesheet">
+        <script src="telas/Produto/Cadastrar/produtoCadastrar0.js" type="text/javascript" rel="javascript"></script>
+        <script src="produtoCadastrar0.js" type="text/javascript" rel="javascript"></script>
     </head>
     <body>
         <div id="direito">
@@ -17,15 +19,13 @@
             </div>
 
             <div id="conteudo">
-                <h1>Produto cadastrado com sucesso!!!</h1>
-                <a href="telas/Produto/Cadastrar/produtoCadastrar.jsp">OK</a>
+                <h2>Produto cadastrado com sucesso!!!</h2>
+                <hr>
+                <a id="ok" href="telas/Produto/Cadastrar/produtoCadastrar.jsp">Voltar</a>
+
 
             </div>
 
-            <div id="contDir" class="divisoria">
-                
-
-            </div>
 
         </div>
 

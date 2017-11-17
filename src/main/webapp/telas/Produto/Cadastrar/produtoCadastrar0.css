@@ -93,6 +93,8 @@ h6{
     padding: 12px; /* Add some padding */
 
     text-decoration: none; /* Remove underline from links */
+    
+    
 }
 /*Sub menus fim -----------*/
 
@@ -143,6 +145,33 @@ h1{
     margin: 0px;
     padding: 0px;
 }
+h2{
+    background: #febe10;
+    color:white;
+    text-shadow: 2px 2px 4px #000000;
+    font-family: "Arial",sans-serif;
+    margin: 0px;
+    padding: 50px;
+    font-size:50px;
+      
+}
+#ok{
+   color: black; /* Black text color */
+
+    border-top: 1px solid white;
+    text-align: left;
+    display: block; /* Make the links appear below each other */
+    padding: 20px; /* Add some padding */
+    font-size: 50px;
+
+    text-decoration: none; 
+    position: relative;
+    left: 0px;
+    right: 0px;
+    margin-left:400px;
+    
+}
+
 #conteudo{
     position: relative;
     border: 2px solid #0a1337;
