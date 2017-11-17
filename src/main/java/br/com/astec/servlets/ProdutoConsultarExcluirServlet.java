@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.astec.servlets;
 
 import br.com.astec.model.dao.ProdutoDao;
@@ -51,15 +46,12 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
 
             HttpSession sessao = request.getSession();
             sessao.setAttribute("codigoAltExc", codigoAltExc);
-            //sessao.setAttribute("produtoConsultado", consultado);
 
             try {
-                //if (codigoAltExc == codigoBanco){
                 ProdutoDao consultarCodigo = new ProdutoDao();
                 consultarCodigo.consultarPorId(codigoAltExc);
                 Produto atributosProduto = consultarCodigo.consultarPorId(codigoAltExc);
                 sessao.setAttribute("produtoConsultado", atributosProduto);
-                //}
             } catch (Exception ex) {
                 Logger.getLogger(ProdutoCadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -76,8 +68,6 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
             dispatcher.forward(request, response);*/
 
         } else if (request.getServletPath().equalsIgnoreCase("/ProdutoAlteracaoSalvar")) {
-            //String temporario = request.getParameter("inserirCodigo");
-            //int codigoAltExc = Integer.parseInt(temporario);
 
             String nomeProduto = request.getParameter("nomeProduto");
             String categoria = request.getParameter("categoria");
@@ -93,10 +83,7 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
             HttpSession sessao = request.getSession();
             sessao.setAttribute("produtoAlterado", novo);
             int codigoAltExc = (Integer) sessao.getAttribute("codigoAltExc");
-            //Session codigoAltExc = (Session)sessao.getAttribute("codigoAltExc");
-            //sessao.setAttribute("codigoAltExc", codigoAltExc);
 
-            //Integer.parseInt("codigoAltExc");
             try {
                 ProdutoDao salvarAlteracao = new ProdutoDao();
                 salvarAlteracao.alterar(novo, codigoAltExc);

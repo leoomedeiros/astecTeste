@@ -155,6 +155,12 @@ h2{
     font-size:50px;
     text-align: center;  
 }
+#erro{
+    display: block; /* Make the links appear below each other */
+    text-decoration: none; 
+    position: relative;
+    margin-right:400px;
+}
 #ok{
    color: black; /* Black text color */
 
