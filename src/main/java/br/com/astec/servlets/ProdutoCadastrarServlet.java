@@ -7,10 +7,10 @@ package br.com.astec.servlets;
  */
 import br.com.astec.model.dao.ProdutoDao;
 import br.com.astec.model.entidades.Produto;
+import br.com.astec.model.entidades.ValidarProduto;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,6 +27,7 @@ public class ProdutoCadastrarServlet extends HttpServlet {
 
     java.util.Date utilDate = new java.util.Date();
     java.sql.Timestamp sq = new java.sql.Timestamp(utilDate.getTime());
+    boolean camposValidos = false;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -43,7 +44,7 @@ public class ProdutoCadastrarServlet extends HttpServlet {
         } else { // usuario acessou normalmente
             destino = "telas/Produto/Cadastrar/produtoCadastar.jsp";
         }
-        
+
         response.sendRedirect(destino);
         /*RequestDispatcher dispatcher
                 = request.getRequestDispatcher(destino);
@@ -54,6 +55,7 @@ public class ProdutoCadastrarServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
 
         String nomeProduto = request.getParameter("nomeProduto");
         String categoria = request.getParameter("categoria");
@@ -63,26 +65,36 @@ public class ProdutoCadastrarServlet extends HttpServlet {
         int quantidade = Integer.parseInt(request.getParameter("quantidade"));
         String descricao = request.getParameter("descricao");
 
-        Produto novo = new Produto(sq, nomeProduto, categoria, cor, tamanho, 
+        Produto novo = new Produto(sq, nomeProduto, categoria, cor, tamanho,
                 quantidade, descricao, preco);
-        
+
         HttpSession sessao = request.getSession();
         sessao.setAttribute("novoProduto", novo);
+        
+        ValidarProduto validar = new ValidarProduto();
+        boolean valido = validar.ehPalavra(novo);
 
-        try {
-            ProdutoDao produto = new ProdutoDao();
-            produto.incluir(novo);
-        } catch (Exception ex) {
-            Logger.getLogger(ProdutoCadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);
+        if (valido) {
+
+            try {
+                ProdutoDao produto = new ProdutoDao();
+                produto.incluir(novo);
+
+            } catch (Exception ex) {
+                Logger.getLogger(ProdutoCadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            try {
+
+            } catch (Exception ex) {
+                Logger.getLogger(ProdutoCadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            response.sendRedirect(request.getContextPath() + "/ProdutoCadastrarServlet");
+        } else {
+            response.sendRedirect("telas/Produto/MensagemErro.jsp");
+
         }
-
-        try {
-
-        } catch (Exception ex) {
-            Logger.getLogger(ProdutoCadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        response.sendRedirect(request.getContextPath() + "/ProdutoCadastrarServlet");
 
     }
 

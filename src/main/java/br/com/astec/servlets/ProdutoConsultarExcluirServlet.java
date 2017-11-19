@@ -2,21 +2,17 @@ package br.com.astec.servlets;
 
 import br.com.astec.model.dao.ProdutoDao;
 import br.com.astec.model.entidades.Produto;
+import br.com.astec.model.entidades.ValidarProduto;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.enterprise.context.SessionScoped;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
 /**
  *
@@ -89,21 +85,28 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
             sessao.setAttribute("produtoAlterado", novo);
             int codigoAltExc = (Integer) sessao.getAttribute("codigoAltExc");
 
-            try {
-                //ProdutoDao salvarAlteracao = new ProdutoDao();
-                produtoDao.alterar(novo, codigoAltExc);
+            ValidarProduto validar = new ValidarProduto();
+            boolean valido = validar.ehPalavra(novo);
 
-                Produto atributosProduto = produtoDao.alterar(novo, codigoAltExc);
-                sessao.setAttribute("produtoConsultado", atributosProduto);
-            } catch (Exception e) {
-                Logger.getLogger(ProdutoConsultarExcluirServlet.class.getName()).log(Level.SEVERE, null, e);
-            }
+            if (valido) {
 
-            response.sendRedirect("telas/Produto/ConsultarExcluir/respostaAlteracao/respostaProdutoAlterado.jsp");
+                try {
+                    produtoDao.alterar(novo, codigoAltExc);
 
-            /*RequestDispatcher dispatcher
+                    Produto atributosProduto = produtoDao.alterar(novo, codigoAltExc);
+                    sessao.setAttribute("produtoConsultado", atributosProduto);
+                } catch (Exception e) {
+                    Logger.getLogger(ProdutoConsultarExcluirServlet.class.getName()).log(Level.SEVERE, null, e);
+                }
+
+                response.sendRedirect("telas/Produto/ConsultarExcluir/respostaAlteracao/respostaProdutoAlterado.jsp");
+
+                /*RequestDispatcher dispatcher
                     = request.getRequestDispatcher("telas/Produto/ConsultarExcluir/respostaAlteracao/respostaProdutoAlterado.jsp");
             dispatcher.forward(request, response);*/
+            } else {
+                response.sendRedirect("telas/Produto/MensagemErro.jsp");
+            }
         } else if (request.getServletPath().equalsIgnoreCase("/ProdutoConsultarExcluirServletExclusao")) {//faz a exclusão no banco
             String temporario = request.getParameter("inserirCodigo");
             int codigoExclusao = Integer.parseInt(temporario);
@@ -119,7 +122,7 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
                     }
                     produtoDao.remover(codigoExclusao);
                     response.sendRedirect("telas/Produto/ConsultarExcluir/respostaExclusao/respostaConsultarExcluirExclusao.jsp");
-                    
+
                 } else {
                     response.sendRedirect("telas/Produto/MensagemErro.jsp");
                 }
@@ -138,7 +141,6 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
             /*RequestDispatcher dispatcher
                     = request.getRequestDispatcher("/telas/Produto/ConsultarExcluir/respostaExclusao/respostaConsultarExcluirExclusao.jsp");
             dispatcher.forward(request, response);*/
-            
         } else if (request.getServletPath().equalsIgnoreCase("/ProdutoConsultarExcluirServletConsulta")) {//primeiro direcionamento vindo do form "buscar"
 
             String inputConsulta = request.getParameter("nomeProduto");
@@ -152,8 +154,8 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
                 try {
                     listaProdutos = produtoDao.consultarTodos();
                     if (!listaProdutos.isEmpty()) {
-                            sessao.setAttribute("listaProdutos", listaProdutos);
-                            response.sendRedirect("telas/Produto/ConsultarExcluir/respostaConsulta/respostaConsultarExcluir.jsp");
+                        sessao.setAttribute("listaProdutos", listaProdutos);
+                        response.sendRedirect("telas/Produto/ConsultarExcluir/respostaConsulta/respostaConsultarExcluir.jsp");
                     } else {
                         response.sendRedirect("telas/Produto/MensagemErro.jsp");
                     }
@@ -167,8 +169,8 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
                 try {
                     listaProdutos = produtoDao.consultarPorNome(inputConsulta);
                     if (!listaProdutos.isEmpty()) {
-                            sessao.setAttribute("listaProdutos", listaProdutos);
-                            response.sendRedirect("telas/Produto/ConsultarExcluir/respostaConsulta/respostaConsultarExcluir.jsp");
+                        sessao.setAttribute("listaProdutos", listaProdutos);
+                        response.sendRedirect("telas/Produto/ConsultarExcluir/respostaConsulta/respostaConsultarExcluir.jsp");
                     } else {
                         response.sendRedirect("telas/Produto/MensagemErro.jsp");
                     }
@@ -177,7 +179,7 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
                     Logger.getLogger(ProdutoConsultarExcluirServlet.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            
+
             //response.sendRedirect("telas/Produto/ConsultarExcluir/respostaConsulta/respostaConsultarExcluir.jsp");
 
             /*RequestDispatcher dispatcher

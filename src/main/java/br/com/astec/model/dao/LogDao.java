@@ -18,7 +18,8 @@ public class LogDao extends AbstractDao<LogFuncionario>{
 
     @Override
     public boolean incluir(LogFuncionario entity) {
-        throw new UnsupportedOperationException("1 Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return false;
+        //throw new UnsupportedOperationException("1 Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

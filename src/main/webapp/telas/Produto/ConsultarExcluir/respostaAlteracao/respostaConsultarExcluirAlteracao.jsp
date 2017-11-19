@@ -22,30 +22,30 @@
             <div id="conteudo">
                 <form action="${pageContext.request.contextPath}/ProdutoAlteracaoSalvar" method="post">  
                     <div id="contEsq" class="divisoria">
-                        <h4>Nome do Produto:<br></h4>
+                        <h4>*Nome do Produto:<br></h4>
                         <input type="text" name="nomeProduto" value="${sessionScope.produtoConsultado.nomeProduto}"><br>
 
-                        <h4>Categoria:<br></h4>
+                        <h4>*Categoria:<br></h4>
                         <input type="text" name="categoria" value="${sessionScope.produtoConsultado.categoria}"><br>
 
-                        <h4>Tamanho:<br></h4>
+                        <h4>*Tamanho:<br></h4>
                         <input type="number" name="tamanho" value="${sessionScope.produtoConsultado.tamanho}"><br>
 
-                        <h4>Preço:<br></h4>
+                        <h4>*Preço:<br></h4>
                         <input type="number" name="preco" step="0.01" value="${sessionScope.produtoConsultado.preco}"><br>
                     </div>
 
                     <div id="contDir" class="divisoria">
-                            <h4>Cor:<br></h4>
+                            <h4>*Cor:<br></h4>
                             <input type="text" name="cor" value="${sessionScope.produtoConsultado.cor}"><br>
                             
-                            <h4>Quantidade:<br></h4>
+                            <h4>*Quantidade:<br></h4>
                             <input type="number" name="quantidade" value="${sessionScope.produtoConsultado.quantidade}"><br>
                             
-                            <h4>Descrição:<br></h4>
+                            <h4>*Descrição:<br></h4>
                             <input type="text" name="descricao" value="${sessionScope.produtoConsultado.descricao}"><br>
 
-                            
+                            <a>*campos obrigatórios</a>
                     </div>
 
 

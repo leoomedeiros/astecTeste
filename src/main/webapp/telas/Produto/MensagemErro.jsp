@@ -24,7 +24,7 @@
             <div id="conteudo">
                 <h2>Produto inválido ou inexistente.</h2>
                 
-                <a id="erro" href="../home/home.jsp"><img class="logo" src="imagemErro.ico"/></a>
+                <a id="erro" href="ConsultarExcluir/produtoConsultarExcluir.jsp"><img class="logo" src="imagemErro.ico"/></a>
             </div>
 
 
