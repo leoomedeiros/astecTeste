@@ -9,6 +9,7 @@ import br.com.astec.model.dao.ProdutoDao;
 import br.com.astec.model.entidades.Produto;
 import br.com.astec.model.entidades.ValidarProduto;
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -55,7 +56,7 @@ public class ProdutoCadastrarServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        ProdutoDao produtoDao = new ProdutoDao();
 
         String nomeProduto = request.getParameter("nomeProduto");
         String categoria = request.getParameter("categoria");
@@ -70,32 +71,58 @@ public class ProdutoCadastrarServlet extends HttpServlet {
 
         HttpSession sessao = request.getSession();
         sessao.setAttribute("novoProduto", novo);
-        
+
         ValidarProduto validar = new ValidarProduto();
         boolean valido = validar.ehPalavra(novo);
 
         if (valido) {
-
             try {
-                ProdutoDao produto = new ProdutoDao();
-                produto.incluir(novo);
+                List<Produto> doBanco = produtoDao.consultarTodos();
+                if (doBanco.isEmpty()) {
+                    produtoDao.incluir(novo);
+                    response.sendRedirect(request.getContextPath() + "/ProdutoCadastrarServlet");
+                } else if (!doBanco.isEmpty()) {
+                    for (Produto p : doBanco) {
+                        if (novo.getNomeProduto().equalsIgnoreCase(p.getNomeProduto())
+                                && novo.getCategoria().equalsIgnoreCase(p.getCategoria())
+                                && novo.getCor().equalsIgnoreCase(p.getCor())
+                                && novo.getDescricao().equalsIgnoreCase(p.getDescricao())
+                                && novo.getPreco() == p.getPreco()
+                                && novo.getTamanho() == p.getTamanho()) {
+                            int saldo = novo.getQuantidade() + p.getQuantidade();
+                            novo.setQuantidade(saldo);
+                            int id = p.getId();
+                            produtoDao.alterar(novo, id);
+                            produtoDao.remover(id);
+                            response.sendRedirect(request.getContextPath() + "/ProdutoCadastrarServlet");
+                        }
+                    }
+                    produtoDao.incluir(novo);
+                    response.sendRedirect(request.getContextPath() + "/ProdutoCadastrarServlet");
 
+                } /*else {
+                    produtoDao.incluir(novo);
+                    response.sendRedirect(request.getContextPath() + "/ProdutoCadastrarServlet");
+                }*/
             } catch (Exception ex) {
                 Logger.getLogger(ProdutoCadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
-
+            /*catch (Exception e) {
+        }
+        if (valido) {
             try {
-
+                produtoDao.incluir(novo);
             } catch (Exception ex) {
-                Logger.getLogger(ProdutoCadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            response.sendRedirect(request.getContextPath() + "/ProdutoCadastrarServlet");
+            Logger.getLogger(ProdutoCadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+        } catch (Exception ex) {
+            Logger.getLogger(ProdutoCadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        response.sendRedirect(request.getContextPath() + "/ProdutoCadastrarServlet");
+             */
         } else {
             response.sendRedirect("telas/Produto/MensagemErro.jsp");
-
         }
-
     }
-
 }
