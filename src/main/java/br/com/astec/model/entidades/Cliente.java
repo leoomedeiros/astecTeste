@@ -5,19 +5,32 @@
  */
 package br.com.astec.model.entidades;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 /**
  *
  * @author Fernando
  */
-public class Cliente extends AbstractEntity{
+public class Cliente {
     private Integer id;
     private Timestamp dataDeCadastro;
     private String nome;
     private String cpf;
     private String endereco;
     private String telefone;
+
+    public Cliente(Integer id, Timestamp dataDeCadastro, String nome, 
+            String cpf, String endereco, String telefone) {
+        this.id = id;
+        this.dataDeCadastro = dataDeCadastro;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.endereco = endereco;
+        this.telefone = telefone;
+    }
+    public Cliente(){
+        
+    }
 
     public Integer getId() {
         return id;
@@ -66,6 +79,7 @@ public class Cliente extends AbstractEntity{
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+
     
     
 }

@@ -55,7 +55,7 @@ and open the template in the editor.
                       
                 </li>
                 <li type="visible">
-                    <a>CRUD Cliente</a>
+                    <a>Cliente</a>
                     
                 </li>
                 <li type="visible">
@@ -89,10 +89,10 @@ and open the template in the editor.
         <div id="subCliente" class="sub">
             <ul class="submenu">
                     <li>
-                        <a href="#">Cadastrar Cliente</a>
+                        <a href="../Cliente/Cadastrar/clienteCadastrar.jsp">Cadastrar Cliente</a>
                     </li>
                     <li>
-                        <a href="#">Consultar Cliente</a>
+                        <a href="../Cliente/Consultar/clienteConsultar.jsp">Consultar Cliente</a>
                     </li>
             </ul>
             </div>
