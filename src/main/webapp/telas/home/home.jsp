@@ -51,7 +51,7 @@ and open the template in the editor.
                     <a href="home.jsp">Home</a>
                 </li>
                 <li type="visible">
-                    <a>CRUD Produto</a>
+                    <a>Produto</a>
                       
                 </li>
                 <li type="visible">
