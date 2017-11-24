@@ -5,7 +5,7 @@ id_cliente INT NOT NULL
         (START WITH 1, INCREMENT BY 1),
 datas TIMESTAMP NOT NULL, 
 nome VARCHAR(255) NOT NULL,
-cpf VARCHAR(14) NOT NULL,
+cpf VARCHAR(30) NOT NULL,
 endereco VARCHAR(255),
 telefone VARCHAR(30) NOT NULL,
 PRIMARY KEY (id_cliente)
@@ -35,21 +35,6 @@ datas TIMESTAMP NOT NULL,
 PRIMARY KEY (id_filial)
 );
 
-
-
-CREATE TABLE FUNCIONARIO (
-id_funcionario INT NOT NULL 
-        GENERATED ALWAYS AS IDENTITY
-        (START WITH 1, INCREMENT BY 1),
-datas TIMESTAMP NOT NULL,
-id_filial INT NOT NULL,
-nome VARCHAR(255) NOT NULL,
-cargo VARCHAR(50) NOT NULL,
-senha VARCHAR(20),
-telefone VARCHAR(30) NOT NULL,
-FOREIGN KEY (id_filial) REFERENCES FILIAL(id_filial),
-PRIMARY KEY (id_funcionario)
-);
 
 
 CREATE TABLE VENDA (
@@ -91,28 +76,59 @@ CREATE TABLE LOG_FUNCIONARIO (
     --FOREIGN KEY (id_funcionario) REFERENCES FUNCIONARIO (id_funcionario)
 );
 
+CREATE TABLE FILIAL (
+id_filial INT NOT NULL 
+        GENERATED ALWAYS AS IDENTITY
+        (START WITH 1, INCREMENT BY 1),
+nome_filial VARCHAR(50) NOT NULL, 
+PRIMARY KEY (id_filial)
+);
+
+INSERT INTO FILIAL (nome_filial)
+VALUES
+('São Paulo'),
+('Recife'),
+('Porto Alegre');
+
+SELECT * FROM FILIAL
+
+CREATE TABLE DEPARTAMENTO (
+id_depar INT NOT NULL 
+        GENERATED ALWAYS AS IDENTITY
+        (START WITH 1, INCREMENT BY 1),
+nome_depar VARCHAR(50) NOT NULL, 
+PRIMARY KEY (id_depar)
+);
+
+CREATE TABLE FUNCIONARIO (
+id_funcionario INT NOT NULL 
+        GENERATED ALWAYS AS IDENTITY
+        (START WITH 1, INCREMENT BY 1),
+datas TIMESTAMP NOT NULL,
+id_filial INT NOT NULL,
+id_depar INT NOT NULL,
+nome VARCHAR(255) NOT NULL,
+cargo VARCHAR(50) NOT NULL,
+senha VARCHAR(20) NOT NULL,
+FOREIGN KEY (id_filial) REFERENCES FILIAL(id_filial),
+FOREIGN KEY (id_depar) REFERENCES DEPARTAMENTO(id_depar),
+PRIMARY KEY (id_funcionario)
+);
+
+
+
 INSERT INTO Log_funcionario VALUES (default,1,'exclusão',1,'Produto','2017-12-01 05:18:44',7);
 
 INSERT INTO Log_funcionario VALUES (default,2,'inclusão',2,'Cliente','2017-11-01 07:20:20',10);
 
 INSERT INTO Log_funcionario VALUES (default,3,'exclusão',3,'Produto','2017-10-01 09:22:00',13);
 
-INSERT INTO Produto VALUES (default,'2017-10-01 09:22:00','nike','pica','azul',3,14,'Produtoasdas',13.5);
-INSERT INTO Produto VALUES (default,'2017-10-01 19:12:00','nsaddike','picdsadsaa','azuasfasl',4,5,'Prodsadasdutoasdas',13.5);
-INSERT INTO Produto VALUES (default,'2017-10-01 19:12:00','puma','picdsdasadsaa','azuasfasl',6,6,'Prodsadasdutoasdas',13.5);
-
-INSERT INTO ITEMVENDA VALUES (default,1,3,23)
-INSERT INTO ITEMVENDA VALUES (default,1,2,32)
-INSERT INTO ITEMVENDA VALUES (default,1,1,321)
-
-INSERT INTO VENDA VALUES (default,'2017-10-01 12:25:00',1,99.90)
-INSERT INTO VENDA VALUES (default,'2017-11-01 12:25:00',2,199.90)
-INSERT INTO VENDA VALUES (default,'2017-12-01 12:25:00',3,1199.90);
+INSERT INTO Produto VALUES (default,'2017-10-01 09:22:00','nike','zica','azul',3,14,'Produtoasdas',13.5);
+INSERT INTO Produto VALUES (default,'2017-10-01 19:12:00','tenis','picdsadsaa','azuasfasl',4,5,'Prodsadasdutoasdas',13.5);
+INSERT INTO Produto VALUES (default,'2017-10-01 19:12:00','chinelo','picdsdasadsaa','azuasfasl',6,6,'Prodsadasdutoasdas',13.5);
 
 
-INSERT INTO ITEMVENDA VALUES (default,2,3,21)
-INSERT INTO ITEMVENDA VALUES (default,3,2,21)
-INSERT INTO ITEMVENDA VALUES (default,3,1,25)
+
 
 
 

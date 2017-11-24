@@ -114,10 +114,10 @@ and open the template in the editor.
             <div id="subUsuario" class="sub">
                  <ul class="submenu" >
                     <li>
-                        <a href="#">Cadastrar Usuário</a>
+                        <a href="../Funcionario/Cadastrar/funcionarioCadastrar.jsp">Cadastrar Usuário</a>
                     </li>
                     <li>
-                        <a href="#">Consultar Usuário</a>
+                        <a href="../Funcionario/Consultar/funcionarioConsultar.jsp">Consultar Usuário</a>
                     </li>
                 </ul>
             </div>
