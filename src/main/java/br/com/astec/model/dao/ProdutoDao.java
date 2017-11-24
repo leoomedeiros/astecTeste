@@ -1,16 +1,21 @@
 package br.com.astec.model.dao;
 
 import br.com.astec.model.constants.LogAcao;
+import br.com.astec.model.entidades.LogFuncionario;
 import br.com.astec.model.utils.ConnectionUtils;
 import br.com.astec.model.entidades.Produto;
 import br.com.astec.model.utils.LogFactory;
+import br.com.astec.model.utils.RSConverter;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import javax.servlet.http.HttpSession;
@@ -276,4 +281,42 @@ public class ProdutoDao extends AbstractDao<Produto> {
             }
         } return listaProdutos;
     } 
+
+    @Override
+    public List<LogFuncionario> consultaPorDatas(String dataInicial, String dataFinal) throws SQLException, Exception {
+            
+
+        List<LogFuncionario> lista = new ArrayList<>();
+        
+
+
+        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        Date dataIn = sdf1.parse(dataInicial + " 00:00:00");
+        Timestamp ts1 = new Timestamp(dataIn.getTime());
+
+
+
+        Date dataFi = sdf1.parse(dataFinal + " 23:59:59");
+        Timestamp ts2 = new Timestamp(dataFi.getTime());
+
+        String sql = "SELECT * FROM LOG_FUNCIONARIO " + 
+                "WHERE nm_tabela = 'Produto' "
+                + "AND (DATA_ACAO BETWEEN ? AND ?)";
+        
+        Connection con = getConnection();
+        
+        PreparedStatement stm = con.prepareStatement(sql);
+        stm.setTimestamp(1, ts1);
+        stm.setTimestamp(2, ts2);
+        
+        ResultSet rs = stm.executeQuery();
+        
+        while (rs.next()) {            
+            lista.add(RSConverter.toFuncLogProduto(rs));
+        }
+        
+        return lista;
+        
+    }
 }

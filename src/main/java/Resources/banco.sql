@@ -101,5 +101,19 @@ INSERT INTO Produto VALUES (default,'2017-10-01 09:22:00','nike','pica','azul',3
 INSERT INTO Produto VALUES (default,'2017-10-01 19:12:00','nsaddike','picdsadsaa','azuasfasl',4,5,'Prodsadasdutoasdas',13.5);
 INSERT INTO Produto VALUES (default,'2017-10-01 19:12:00','puma','picdsdasadsaa','azuasfasl',6,6,'Prodsadasdutoasdas',13.5);
 
+INSERT INTO ITEMVENDA VALUES (default,1,3,23)
+INSERT INTO ITEMVENDA VALUES (default,1,2,32)
+INSERT INTO ITEMVENDA VALUES (default,1,1,321)
+
+INSERT INTO ITEMVENDA VALUES (default,2,3,21)
+
+INSERT INTO ITEMVENDA VALUES (default,3,2,21)
+INSERT INTO ITEMVENDA VALUES (default,3,1,25)
+
+INSERT INTO VENDA VALUES (default,'2017-10-01 12:25:00',1,99.90)
+INSERT INTO VENDA VALUES (default,'2017-11-01 12:25:00',2,199.90)
+INSERT INTO VENDA VALUES (default,'2017-12-01 12:25:00',3,1199.90);
+
+
 
 --SELECT * FROM LOG_FUNCIONARIO WHERE nm_tabela = 'Produto' AND (DATA_ACAO BETWEEN '2017-01-30 00:00:00' AND '2017-12-30 23:59:59');

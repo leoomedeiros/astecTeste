@@ -6,6 +6,7 @@
 package br.com.astec.model.dao;
 
 import br.com.astec.model.entidades.AbstractEntity;
+import br.com.astec.model.entidades.LogFuncionario;
 import br.com.astec.model.entidades.Produto;
 import br.com.astec.model.utils.ConnectionUtils;
 import java.sql.Connection;
@@ -25,7 +26,7 @@ public abstract class AbstractDao <t extends AbstractEntity>{
     public abstract List<t> consultarTodos() throws SQLException, Exception;
     public abstract List<Produto> consultarPorId(Integer id) throws SQLException, Exception;
     public abstract List<Produto> consultarPorNome(String nomeConsultado) throws SQLException, Exception;
-    
+    public abstract List<LogFuncionario> consultaPorDatas(String dataInicial, String dataFinal) throws SQLException, Exception;
     public Connection getConnection(){
         return ConnectionUtils.getConnection();
     }

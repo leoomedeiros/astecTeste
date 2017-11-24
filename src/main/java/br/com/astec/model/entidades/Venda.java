@@ -16,6 +16,14 @@ import java.util.List;
  */
 public class Venda extends AbstractEntity{
 
+    public Venda(Integer id, Integer idCliente, Date dataCompra, Double valorTotal,List<ItemVenda> listaItem) {
+        this.id = id;
+        this.idCliente = idCliente;
+        this.dataCompra = dataCompra;
+        this.valorTotal = valorTotal;
+        this.listaItem = listaItem;
+    }
+    
     public Integer getId() {
         return id;
     }
@@ -24,12 +32,12 @@ public class Venda extends AbstractEntity{
         this.id = id;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public Integer getClienteId() {
+        return idCliente;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setClienteId(Integer cliente) {
+        this.idCliente = cliente;
     }
 
     public Date getDataCompra() {
@@ -56,7 +64,7 @@ public class Venda extends AbstractEntity{
         this.listaItem = listaItem;
     }
     private Integer id;
-    private Cliente cliente;
+    private Integer idCliente;
     private Date dataCompra;
     private Double valorTotal;
     private List<ItemVenda> listaItem = new ArrayList<ItemVenda>();

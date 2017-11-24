@@ -15,7 +15,8 @@ import java.util.List;
  */
 public enum LogAcao {
     
-    CONSULTA("Consultou"), INCLUSAO("Incluiu"), ALTERACAO("Alterou"), REMOCAO("Removeu");
+    CONSULTA("Consultou"), INCLUSAO("Incluiu"), ALTERACAO("Alterou"),
+    REMOCAO("Removeu"),VENDA("Vendeu");
     
     private String valor;
     

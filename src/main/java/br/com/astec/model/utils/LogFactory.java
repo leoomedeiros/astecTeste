@@ -8,6 +8,7 @@ package br.com.astec.model.utils;
 import br.com.astec.model.constants.LogAcao;
 import br.com.astec.model.dao.LogDao;
 import br.com.astec.model.entidades.LogFuncionario;
+import java.sql.SQLException;
 
 /**
  *
@@ -35,12 +36,12 @@ public final class LogFactory {
         return INSTANCE;
     }
     
-    public static void log(Integer idRegistro, String nomeTabela, LogAcao acao){
+    public static void log(Integer idRegistro, String nomeTabela, LogAcao acao) throws SQLException{
         LogFuncionario lf = new LogFuncionario();
         lf.setId(ID_FUNCIONARIO);
         lf.setAcao(acao.getValor());
         lf.setNomeTabela(nomeTabela);
-        
+        lf.setIdItem(idRegistro);
         //
         //lf.setDate(new Date
         

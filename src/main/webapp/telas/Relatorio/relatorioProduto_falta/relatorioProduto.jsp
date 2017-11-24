@@ -1,8 +1,9 @@
 <%-- 
-    Document   : relatorioLog
-    Created on : 22/11/2017, 15:55:41
+    Document   : relatorioProduto
+    Created on : 23/11/2017, 01:36:28
     Author     : Usuário
 --%>
+
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.util.ArrayList"%>
 <%@page import="br.com.astec.model.entidades.LogFuncionario"%>
@@ -14,25 +15,25 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Relatório de Log</title>
+        <title>Relatório de Produto</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="relatorioLog.css" rel="stylesheet">
-        <script src="relatorioLog.js" type="text/javascript"></script>
+        <link href="relatorioProduto.css" rel="stylesheet">
+        <script src="relatorioProduto.js" type="text/javascript"></script>
     </head>
     <body>
         <div id="direito">
             <div id="cabecalho">
                 <!--<img class="logo" src="https://i.imgur.com/mgK1d4U.jpg"/> -->
                 <img class="logo" src="http://i65.tinypic.com/2uenpch.png"/>
-                <h1>Relatório de Log:</h1>
+                <h1>Relatório de Produto:</h1>
                     
                 
             </div>
             
             <div id="conteudo">
-                <form class="pesquisa" action="${pageContext.request.contextPath}/RelatorioLogServlet" method="POST">  
+                <form class="pesquisa" action="${pageContext.request.contextPath}/RelatorioProdutoServlet" method="POST">  
                     <div id="contEsq" class="divisoria">
                         <h4>Data inicial:<br></h4>
                         <input type="date" name="dataIni" placeholder="dd-mm-aaaa"><br>
@@ -55,26 +56,28 @@
                                 <tr>
                                     <th>Cod. Log:</th>
                                     <th>Cod. Usuário:</th>
-                                    <th>Tipo:</th>
-                                    <th>Cod. Item:</th>
+                                    <th>Nome do Produto:</th>
+                                    <th>Cod. Produto:</th>
                                     <th>Ação:</th>
                                     <th>Data/Hora:</th>
+                                    <th>Quant. efetuada:</th>
                                 </tr>
-                                <c:forEach items="${sessionScope.listaLog}" var="listaLog" >
+                                <c:forEach items="${sessionScope.listaLogProduto}" var="listaLogProduto" >
                                 <tr class="linhas">
-                                    <td>${listaLog.id}</td>
-                                    <td>${listaLog.idFunc}</td>
-                                    <td>${listaLog.nomeTabela}</td>
-                                    <td>${listaLog.idItem}</td>
-                                    <td>${listaLog.acao}</td>
-                                    <td>${listaLog.dataAcao}</td>
+                                    <td>${listaLogProduto.id}</td>
+                                    <td>${listaLogProduto.idFunc}</td>
+                                    <td>${listaLogProduto.nomeTabela}</td>
+                                    <td>${listaLogProduto.idItem}</td>
+                                    <td>${listaLogProduto.acao}</td>
+                                    <td>${listaLogProduto.dataAcao}</td>
+                                    <td>${listaLogProduto.qntd}</td>
                                 </tr>
                                 </c:forEach>
 
 
                             </table>
                 </div>
-                <form class="pesquisa" action="${pageContext.request.contextPath}/ExportRelatorioLogServlet" method="POST">
+                <form class="pesquisa" action="${pageContext.request.contextPath}/ExportRelatorioLogProdutoServlet" method="POST">
                     <h4>DE:
                     <input type="text" name="expDtI" value="<%=session.getAttribute("dtInicio")%>" disabled="true">
                     ATÉ:
@@ -158,13 +161,13 @@
             <div id="subRelatorio" class="sub">
                 <ul class="submenu">
                         <li id="relProduto" type="hidden">
-                            <a href="../relatorioProduto_falta/relatorioProduto.jsp">Relatório de Produto</a>
+                            <a href="relatorioProduto.jsp">Relatório de Produto</a>
                         </li>
                         <li id="relVenda" type="hidden">
                             <a href="../RelatorioVenda/relatorioVenda.jsp">Relatório de Venda</a>
                         </li>
                         <li id="relLog" type="hidden">
-                            <a href="relatorioLog.jsp">Relatório de Log</a>
+                            <a href="../RelatorioLog_falta/relatorioLog.jsp">Relatório de Log</a>
                         </li>
                 </ul>
             </div>
