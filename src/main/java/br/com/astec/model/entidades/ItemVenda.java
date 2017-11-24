@@ -11,10 +11,17 @@ package br.com.astec.model.entidades;
  */
 public class ItemVenda extends AbstractEntity{
     private Integer id;
-    private Produto produto;
-    private Venda idvenda;
+    private Integer idProduto;
+    private Integer idvenda;
     private Integer qdeVendida;
 
+    public ItemVenda(Integer id, Integer produto, int idvenda, Integer qdeVendida) {
+        this.id = id;
+        this.idProduto = produto;
+        this.idvenda = idvenda;
+        this.qdeVendida = qdeVendida;
+    }
+    
     public Integer getId() {
         return id;
     }
@@ -23,19 +30,19 @@ public class ItemVenda extends AbstractEntity{
         this.id = id;
     }
 
-    public Produto getProduto() {
-        return produto;
+    public Integer getProdutoId() {
+        return idProduto;
     }
 
-    public void setProduto(Produto produto) {
-        this.produto = produto;
+    public void setProdutoId(Integer produto) {
+        this.idProduto = produto;
     }
 
-    public Venda getIdvenda() {
+    public int getIdvenda() {
         return idvenda;
     }
 
-    public void setIdvenda(Venda idvenda) {
+    public void setIdvenda(int idvenda) {
         this.idvenda = idvenda;
     }
 

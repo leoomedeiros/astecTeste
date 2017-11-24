@@ -6,8 +6,8 @@
         <title>Alteração de cliente:</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="alterarCadastro.css" rel="stylesheet">
-        <script src="alterarCadastro.js" type="text/javascript"></script>
+        <link href="erroCliente.css" rel="stylesheet">
+        <script src="erroCliente.js" type="text/javascript"></script>
     </head>
     <body>
         <div id="direito">
@@ -21,32 +21,14 @@
 
 <!----------------------------------------------------------------------------->
             
+              
             <div id="conteudo">
-                <form action="${pageContext.request.contextPath}/ClienteAlteracaoSalvar" method="post">  
-                    <div id="contEsq" class="divisoria">
-                        <h4>*Nome completo:<br></h4>
-                        <input type="text" name="nomeCliente" value=
-                               "${sessionScope.clienteConsultado.nome}"><br>
 
-                        <h4>CPF:<br></h4>
-                        <input type="number" name="cpf"value=
-                               "${sessionScope.clienteConsultado.cpf}"><br>
+                <h2>Ops!! Não deu certo.</h2>
+                <a id="ok" href="../Consultar/clienteConsultar.jsp">Voltar</a>
+                </div>
 
-                        <h4>*Endereço:<br></h4>
-                        <input type="text" name="endereco"value=
-                               "${sessionScope.clienteConsultado.endereco}"><br>
-
-                        <h4>*Telefone:<br></h4>
-                        <input type="number" name="telefone"value=
-                               "${sessionScope.clienteConsultado.telefone}"><br>
-                    </div>
-
-                    <input name="enviar" type="submit" value="Cadastrar">
-
-
-                </form>
-            </div>
-
+        
 <!----------------------------------------------------------------------------->
             
            
@@ -68,10 +50,6 @@
                 </li>
                 <li type="visible">
                     <a>Produto</a>
-
-                </li>
-                <li type="visible">
-                    <a>Funcionário</a>
 
                 </li>
                 <li type="visible">
@@ -106,16 +84,6 @@
             </ul>
         </div>
 
-        <div id="subFuncionario" class="sub">
-            <ul class="submenu">
-                <li>
-                    <a href="../../Funcionario/Cadastrar/funcionarioCadastrar.jsp">Cadastrar Funcionário</a>
-                </li>
-                <li>
-                    <a href="../../Funcionario/Consultar/clienteConsultar.jsp">Consultar Funcionário</a>
-                </li>
-            </ul>
-        </div>
         <div id="subCliente" class="sub">
             <ul class="submenu">
                 <li>
@@ -130,13 +98,13 @@
         <div id="subRelatorio" class="sub">
             <ul class="submenu">
                 <li id="relProduto" type="hidden">
-                    <a href="../../Relatorio/relatorioProduto_falta/relatorioProduto.jsp">Relatório de Produto</a>
+                    <a href="#">Relatório de Produto</a>
                 </li>
                 <li id="relVenda" type="hidden">
-                    <a href="../../Relatorio/RelatorioVenda/relatorioVenda.jsp">Relatório de Venda</a>
+                    <a href="#">Relatório de Venda</a>
                 </li>
                 <li id="relLog" type="hidden">
-                    <a href="../../Relatorio/RelatorioLog_falta/relatorioLog.jsp">Relatório de Log</a>
+                    <a href="#">Relatório de Log</a>
                 </li>
             </ul>
         </div>

@@ -64,6 +64,13 @@ public class ClienteCadastrarServlet extends HttpServlet {
         String enderecoCliente = request.getParameter("endereco");
         String telefoneCliente = request.getParameter("telefone");
 
+        if(cpfCliente.equals("")){
+            cpfCliente = "não informado";
+        }
+        if(telefoneCliente.equals("")){
+            cpfCliente = "não informado";
+        }
+        
         Cliente novoCliente = new Cliente(Integer.SIZE, sq, nomeCliente, 
                 cpfCliente, enderecoCliente, telefoneCliente);
 
@@ -92,7 +99,7 @@ public class ClienteCadastrarServlet extends HttpServlet {
 
             response.sendRedirect(request.getContextPath() + "/ClienteCadastrarServlet");
         } else {
-            response.sendRedirect("telas/Produto/MensagemErro.jsp");
+            response.sendRedirect("telas/Cliente/Erro/erroClienteCadastrar.jsp");
 
         }
 
