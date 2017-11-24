@@ -112,11 +112,11 @@
                     <a href="../../home/home.jsp">Home</a>
                 </li>
                 <li type="visible">
-                    <a>CRUD Produto</a>
+                    <a>Produto</a>
                       
                 </li>
                 <li type="visible">
-                    <a>CRUD Cliente</a>
+                    <a>Cliente</a>
                     
                 </li>
                 <li type="visible">

@@ -100,11 +100,11 @@
                     <a href="../../home/home.jsp">Home</a>
                 </li>
                 <li type="visible">
-                    <a>CRUD Produto</a>
+                    <a>Produto</a>
                       
                 </li>
                 <li type="visible">
-                    <a>CRUD Cliente</a>
+                    <a>Cliente</a>
                     
                 </li>
                 <li type="visible">
@@ -137,14 +137,14 @@
 
         <div id="subCliente" class="sub">
             <ul class="submenu">
-                    <li>
-                        <a href="#">Cadastrar Cliente</a>
-                    </li>
-                    <li>
-                        <a href="#">Consultar Cliente</a>
-                    </li>
+                <li>
+                    <a href="../../Cliente/Cadastrar/clienteCadastrar.jsp">Cadastrar Cliente</a>
+                </li>
+                <li>
+                    <a href="../../Cliente/Consultar/clienteConsultar.jsp">Consultar Cliente</a>
+                </li>
             </ul>
-            </div>
+        </div>
 
             <div id="subRelatorio" class="sub">
                 <ul class="submenu">
