@@ -1,55 +1,86 @@
+<%-- 
+    Document   : clienteConsultarExcluir
+    Created on : 20/11/2017, 09:28:20
+    Author     : Fernando
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Alteração de cliente:</title>
+        <title>Consulta de Cliente</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="alterarCadastro.css" rel="stylesheet">
-        <script src="alterarCadastro.js" type="text/javascript"></script>
+        <link href="funcionarioConsultar.css" rel="stylesheet">
+        <script src="funcionarioConsultar.js" type="text/javascript"></script>
     </head>
     <body>
         <div id="direito">
             <div id="cabecalho">
                 <!--<img class="logo" src="https://i.imgur.com/mgK1d4U.jpg"/> -->
                 <img class="logo" src="http://i65.tinypic.com/2uenpch.png"/>
-                <h1>Alteração</h1>
+                <h1>Consulta de Funcionário:</h1>
 
 
             </div>
 
-<!----------------------------------------------------------------------------->
-            
             <div id="conteudo">
-                <form action="${pageContext.request.contextPath}/ClienteAlteracaoSalvar" method="post">  
+                <form class="pesquisa" action="${pageContext.request.contextPath}/FuncionarioConsulta" method="post">  
                     <div id="contEsq" class="divisoria">
-                        <h4>*Nome completo:<br></h4>
-                        <input type="text" name="nomeCliente" value=
-                               "${sessionScope.clienteConsultado.nome}"><br>
+                        <h4><br></h4>
+                        <input type="text" name="nomeFuncionario" placeholder="Digite aqui o que deseja buscar..."><br>
 
-                        <h4>CPF:<br></h4>
-                        <input type="number" name="cpf"value=
-                               "${sessionScope.clienteConsultado.cpf}"><br>
 
-                        <h4>*Endereço:<br></h4>
-                        <input type="text" name="endereco"value=
-                               "${sessionScope.clienteConsultado.endereco}"><br>
-
-                        <h4>*Telefone:<br></h4>
-                        <input type="number" name="telefone"value=
-                               "${sessionScope.clienteConsultado.telefone}"><br>
                     </div>
 
-                    <input name="enviar" type="submit" value="Cadastrar">
+                    <div id="contDir" class="divisoria">
+                        <h4>Pesquisar Por:</h4>    
+                        <select name="selectConsulta" >
+                            <option value="nome">Nome</option>
+                            <option value="todos">Todos</option>
+                        </select>
 
+                    </div>
 
+                    <input class="botao" name="buscar" type="submit" value="Buscar">
                 </form>
+                <div class="divTabela">
+                    <table>
+                      
+                        
+                        <tr>
+                            <th>Codigo:</th>
+                            <th>Nome:</th>
+                            <th>Departamento:</th>
+                            <th>Filial:</th>
+                            <th>Cargo:</th>
+                        </tr> 
+                       
+
+                    </table>
+
+                </div>
+
+                <hr>
+
+                <form class="excluirAlterar" action="${pageContext.request.contextPath}/FuncionarioAlterar" method="post">
+                    <h4>Digite o codigo do Funcionário:</h4>
+                    <input type="number" name="inserirCodigo" ><br>
+                    <div class="boxBotoes">
+                        <input class="botao" name="alterar" type="submit" value="Alterar">
+                    </div>
+                </form>
+                <form class="excluirAlterar" action="${pageContext.request.contextPath}/FuncionarioExcluir" method="post">
+                    <h4>Digite o codigo do Funcionário:</h4>
+                    <input type="number" name="inserirCodigo" ><br>
+                    <div class="boxBotoes">
+                        <input class="botao" name="excluir" type="submit" value="Excluir">
+                    </div>
+                </form>
+
+
             </div>
 
-<!----------------------------------------------------------------------------->
-            
-           
         </div>
 
 
@@ -86,7 +117,7 @@
 
                 </li>
                 <li type="visible">
-                    <a href="#">Usuários</a>
+                    <a>Usuários</a>
 
                 </li>
                 <li type="visible">
@@ -106,13 +137,13 @@
             </ul>
         </div>
 
-        <div id="subFuncionario" class="sub">
+       <div id="subFuncionario" class="sub">
             <ul class="submenu">
                 <li>
                     <a href="../../Funcionario/Cadastrar/funcionarioCadastrar.jsp">Cadastrar Funcionário</a>
                 </li>
                 <li>
-                    <a href="../../Funcionario/Consultar/clienteConsultar.jsp">Consultar Funcionário</a>
+                    <a href="../Consultar/respostaConsultar.jsp">Consultar Funcionário</a>
                 </li>
             </ul>
         </div>
@@ -122,21 +153,21 @@
                     <a href="../../Cliente/Cadastrar/clienteCadastrar.jsp">Cadastrar Cliente</a>
                 </li>
                 <li>
-                    <a href="../Consultar/clienteConsultar.jsp">Consultar Cliente</a>
+                    <a href="../../Cliente/Consultar/clienteConsultar.jsp">Consultar Cliente</a>
                 </li>
             </ul>
         </div>
 
         <div id="subRelatorio" class="sub">
             <ul class="submenu">
-                <li id="relProduto" type="hidden">
-                    <a href="../../Relatorio/relatorioProduto_falta/relatorioProduto.jsp">Relatório de Produto</a>
+                <li id="relCliente" type="hidden">
+                    <a href="#">Relatório de Cliente</a>
                 </li>
                 <li id="relVenda" type="hidden">
-                    <a href="../../Relatorio/RelatorioVenda/relatorioVenda.jsp">Relatório de Venda</a>
+                    <a href="#">Relatório de Venda</a>
                 </li>
                 <li id="relLog" type="hidden">
-                    <a href="../../Relatorio/RelatorioLog_falta/relatorioLog.jsp">Relatório de Log</a>
+                    <a href="#">Relatório de Log</a>
                 </li>
             </ul>
         </div>

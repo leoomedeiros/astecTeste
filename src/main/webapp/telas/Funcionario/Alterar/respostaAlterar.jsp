@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Alteração de cliente:</title>
+        <title>Alteração de Funcionário:</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="alterarCadastro.css" rel="stylesheet">
@@ -22,26 +22,34 @@
 <!----------------------------------------------------------------------------->
             
             <div id="conteudo">
-                <form action="${pageContext.request.contextPath}/ClienteAlteracaoSalvar" method="post">  
+                <form action="${pageContext.request.contextPath}/FuncionarioAlteracaoSalvar" method="post">  
                     <div id="contEsq" class="divisoria">
                         <h4>*Nome completo:<br></h4>
-                        <input type="text" name="nomeCliente" value=
-                               "${sessionScope.clienteConsultado.nome}"><br>
+                        <input type="text" name="nome" value=
+                               "${sessionScope.funcionarioConsultado.nome}"><br>
 
-                        <h4>CPF:<br></h4>
-                        <input type="number" name="cpf"value=
-                               "${sessionScope.clienteConsultado.cpf}"><br>
+                        <h4>Departamento:<br></h4>
+                        <select name="slcDepar" >
+                            <option value="" disabled selected>Selecione uma filial</option>
+                            <option value="5">Funcionários da retaguarda</option>
+                            <option value="6">Equipe de vendedores</option>
+                            <option value="7">Equipe de suporte técnico</option>
+                        </select>
+                       <br>
 
-                        <h4>*Endereço:<br></h4>
-                        <input type="text" name="endereco"value=
-                               "${sessionScope.clienteConsultado.endereco}"><br>
+                         <h4>Filial:<br></h4>
+                        <select name="slcFilial">
+                            <option value="" disabled selected>Selecione uma filial</option>
+                            <option value="1">São Paulo</option>
+                            <option value="2">Recife</option>
+                            <option value="3">Porto Alegre</option>
+                        </select><br>
 
-                        <h4>*Telefone:<br></h4>
-                        <input type="number" name="telefone"value=
-                               "${sessionScope.clienteConsultado.telefone}"><br>
+                        <h4>Cargo:<br></h4>
+                        <input type="text" name="cargo" value="${sessionScope.funcionarioConsultado.cargo}" /> <br>
                     </div>
 
-                    <input name="enviar" type="submit" value="Cadastrar">
+                    <input name="enviar" type="submit" value="Alterar">
 
 
                 </form>
@@ -112,7 +120,7 @@
                     <a href="../../Funcionario/Cadastrar/funcionarioCadastrar.jsp">Cadastrar Funcionário</a>
                 </li>
                 <li>
-                    <a href="../../Funcionario/Consultar/clienteConsultar.jsp">Consultar Funcionário</a>
+                    <a href="../Consultar/respostaConsultar.jsp">Consultar Funcionário</a>
                 </li>
             </ul>
         </div>
@@ -122,7 +130,7 @@
                     <a href="../../Cliente/Cadastrar/clienteCadastrar.jsp">Cadastrar Cliente</a>
                 </li>
                 <li>
-                    <a href="../Consultar/clienteConsultar.jsp">Consultar Cliente</a>
+                    <a href="../../Cliente/Consultar/clienteConsultar.jsp">Consultar Cliente</a>
                 </li>
             </ul>
         </div>
@@ -130,13 +138,13 @@
         <div id="subRelatorio" class="sub">
             <ul class="submenu">
                 <li id="relProduto" type="hidden">
-                    <a href="../../Relatorio/relatorioProduto_falta/relatorioProduto.jsp">Relatório de Produto</a>
+                    <a href="#">Relatório de Produto</a>
                 </li>
                 <li id="relVenda" type="hidden">
-                    <a href="../../Relatorio/RelatorioVenda/relatorioVenda.jsp">Relatório de Venda</a>
+                    <a href="#">Relatório de Venda</a>
                 </li>
                 <li id="relLog" type="hidden">
-                    <a href="../../Relatorio/RelatorioLog_falta/relatorioLog.jsp">Relatório de Log</a>
+                    <a href="#">Relatório de Log</a>
                 </li>
             </ul>
         </div>

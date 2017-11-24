@@ -27,7 +27,7 @@ public class ConnectionUtils extends MainConstants{
 
         } catch (SQLException ex) {
             ex.printStackTrace();
-        }
+       }
 
         return connection;
     }

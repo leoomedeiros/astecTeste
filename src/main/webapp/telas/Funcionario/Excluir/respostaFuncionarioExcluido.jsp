@@ -1,55 +1,30 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Alteração de cliente:</title>
+        <title>Exclusão de Funcionários</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="alterarCadastro.css" rel="stylesheet">
-        <script src="alterarCadastro.js" type="text/javascript"></script>
+        <link href="excluirFuncionario.css" type="text/css" rel="stylesheet">
+        <script src="excluirFuncionario.js" type="text/javascript" rel="javascript"></script>
     </head>
     <body>
         <div id="direito">
             <div id="cabecalho">
-                <!--<img class="logo" src="https://i.imgur.com/mgK1d4U.jpg"/> -->
                 <img class="logo" src="http://i65.tinypic.com/2uenpch.png"/>
-                <h1>Alteração</h1>
+                <h1>Exclusão</h1>
 
 
             </div>
-
-<!----------------------------------------------------------------------------->
-            
             <div id="conteudo">
-                <form action="${pageContext.request.contextPath}/ClienteAlteracaoSalvar" method="post">  
-                    <div id="contEsq" class="divisoria">
-                        <h4>*Nome completo:<br></h4>
-                        <input type="text" name="nomeCliente" value=
-                               "${sessionScope.clienteConsultado.nome}"><br>
-
-                        <h4>CPF:<br></h4>
-                        <input type="number" name="cpf"value=
-                               "${sessionScope.clienteConsultado.cpf}"><br>
-
-                        <h4>*Endereço:<br></h4>
-                        <input type="text" name="endereco"value=
-                               "${sessionScope.clienteConsultado.endereco}"><br>
-
-                        <h4>*Telefone:<br></h4>
-                        <input type="number" name="telefone"value=
-                               "${sessionScope.clienteConsultado.telefone}"><br>
-                    </div>
-
-                    <input name="enviar" type="submit" value="Cadastrar">
-
-
-                </form>
+                
+                <h2>Funcionário "<c:out value="${sessionScope.funcionarioConsultado.nome}" />"  foi excluído com sucesso.</h2>
+                <a id="ok" href="../Consultar/funcionarioConsultar.jsp">Voltar</a>
+                
             </div>
 
-<!----------------------------------------------------------------------------->
-            
-           
         </div>
 
 
@@ -86,7 +61,7 @@
 
                 </li>
                 <li type="visible">
-                    <a href="#">Usuários</a>
+                    <a>Usuários</a>
 
                 </li>
                 <li type="visible">
@@ -95,7 +70,7 @@
             </ul>
         </div>
 
-        <div id="subProduto" class="sub">
+       <div id="subProduto" class="sub">
             <ul class="submenu">
                 <li>
                     <a href="../../Produto/Cadastrar/produtoCadastrar.jsp">Cadastrar Produto</a>
@@ -112,7 +87,7 @@
                     <a href="../../Funcionario/Cadastrar/funcionarioCadastrar.jsp">Cadastrar Funcionário</a>
                 </li>
                 <li>
-                    <a href="../../Funcionario/Consultar/clienteConsultar.jsp">Consultar Funcionário</a>
+                    <a href="../Consultar/respostaConsultar.jsp">Consultar Funcionário</a>
                 </li>
             </ul>
         </div>
@@ -122,7 +97,7 @@
                     <a href="../../Cliente/Cadastrar/clienteCadastrar.jsp">Cadastrar Cliente</a>
                 </li>
                 <li>
-                    <a href="../Consultar/clienteConsultar.jsp">Consultar Cliente</a>
+                    <a href="../../Cliente/Consultar/clienteConsultar.jsp">Consultar Cliente</a>
                 </li>
             </ul>
         </div>
@@ -130,13 +105,13 @@
         <div id="subRelatorio" class="sub">
             <ul class="submenu">
                 <li id="relProduto" type="hidden">
-                    <a href="../../Relatorio/relatorioProduto_falta/relatorioProduto.jsp">Relatório de Produto</a>
+                    <a href="#">Relatório de Produto</a>
                 </li>
                 <li id="relVenda" type="hidden">
-                    <a href="../../Relatorio/RelatorioVenda/relatorioVenda.jsp">Relatório de Venda</a>
+                    <a href="#">Relatório de Venda</a>
                 </li>
                 <li id="relLog" type="hidden">
-                    <a href="../../Relatorio/RelatorioLog_falta/relatorioLog.jsp">Relatório de Log</a>
+                    <a href="#">Relatório de Log</a>
                 </li>
             </ul>
         </div>
@@ -154,3 +129,4 @@
 
     </body>
 </html>
+

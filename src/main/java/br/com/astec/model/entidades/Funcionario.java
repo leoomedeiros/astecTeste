@@ -5,7 +5,7 @@
  */
 package br.com.astec.model.entidades;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 /**
  *
@@ -15,9 +15,24 @@ public class Funcionario extends AbstractEntity{
     private Integer id;
     private Timestamp dataDeCadastro;
     private String nome;
-    private String departamento;
+    private int departamento;
+    private int filial;
     private String cargo;
     private String senha;
+
+    public Funcionario(int SIZE, Timestamp sq, String nome, int iDepart, int iFilial, String cargo, String senha) {
+        this.id = SIZE;
+        this.dataDeCadastro = sq;
+        this.nome = nome;
+        this.departamento = iDepart;
+        this.filial = iFilial;
+        this.cargo = cargo;
+        this.senha = senha;
+    }
+
+    public Funcionario() {
+        
+    }
 
     public Integer getId() {
         return id;
@@ -43,12 +58,20 @@ public class Funcionario extends AbstractEntity{
         this.nome = nome;
     }
 
-    public String getDepartamento() {
+    public int getDepartamento() {
         return departamento;
     }
 
-    public void setDepartamento(String departamento) {
+    public void setDepartamento(int departamento) {
         this.departamento = departamento;
+    }
+    
+    public int getFilial(){
+        return filial;
+    }
+    
+    public void setFilial(int filial){
+        this.filial = filial;
     }
 
     public String getCargo() {

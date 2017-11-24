@@ -21,7 +21,7 @@
 
                 <h2>Cliente "<c:out value="${sessionScope.clienteConsultado.nome}" />" alterado com sucesso.</h2>
                 <a id="ok" href="../Consultar/clienteConsultar.jsp">Voltar</a>
-                </div>
+            </div>
 
         </div>
 
@@ -41,6 +41,10 @@
                 </li>
                 <li type="visible">
                     <a>Produto</a>
+
+                </li>
+                <li type="visible">
+                    <a>Funcionário</a>
 
                 </li>
                 <li type="visible">
@@ -74,7 +78,16 @@
                 </li>
             </ul>
         </div>
-
+        <div id="subFuncionario" class="sub">
+            <ul class="submenu">
+                <li>
+                    <a href="../../Funcionario/Cadastrar/funcionarioCadastrar.jsp">Cadastrar Funcionário</a>
+                </li>
+                <li>
+                    <a href="../../Funcionario/Consultar/clienteConsultar.jsp">Consultar Funcionário</a>
+                </li>
+            </ul>
+        </div>
         <div id="subCliente" class="sub">
             <ul class="submenu">
                 <li>
