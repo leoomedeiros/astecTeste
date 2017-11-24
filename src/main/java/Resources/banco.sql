@@ -87,5 +87,19 @@ CREATE TABLE LOG_FUNCIONARIO (
     id_registro INT NOT NULL,
     nm_tabela VARCHAR (255) NOT NULL,
     data_acao TIMESTAMP NOT NULL,
-    FOREIGN KEY (id_funcionario) REFERENCES FUNCIONARIO (id_funcionario)
+    qntd INT
+    --FOREIGN KEY (id_funcionario) REFERENCES FUNCIONARIO (id_funcionario)
 );
+
+INSERT INTO Log_funcionario VALUES (default,1,'exclusão',1,'Produto','2017-12-01 05:18:44',7);
+
+INSERT INTO Log_funcionario VALUES (default,2,'inclusão',2,'Cliente','2017-11-01 07:20:20',10);
+
+INSERT INTO Log_funcionario VALUES (default,3,'exclusão',3,'Produto','2017-10-01 09:22:00',13);
+
+INSERT INTO Produto VALUES (default,'2017-10-01 09:22:00','nike','pica','azul',3,14,'Produtoasdas',13.5);
+INSERT INTO Produto VALUES (default,'2017-10-01 19:12:00','nsaddike','picdsadsaa','azuasfasl',4,5,'Prodsadasdutoasdas',13.5);
+INSERT INTO Produto VALUES (default,'2017-10-01 19:12:00','puma','picdsdasadsaa','azuasfasl',6,6,'Prodsadasdutoasdas',13.5);
+
+
+--SELECT * FROM LOG_FUNCIONARIO WHERE nm_tabela = 'Produto' AND (DATA_ACAO BETWEEN '2017-01-30 00:00:00' AND '2017-12-30 23:59:59');
