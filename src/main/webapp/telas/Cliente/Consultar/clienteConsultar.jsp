@@ -147,13 +147,13 @@
         <div id="subRelatorio" class="sub">
             <ul class="submenu">
                 <li id="relCliente" type="hidden">
-                    <a href="#">Relatório de Cliente</a>
+                    <a href="../../Relatorio/relatorioProduto_falta/relatorioProduto.jsp">Relatório de Cliente</a>
                 </li>
                 <li id="relVenda" type="hidden">
-                    <a href="#">Relatório de Venda</a>
+                    <a href="../../Relatorio/RelatorioVenda/relatorioVenda.jsp">Relatório de Venda</a>
                 </li>
                 <li id="relLog" type="hidden">
-                    <a href="#">Relatório de Log</a>
+                    <a href="../../Relatorio/relatorioLog_falta/relatorioLog.jsp">Relatório de Log</a>
                 </li>
             </ul>
         </div>
