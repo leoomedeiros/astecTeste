@@ -1,11 +1,19 @@
+<%-- 
+    Document   : clienteConsultarExcluir
+    Created on : 20/11/2017, 09:28:20
+    Author     : Fernando
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
         <title>Consulta de Cliente</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="clienteConsultarExcluir.css" rel="stylesheet">
-        <script src="clienteConsultarExcluir.js" type="text/javascript"></script>
+        <link href="respostaConsultar.css" rel="stylesheet">
+        <script src="respostaConsultar.js" type="text/javascript"></script>
     </head>
     <body>
         <div id="direito">
@@ -18,7 +26,7 @@
             </div>
 
             <div id="conteudo">
-                <form class="pesquisa" action="" method="get">  
+                <form class="pesquisa" action="${pageContext.request.contextPath}/ClienteConsulta" method="post">  
                     <div id="contEsq" class="divisoria">
                         <h4><br></h4>
                         <input type="text" name="nomeCliente" placeholder="Digite aqui o que deseja buscar..."><br>
@@ -29,19 +37,19 @@
                     <div id="contDir" class="divisoria">
                         <h4>Pesquisar Por:</h4>    
                         <select name="selectConsulta" >
-                            
                             <option value="nome">Nome</option>
                             <option value="todos">Todos</option>
-                            
-                            
                         </select>
 
                     </div>
 
                     <input class="botao" name="buscar" type="submit" value="Buscar">
                 </form>
+
                 <div class="divTabela">
                     <table>
+
+
                         <tr>
                             <th>Codigo:</th>
                             <th>Nome:</th>
@@ -49,34 +57,16 @@
                             <th>Endereço:</th>
                             <th>Telefone:</th>
                         </tr>
-                        <tr>
-                            <th>1</th>
-                            <th>Felipe Ferreira</th>
-                            <th>123.456.789-00</th>
-                            <th>Rua Um, 01</th>
-                            <th>98765-4321</th>
-                        </tr>
-                        <tr>
-                            <th>2</th>
-                            <th>Fernando Americo</th>
-                            <th>123.456.789-00</th>
-                            <th>Rua Um, 01</th>
-                            <th>98765-4321</th>
-                        </tr>
-                        <tr>
-                            <th>3</th>
-                            <th>Leonardo Medeiros</th>
-                            <th>123.456.789-00</th>
-                            <th>Rua Um, 01</th>
-                            <th>98765-4321</th>
-                        </tr>
-                        <tr>
-                            <th>4</th>
-                            <th>Rafael Barbosa</th>
-                            <th>123.456.789-00</th>
-                            <th>Rua Um, 01</th>
-                            <th>98765-4321</th>
-                        </tr>
+
+                        <c:forEach var="listaClientes" items="${sessionScope.listaClientes}">
+                            <tr class="linhas">
+                                <td><c:out value="${listaClientes.id}"/></td>
+                                <td><c:out value="${listaClientes.nome}"/></td>
+                                <td><c:out value="${listaClientes.cpf}"/></td>
+                                <td><c:out value="${listaClientes.endereco}"/></td>
+                                <td><c:out value="${listaClientes.telefone}"/></td>
+                            </tr>
+                        </c:forEach>
 
                     </table>
 
@@ -84,18 +74,18 @@
 
                 <hr>
 
-                <form class="excluirAlterar" action="${pageContext.request.contextPath}/ProdutoConsultarExcluirServletAlteracao" method="post">
-                    <h4>Digite o codigo do Produto:</h4>
+                <form class="excluirAlterar" action="${pageContext.request.contextPath}/ClienteAlterar" method="post">
+                    <h4>Digite o codigo do Cliente:</h4>
                     <input type="number" name="inserirCodigo" ><br>
                     <div class="boxBotoes">
-                        <input class="botao" name="alterar" type="submit" value="Alterar Produto">
+                        <input class="botao" name="alterar" type="submit" value="Alterar">
                     </div>
                 </form>
-                <form class="excluirAlterar" action="${pageContext.request.contextPath}/ProdutoConsultarExcluirServletExclusao" method="post">
-                    <h4>Digite o codigo do Produto:</h4>
+                <form class="excluirAlterar" action="${pageContext.request.contextPath}/ClienteExcluir" method="post">
+                    <h4>Digite o codigo do Cliente:</h4>
                     <input type="number" name="inserirCodigo" ><br>
                     <div class="boxBotoes">
-                        <input class="botao" name="excluir" type="submit" value="Excluir Produto">
+                        <input class="botao" name="excluir" type="submit" value="Excluir">
                     </div>
                 </form>
 
@@ -116,14 +106,14 @@
 
             <ul class="menu">
                 <li type="visible">
-                    <a href="../../home/homeindex.html">Home</a>
+                    <a href="../../../home/home.jsp">Home</a>
                 </li>
                 <li type="visible">
-                    <a>CRUD Cliente</a>
+                    <a>Produto</a>
 
                 </li>
                 <li type="visible">
-                    <a>CRUD Cliente</a>
+                    <a>Cliente</a>
 
                 </li>
                 <li type="visible">
@@ -143,13 +133,13 @@
             </ul>
         </div>
 
-        <div id="subCliente" class="sub">
+        <div id="subProduto" class="sub">
             <ul class="submenu">
                 <li>
-                    <a href="../cadastroCliente/cadastroCliente.html">Cadastrar Cliente</a>
+                    <a href="../../../Produto/Cadastrar/produtoCadastrar.jsp">Cadastrar Produto</a>
                 </li>
                 <li>
-                    <a href="consultaCliente.html">Consultar Cliente</a>
+                    <a href="../../../Produto/ConsultarExcluir/produtoConsultarExcluir.jsp">Consultar Produto</a>
                 </li>
             </ul>
         </div>
@@ -157,10 +147,10 @@
         <div id="subCliente" class="sub">
             <ul class="submenu">
                 <li>
-                    <a href="#">Cadastrar Cliente</a>
+                    <a href="../../../Cliente/Cadastrar/clienteCadastrar.jsp">Cadastrar Cliente</a>
                 </li>
                 <li>
-                    <a href="#">Consultar Cliente</a>
+                    <a href="../../Consultar/clienteConsultar.jsp">Consultar Cliente</a>
                 </li>
             </ul>
         </div>

@@ -143,17 +143,49 @@ h1{
     margin: 0px;
     padding: 0px;
 }
-#conteudo{
+.logo{
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+h2{
+    background: #febe10;
+    color:white;
+    text-shadow: 2px 2px 4px #000000;
+    font-family: "Arial",sans-serif;
+    margin: 0px;
+    padding: 50px;
+    font-size:50px;
+    text-align: center;  
+}
+#ok{
+   color: black; /* Black text color */
+
+    border-top: 1px solid white;
+    text-align: left;
+    display: block; /* Make the links appear below each other */
+    padding: 20px; /* Add some padding */
+    font-size: 50px;
+
+    text-decoration: none; 
     position: relative;
+    left: 0px;
+    right: 0px;
+    margin-left:400px;
+    
+}
+
+#conteudo{
+    align-items: center;
     border: 2px solid #0a1337;
     border-radius:10px;
     width: 1000px;
-    height: 320px;
+    height: 100%;
     padding: 15px;
     margin-top: 20px;
 }
 .divisoria{
-
+    
     width: 400px;
     padding-top: 25px; 
     padding-left: 50px;
@@ -169,60 +201,124 @@ h4{
 
 input{
     
+    margin-bottom: 20px;
     width: 350px;
     font-family: "Arial",sans-serif;
     height: 20px;
     
 }
+select{
+    height:25px;
+    margin-bottom: 20px;
+    width: 350px;
+    font-family: "Arial",sans-serif;
+       
+}
+
 #contEsq{
     float: left;
     top: 0px;
     left: 0px;
 }
 #contEsq input{
-    width: 550px;
+    width: 450px;
 }
 #contDir{
     float: right;
     top: 0px;
     right: 0px;
 }
-input[name="enviar"]{
+.botao{
     background: gray;
     border: 2px solid #3A3A3A;
-    width: 300px;
-    height: 40px;
-    margin-top: 50px; 
-    padding: 5px;
-    font-weight: bold;
     color: white;
     font-size: 18px;
     text-shadow: 0px 2px 4px #000000;
     border-radius: 15px;
-    
-    position: relative;
-    left: 0px;
-    right: 0px;
-    bottom: 20px;
-    margin-left: 350px;
-    margin-right:350px;
 
-      
-    
+    width: 300px;
+    height: 40px;
+
+    padding: 5px;
+
+    font-weight: bold;
+
 }
-input[name="enviar"]:hover{
+
+.botao:hover{
     background: #febe10;
     border: 2px solid #AC7B01;
     transition: 250ms;
 }
-input[name="enviar"]:active{
+.botao:active{
     
     border: 2px solid #0a1337;
     transition: 50ms;
 }
+.botao[name="buscar"]{
+    position: relative;
+    left: 0px;
+    right: 0px;
+    margin-left:350px;
+    margin-right: 350px;
+    
+}
+.boxBotoes{
+    position: relative;
+    float: right;
+    bottom: 60px;
+    
+    
+}
+hr{
+    width: 100%;
+    border: 0.5px solid #0a1337;
+}
 
-.logo{
-    position: absolute;
-    right: 20px;
-    top: 10px;
+
+
+/* TABELA ---------------------*/
+table {
+    top: 200px;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    
+    
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+.divTabela{
+    height: 300px;
+    overflow: auto;
+}
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+tr:first-child{
+    background: #febe10;
+    border-top-right-radius: 50px; 
+    border-top-left-radius: 50px;
+    color: #0a1337;
+    
+    
+}
+tr:first-child th{
+    border-top: none;
+    border-bottom: none;
+
+}
+tr:first-child th:first-child{
+    
+    border-top-left-radius: 10px;
+    
+}
+tr:first-child th:last-child{
+    border-top-right-radius: 10px;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
 }
