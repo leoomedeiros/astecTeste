@@ -57,7 +57,7 @@ public class ClienteConsultarExcluirServlet extends HttpServlet {
                     response.sendRedirect("telas/Cliente/Excluir/respostaClienteExcluido.jsp");
 
                 } else {
-                    response.sendRedirect("telas/Produto/MensagemErro.jsp");
+                    response.sendRedirect("telas/Cliente/Erro/erroClienteExcluir.jsp");
                 }
 
             } catch (Exception ex) {
@@ -105,7 +105,7 @@ public class ClienteConsultarExcluirServlet extends HttpServlet {
                 response.sendRedirect("telas/Cliente/Alterar/respostaClienteAlterado.jsp");
 
             } else {
-                response.sendRedirect("telas/Produto/MensagemErro.jsp");
+                response.sendRedirect("telas/Cliente/Erro/erroClienteAlterar.jsp");
             }
         }
 
@@ -125,7 +125,7 @@ public class ClienteConsultarExcluirServlet extends HttpServlet {
                         response.sendRedirect("telas/Cliente/Alterar/respostaAlterar.jsp");
                     }
                 } else {
-                    response.sendRedirect("telas/Produto/MensagemErro.jsp");
+                    response.sendRedirect("telas/Cliente/Erro/erroClienteAlterar");
                 }
             } catch (Exception ex) {
                 Logger.getLogger(ClienteCadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);
@@ -156,7 +156,7 @@ public class ClienteConsultarExcluirServlet extends HttpServlet {
                         sessao.setAttribute("listaClientes", listaClientes);
                         response.sendRedirect("telas/Cliente/Consultar/respostaConsulta/respostaConsultar.jsp");
                     } else {
-                        response.sendRedirect("telas/home/home.jsp");
+                        response.sendRedirect("telas/Cliente/Erro/erroClienteConsultar");
                     }
 
                 } catch (Exception e) {
