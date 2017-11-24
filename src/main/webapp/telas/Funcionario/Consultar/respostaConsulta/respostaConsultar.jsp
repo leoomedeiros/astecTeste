@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Consulta de Cliente</title>
+        <title>Consulta de Funcionarios</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="respostaConsultar.css" rel="stylesheet">
@@ -20,16 +20,16 @@
             <div id="cabecalho">
                 <!--<img class="logo" src="https://i.imgur.com/mgK1d4U.jpg"/> -->
                 <img class="logo" src="http://i65.tinypic.com/2uenpch.png"/>
-                <h1>Consulta de Cliente:</h1>
+                <h1>Consulta de Funcionarios:</h1>
 
 
             </div>
 
             <div id="conteudo">
-                <form class="pesquisa" action="${pageContext.request.contextPath}/ClienteConsulta" method="post">  
+                <form class="pesquisa" action="${pageContext.request.contextPath}/FuncionarioConsulta" method="post">  
                     <div id="contEsq" class="divisoria">
                         <h4><br></h4>
-                        <input type="text" name="nomeCliente" placeholder="Digite aqui o que deseja buscar..."><br>
+                        <input type="text" name="nomeFuncionario" placeholder="Digite aqui o que deseja buscar..."><br>
 
 
                     </div>
@@ -53,18 +53,18 @@
                         <tr>
                             <th>Codigo:</th>
                             <th>Nome:</th>
-                            <th>CPF:</th>
-                            <th>Endereço:</th>
-                            <th>Telefone:</th>
+                            <th>Departamento:</th>
+                            <th>Filial:</th>
+                            <th>Cargo:</th>
                         </tr>
 
-                        <c:forEach var="listaClientes" items="${sessionScope.listaClientes}">
+                        <c:forEach var="listaFuncionarios" items="${sessionScope.listaFuncionarios}">
                             <tr class="linhas">
-                                <td><c:out value="${listaClientes.id}"/></td>
-                                <td><c:out value="${listaClientes.nome}"/></td>
-                                <td><c:out value="${listaClientes.cpf}"/></td>
-                                <td><c:out value="${listaClientes.endereco}"/></td>
-                                <td><c:out value="${listaClientes.telefone}"/></td>
+                                <td><c:out value="${listaFuncionarios.id}"/></td>
+                                <td><c:out value="${listaFuncionarios.nome}"/></td>
+                                <td><c:out value="${listaFuncionarios.departamento}"/></td>
+                                <td><c:out value="${listaFuncionarios.filial}"/></td>
+                                <td><c:out value="${listaFuncionarios.cargo}"/></td>
                             </tr>
                         </c:forEach>
 
@@ -74,15 +74,15 @@
 
                 <hr>
 
-                <form class="excluirAlterar" action="${pageContext.request.contextPath}/ClienteAlterar" method="post">
-                    <h4>Digite o codigo do Cliente:</h4>
+                <form class="excluirAlterar" action="${pageContext.request.contextPath}/FuncionarioAlterar" method="post">
+                    <h4>Digite o codigo do Funcionário:</h4>
                     <input type="number" name="inserirCodigo" ><br>
                     <div class="boxBotoes">
                         <input class="botao" name="alterar" type="submit" value="Alterar">
                     </div>
                 </form>
-                <form class="excluirAlterar" action="${pageContext.request.contextPath}/ClienteExcluir" method="post">
-                    <h4>Digite o codigo do Cliente:</h4>
+                <form class="excluirAlterar" action="${pageContext.request.contextPath}/FuncionarioExcluir" method="post">
+                    <h4>Digite o codigo do Funcionário:</h4>
                     <input type="number" name="inserirCodigo" ><br>
                     <div class="boxBotoes">
                         <input class="botao" name="excluir" type="submit" value="Excluir">
@@ -147,23 +147,24 @@
                 </li>
             </ul>
         </div>
+
         <div id="subFuncionario" class="sub">
             <ul class="submenu">
                 <li>
                     <a href="../../Funcionario/Cadastrar/funcionarioCadastrar.jsp">Cadastrar Funcionário</a>
                 </li>
                 <li>
-                    <a href="../../Funcionario/Consultar/clienteConsultar.jsp">Consultar Funcionário</a>
+                    <a href="../Consultar/respostaConsultar.jsp">Consultar Funcionário</a>
                 </li>
             </ul>
-        </div>           
+        </div>
         <div id="subCliente" class="sub">
             <ul class="submenu">
                 <li>
-                    <a href="../../../Cliente/Cadastrar/clienteCadastrar.jsp">Cadastrar Cliente</a>
+                    <a href="../../Cliente/Cadastrar/clienteCadastrar.jsp">Cadastrar Cliente</a>
                 </li>
                 <li>
-                    <a href="../../Consultar/clienteConsultar.jsp">Consultar Cliente</a>
+                    <a href="../../Cliente/Consultar/clienteConsultar.jsp">Consultar Cliente</a>
                 </li>
             </ul>
         </div>

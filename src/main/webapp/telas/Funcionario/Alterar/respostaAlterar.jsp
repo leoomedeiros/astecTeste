@@ -1,35 +1,63 @@
-<%-- 
-    Document   : respostaCadastrarCliente
-    Created on : 19/11/2017, 15:52:57
-    Author     : Fernando
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Cadastro de Cliente:</title>
+        <title>Alteração de Funcionário:</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="telas/Cliente/Cadastrar/clienteCadastrar.css" type="text/css" rel="stylesheet">
-        <link href="clienteCadastrar.css" type="text/css" rel="stylesheet">
-        <script src="telas/Cliente/Cadastrar/clienteCadastrar.js" type="text/javascript" rel="javascript"></script>
-        <script src="clienteCadastrar.js" type="text/javascript" rel="javascript"></script>
+        <link href="alterarCadastro.css" rel="stylesheet">
+        <script src="alterarCadastro.js" type="text/javascript"></script>
     </head>
     <body>
         <div id="direito">
             <div id="cabecalho">
+                <!--<img class="logo" src="https://i.imgur.com/mgK1d4U.jpg"/> -->
                 <img class="logo" src="http://i65.tinypic.com/2uenpch.png"/>
-                <h1>Cadastramento</h1>
+                <h1>Alteração</h1>
+
+
             </div>
 
+<!----------------------------------------------------------------------------->
+            
             <div id="conteudo">
-                <h2>Cliente cadastrado com sucesso.</h2>
-                <a id="ok" href="clienteCadastrar.jsp">Voltar</a>
+                <form action="${pageContext.request.contextPath}/FuncionarioAlteracaoSalvar" method="post">  
+                    <div id="contEsq" class="divisoria">
+                        <h4>*Nome completo:<br></h4>
+                        <input type="text" name="nome" value=
+                               "${sessionScope.funcionarioConsultado.nome}"><br>
+
+                        <h4>Departamento:<br></h4>
+                        <select name="slcDepar" >
+                            <option value="" disabled selected>Selecione uma filial</option>
+                            <option value="5">Funcionários da retaguarda</option>
+                            <option value="6">Equipe de vendedores</option>
+                            <option value="7">Equipe de suporte técnico</option>
+                        </select>
+                       <br>
+
+                         <h4>Filial:<br></h4>
+                        <select name="slcFilial">
+                            <option value="" disabled selected>Selecione uma filial</option>
+                            <option value="1">São Paulo</option>
+                            <option value="2">Recife</option>
+                            <option value="3">Porto Alegre</option>
+                        </select><br>
+
+                        <h4>Cargo:<br></h4>
+                        <input type="text" name="cargo" value="${sessionScope.funcionarioConsultado.cargo}" /> <br>
+                    </div>
+
+                    <input name="enviar" type="submit" value="Alterar">
+
+
+                </form>
             </div>
 
-
+<!----------------------------------------------------------------------------->
+            
+           
         </div>
 
 
@@ -75,7 +103,7 @@
             </ul>
         </div>
 
-       <div id="subProduto" class="sub">
+        <div id="subProduto" class="sub">
             <ul class="submenu">
                 <li>
                     <a href="../../Produto/Cadastrar/produtoCadastrar.jsp">Cadastrar Produto</a>
@@ -85,13 +113,14 @@
                 </li>
             </ul>
         </div>
+
         <div id="subFuncionario" class="sub">
             <ul class="submenu">
                 <li>
                     <a href="../../Funcionario/Cadastrar/funcionarioCadastrar.jsp">Cadastrar Funcionário</a>
                 </li>
                 <li>
-                    <a href="../../Funcionario/Consultar/clienteConsultar.jsp">Consultar Funcionário</a>
+                    <a href="../Consultar/respostaConsultar.jsp">Consultar Funcionário</a>
                 </li>
             </ul>
         </div>
@@ -101,7 +130,7 @@
                     <a href="../../Cliente/Cadastrar/clienteCadastrar.jsp">Cadastrar Cliente</a>
                 </li>
                 <li>
-                    <a href="../Consultar/clienteConsultar.jsp">Consultar Cliente</a>
+                    <a href="../../Cliente/Consultar/clienteConsultar.jsp">Consultar Cliente</a>
                 </li>
             </ul>
         </div>

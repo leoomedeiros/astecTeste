@@ -1,35 +1,37 @@
-<%-- 
-    Document   : respostaCadastrarCliente
-    Created on : 19/11/2017, 15:52:57
-    Author     : Fernando
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Cadastro de Cliente:</title>
+        <title>Alteração de Funcionário:</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="telas/Cliente/Cadastrar/clienteCadastrar.css" type="text/css" rel="stylesheet">
-        <link href="clienteCadastrar.css" type="text/css" rel="stylesheet">
-        <script src="telas/Cliente/Cadastrar/clienteCadastrar.js" type="text/javascript" rel="javascript"></script>
-        <script src="clienteCadastrar.js" type="text/javascript" rel="javascript"></script>
+        <link href="erroFuncionario.css" rel="stylesheet">
+        <script src="erroFuncionario.js" type="text/javascript"></script>
     </head>
     <body>
         <div id="direito">
             <div id="cabecalho">
+                <!--<img class="logo" src="https://i.imgur.com/mgK1d4U.jpg"/> -->
                 <img class="logo" src="http://i65.tinypic.com/2uenpch.png"/>
-                <h1>Cadastramento</h1>
+                <h1>Alteração</h1>
+
+
             </div>
 
+<!----------------------------------------------------------------------------->
+            
+              </div>
             <div id="conteudo">
-                <h2>Cliente cadastrado com sucesso.</h2>
-                <a id="ok" href="clienteCadastrar.jsp">Voltar</a>
-            </div>
 
+                <h2>Ops!! Você digitou algo errado. "<c:out value="${sessionScope.funcionarioConsultado.nome}" />"</h2>
+                <a id="ok" href="../../home/home.jsp">Voltar</a>
+                </div>
 
+        
+<!----------------------------------------------------------------------------->
+            
+           
         </div>
 
 
@@ -75,7 +77,7 @@
             </ul>
         </div>
 
-       <div id="subProduto" class="sub">
+        <div id="subProduto" class="sub">
             <ul class="submenu">
                 <li>
                     <a href="../../Produto/Cadastrar/produtoCadastrar.jsp">Cadastrar Produto</a>
@@ -85,13 +87,24 @@
                 </li>
             </ul>
         </div>
+
+        <<div id="subFuncionario" class="sub">
+            <ul class="submenu">
+                <li>
+                    <a href="../../Funcionario/Cadastrar/funcionarioCadastrar.jsp">Cadastrar Funcionário</a>
+                </li>
+                <li>
+                    <a href="../Consultar/respostaConsultar.jsp">Consultar Funcionário</a>
+                </li>
+            </ul>
+        </div>
         <div id="subFuncionario" class="sub">
             <ul class="submenu">
                 <li>
                     <a href="../../Funcionario/Cadastrar/funcionarioCadastrar.jsp">Cadastrar Funcionário</a>
                 </li>
                 <li>
-                    <a href="../../Funcionario/Consultar/clienteConsultar.jsp">Consultar Funcionário</a>
+                    <a href="../Consultar/respostaConsultar.jsp">Consultar Funcionário</a>
                 </li>
             </ul>
         </div>
@@ -101,7 +114,7 @@
                     <a href="../../Cliente/Cadastrar/clienteCadastrar.jsp">Cadastrar Cliente</a>
                 </li>
                 <li>
-                    <a href="../Consultar/clienteConsultar.jsp">Consultar Cliente</a>
+                    <a href="../../Cliente/Consultar/clienteConsultar.jsp">Consultar Cliente</a>
                 </li>
             </ul>
         </div>

@@ -10,7 +10,7 @@
 		<div id="log">
 		<img src="logo.png" id="logo" />
 		
-		<form action="/LoginServlet" method="post">
+		<form action="${pageContext.request.contextPath}/FuncionarioAutenticar" method="post">
 		<label> Usuário:   </label>
 		<input type="text" id="txtUser" name="usuario"/>
 		<p/>
