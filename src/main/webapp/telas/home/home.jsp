@@ -6,13 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
+<!DOCTYPE html do PI>
 <html>
     <head>
         <title>Home</title>
@@ -22,6 +16,7 @@ and open the template in the editor.
         <script src="programa.js" type="text/javascript"></script>
     </head>
     <body>
+        
         <div id="direito">
             <div id="cabecalho">
                 <img class="logo" src="http://i65.tinypic.com/2uenpch.png"/>
@@ -40,7 +35,7 @@ and open the template in the editor.
         <div class="menu principal">
             <div class="usuario">
                 <div class="informacoes">
-                    <h5>Nome do Usuario</h5>
+                    <h5><c:import url="/WEB-INF/cabecalho.jsp" /></h5>
                     <h6>Cargo do Usuario</h6>
                 </div>
                 <img class="imagemPerfil" src="http://i63.tinypic.com/2zspjlh.jpg"/>
