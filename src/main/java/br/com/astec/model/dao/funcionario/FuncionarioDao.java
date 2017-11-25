@@ -222,7 +222,7 @@ public class FuncionarioDao {
         try {
             connection = ConnectionUtils.getConnection();
             preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setString(1, "%" + nomeConsultado + "%");
+            preparedStatement.setString(1, "%" +nomeConsultado+ "%");
 
             result = preparedStatement.executeQuery();
            
@@ -230,7 +230,7 @@ public class FuncionarioDao {
 
                 Funcionario consultado = new Funcionario();
                 consultado.setId(result.getInt("id_funcionario"));
-                consultado.setDataDeCadastro(result.getTimestamp("datas"));
+                //consultado.setDataDeCadastro(result.getTimestamp("datas"));
                 consultado.setNome(result.getString("nome"));
                 consultado.setDepartamento(result.getInt("id_depar"));
                 consultado.setFilial(result.getInt("id_filial"));

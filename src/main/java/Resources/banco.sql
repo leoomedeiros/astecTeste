@@ -73,7 +73,7 @@ CREATE TABLE LOG_FUNCIONARIO (
     nm_tabela VARCHAR (255) NOT NULL,
     data_acao TIMESTAMP NOT NULL,
     qntd INT
-    --FOREIGN KEY (id_funcionario) REFERENCES FUNCIONARIO (id_funcionario)
+   --FOREIGN KEY (id_funcionario) REFERENCES FUNCIONARIO (id_funcionario)
 );
 
 CREATE TABLE FILIAL (

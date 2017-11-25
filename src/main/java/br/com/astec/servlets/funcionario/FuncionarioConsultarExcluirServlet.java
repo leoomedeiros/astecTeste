@@ -168,9 +168,24 @@ public class FuncionarioConsultarExcluirServlet extends HttpServlet {
                     Logger.getLogger(FuncionarioConsultarExcluirServlet.class.getName()).log(Level.SEVERE, null, e);
                 }
 
-            }
+            }else if (selectConsulta.equalsIgnoreCase("nome")) {
+               
+                try {
+                    listaFuncionarios = FuncionarioDao.consultarPorNome(inputConsulta);
+                    if (!listaFuncionarios.isEmpty()) {
+                        sessao.setAttribute("listaFuncionarios", listaFuncionarios);
+                        response.sendRedirect("telas/Funcionario/Consultar/respostaConsulta/respostaConsultar.jsp");
+                    } else {
+                        response.sendRedirect("telas/home/home.jsp");
+                    }
+
+                } catch (Exception e) {
+                    Logger.getLogger(FuncionarioConsultarExcluirServlet.class.getName()).log(Level.SEVERE, null, e);
+                }
 
         }
 
     }
 }
+}
+

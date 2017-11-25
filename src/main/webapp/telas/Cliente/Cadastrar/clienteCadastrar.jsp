@@ -66,10 +66,7 @@
                     <a>Produto</a>
 
                 </li>
-                <li type="visible">
-                    <a>Funcionário</a>
-
-                </li>
+                
                 <li type="visible">
                     <a>Cliente</a>
 
@@ -101,16 +98,7 @@
                 </li>
             </ul>
         </div>
-        <div id="subFuncionario" class="sub">
-            <ul class="submenu">
-                <li>
-                    <a href="../../Funcionario/Cadastrar/funcionarioCadastrar.jsp">Cadastrar Funcionário</a>
-                </li>
-                <li>
-                    <a href="../../Funcionario/Consultar/clienteConsultar.jsp">Consultar Funcionário</a>
-                </li>
-            </ul>
-        </div>
+        
         <div id="subCliente" class="sub">
             <ul class="submenu">
                 <li>
@@ -139,12 +127,12 @@
         </div>
 
         <div id="subUsuario" class="sub">
-            <ul class="submenu" >
+            <ul class="submenu">
                 <li>
-                    <a href="#">Cadastrar Usuário</a>
+                    <a href="../../Funcionario/Cadastrar/funcionarioCadastrar.jsp">Cadastrar Funcionário</a>
                 </li>
                 <li>
-                    <a href="#">Consultar Usuário</a>
+                    <a href="../../Funcionario/Consultar/clienteConsultar.jsp">Consultar Funcionário</a>
                 </li>
             </ul>
         </div>
