@@ -6,6 +6,7 @@
 package br.com.astec.model.entidades;
 
 import java.sql.Timestamp;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -15,19 +16,39 @@ public class Funcionario extends AbstractEntity{
     private Integer id;
     private Timestamp dataDeCadastro;
     private String nome;
-    private int departamento;
-    private int filial;
+    private String usuario;
+    private String departamento;
+    private String filial;
     private String cargo;
-    private String senha;
+    private String hashSenha;
 
-    public Funcionario(int SIZE, Timestamp sq, String nome, int iDepart, int iFilial, String cargo, String senha) {
-        this.id = SIZE;
-        this.dataDeCadastro = sq;
+    public Funcionario(Timestamp dataDeCadastro, String nome, String usuario, String departamento, String filial, String cargo, String hashSenha) {
+        
+        this.dataDeCadastro = dataDeCadastro;
         this.nome = nome;
-        this.departamento = iDepart;
-        this.filial = iFilial;
+        this.usuario = usuario;
+        this.departamento = departamento;
+        this.filial = filial;
         this.cargo = cargo;
-        this.senha = senha;
+        this.hashSenha = hashSenha;
+    }
+
+    public String getHashSenha() {
+        return hashSenha;
+    }
+
+    public void setHashSenha(String hashSenha) {
+        this.hashSenha = hashSenha;
+    }
+
+    
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     public Funcionario() {
@@ -58,19 +79,19 @@ public class Funcionario extends AbstractEntity{
         this.nome = nome;
     }
 
-    public int getDepartamento() {
+    public String getDepartamento() {
         return departamento;
     }
 
-    public void setDepartamento(int departamento) {
+    public void setDepartamento(String departamento) {
         this.departamento = departamento;
     }
     
-    public int getFilial(){
+    public String getFilial(){
         return filial;
     }
     
-    public void setFilial(int filial){
+    public void setFilial(String filial){
         this.filial = filial;
     }
 
@@ -82,11 +103,7 @@ public class Funcionario extends AbstractEntity{
         this.cargo = cargo;
     }
 
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public boolean verificarSenha(String senhaAberta) {
+        return BCrypt.checkpw(senhaAberta, hashSenha);
     }
 }

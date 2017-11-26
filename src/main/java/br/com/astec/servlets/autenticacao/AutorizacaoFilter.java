@@ -5,6 +5,7 @@
  */
 package br.com.astec.servlets.autenticacao;
 
+import br.com.astec.model.entidades.Funcionario;
 import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -43,15 +44,17 @@ public class AutorizacaoFilter implements Filter {
       // Usuario esta logado no sistema
       
       // Verificacao se usuario tem papel pra acessar funcionalidade
-      String paginaAcessada = httpRequest.getRequestURI();
-      String funcionalidade = paginaAcessada.replace(httpRequest.getContextPath(), "");
+      //String paginaAcessada = httpRequest.getRequestURI();
+      //String funcionalidade = paginaAcessada.replace(httpRequest.getContextPath(), "");
       
       UsuarioService service = new UsuarioService();
-      UsuarioSistema usuario = (UsuarioSistema) sessao.getAttribute("usuario");
-      if (service.usuarioAutorizado(usuario, funcionalidade)) {
-	 chain.doFilter(request, response); // Deixa a requisicao pelo filtro
+      Funcionario usuario = (Funcionario) sessao.getAttribute("usuario");
+      if (service.usuarioAutorizado(usuario)) {
+          httpResponse.sendRedirect(httpRequest.getContextPath() + "/telas/home/home.jsp");
+	 
+//chain.doFilter(request, response); // Deixa a requisicao pelo filtro
       } else {
-	httpResponse.sendRedirect(httpRequest.getContextPath() + "/erro-nao-autorizado.jsp");
+	httpResponse.sendRedirect(httpRequest.getContextPath() + "/telas/Produto/MensagemErro.jsp");
       }
     } else {
       // Usuario nao esta logado

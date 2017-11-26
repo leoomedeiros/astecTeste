@@ -12,74 +12,81 @@ import org.mindrot.jbcrypt.BCrypt;
  *
  * @author fernando.tsuda
  */
-public final class UsuarioSistema {
+/*public final class UsuarioSistema {
 
-  private String nomeCompleto;
+    private String filial, departamento, cargo;
 
-  private String username;
+    private String nomeCompleto;
 
-  private String hashSenha;
+    private String username;
 
-  private List<String> papeis;
+    private String hashSenha;
 
-  public UsuarioSistema() {
+    //private List<String> papeis;
+    public UsuarioSistema() {
 
-  }
+    }
 
-  public UsuarioSistema(String nomeCompleto, String username, String senha) {
-    this.nomeCompleto = nomeCompleto;
-    this.username = username;
-    setSenha(senha);
-  }
+    public UsuarioSistema(String filial, String departamento, String cargo, String nomeCompleto, 
+            String username, String hashSenha) {
+        this.filial = filial;
+        this.departamento = departamento;
+        this.cargo = cargo;
+        this.nomeCompleto = nomeCompleto;
+        this.username = username;
+        this.hashSenha = hashSenha;
+    }
 
-  public UsuarioSistema(String nomeCompleto, String username, String senha, List<String> papeis) {
-    this.nomeCompleto = nomeCompleto;
-    this.username = username;
-    setSenha(senha);
-    this.papeis = papeis;
-  }
+    public String getFilial() {
+        return filial;
+    }
 
-  public String getNomeCompleto() {
-    return nomeCompleto;
-  }
+    public void setFilial(String filial) {
+        this.filial = filial;
+    }
 
-  public void setNomeCompleto(String nomeCompleto) {
-    this.nomeCompleto = nomeCompleto;
-  }
+    public String getDepartamento() {
+        return departamento;
+    }
 
-  public String getUsername() {
-    return username;
-  }
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
+    }
 
-  public void setUsername(String username) {
-    this.username = username;
-  }
+    public String getCargo() {
+        return cargo;
+    }
 
-  public String getHashSenha() {
-    return hashSenha;
-  }
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
 
-  public void setHashSenha(String hashSenha) {
-    this.hashSenha = hashSenha;
-  }
+    public String getNomeCompleto() {
+        return nomeCompleto;
+    }
 
-  public void setSenha(String senhaAberta) {
-    this.hashSenha = BCrypt.hashpw(senhaAberta, BCrypt.gensalt());
-  }
+    public void setNomeCompleto(String nomeCompleto) {
+        this.nomeCompleto = nomeCompleto;
+    }
 
-  public List<String> getPapeis() {
-    return papeis;
-  }
+    public String getUsername() {
+        return username;
+    }
 
-  public void setPapeis(List<String> papeis) {
-    this.papeis = papeis;
-  }
-  
-  public boolean verificarSenha(String senhaAberta) {
-    return BCrypt.checkpw(senhaAberta, hashSenha);
-  }
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-  public boolean temPapel(String papel) {
-    return papeis.contains(papel);
-  }
-}
+    public String getHashSenha() {
+        return hashSenha;
+    }
+
+    public void setHashSenha(String hashSenha) {
+        this.hashSenha = hashSenha;
+    }
+
+    public boolean verificarSenha(String senhaAberta) {
+        return BCrypt.checkpw(senhaAberta, hashSenha);
+    }
+
+}*/

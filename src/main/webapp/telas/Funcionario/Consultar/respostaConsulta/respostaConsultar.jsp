@@ -53,6 +53,7 @@
                         <tr>
                             <th>Codigo:</th>
                             <th>Nome:</th>
+                            <th>Usuário:</th>
                             <th>Departamento:</th>
                             <th>Filial:</th>
                             <th>Cargo:</th>
@@ -62,6 +63,7 @@
                             <tr class="linhas">
                                 <td><c:out value="${listaFuncionarios.id}"/></td>
                                 <td><c:out value="${listaFuncionarios.nome}"/></td>
+                                <td><c:out value="${listaFuncionarios.usuario}"/></td>
                                 <td><c:out value="${listaFuncionarios.departamento}"/></td>
                                 <td><c:out value="${listaFuncionarios.filial}"/></td>
                                 <td><c:out value="${listaFuncionarios.cargo}"/></td>

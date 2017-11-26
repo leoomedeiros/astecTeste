@@ -1,0 +1,307 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 14/10/2017, 11:08:38
+    Author     : Fernando
+*/
+
+
+ul {
+    list-style-type:none;
+    margin: 0;
+    padding-left: 0px; 
+    font-family: "Arial",sans-serif;
+}
+ul.menu li:hover{
+    background: #febe10;
+    color: #0a1337;
+    transition: 250ms;
+}
+ul.menu li a:hover{
+    
+    color: #0a1337;
+    transition: 250ms;
+}
+
+.menu.principal {
+    background: #0a1337;
+    width:210px;
+    height:100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    padding: 8px;
+    
+    
+}
+
+.menu.principal a {
+    
+    color: white; /* Black text color */
+
+    border-top: 1px solid white;
+    text-align: left;
+    display: block; /* Make the links appear below each other */
+    padding: 12px; /* Add some padding */
+
+    text-decoration: none; /* Remove underline from links */
+}
+    /* info dos usuarios --------*/
+.imagemPerfil {
+    height: 65px;
+    width: 65px;
+    padding: 10px;
+    border-radius:50px;
+    left:10px;
+    
+}
+    
+.informacoes{
+    
+    position:absolute;
+    left:100px;
+    top: 40px;
+}
+h5{
+    color: white;
+    padding: 0px;
+    margin: 0px;
+    font-family: "Arial",sans-serif;
+}
+
+
+h6{
+    color: gray;
+    padding: 0px;
+    margin: 0px;
+    font-family: "Arial",sans-serif;
+
+}
+    /*-------------------------*/
+
+/* -------------------------*/
+
+/* sub Menus --------------------*/
+
+.sub {
+    visibility: hidden;
+    background: #febe10;
+    width:210px;
+    position: fixed;
+    
+}
+.sub .submenu a {
+    
+    color: #0a1337;     
+    border-top: 1px solid #0a1337;
+    border-bottom: 1px solid #0a1337;
+    text-align: left;
+    display: block; /* Make the links appear below each other */
+    padding: 12px; /* Add some padding */
+
+    text-decoration: none; /* Remove underline from links */
+}
+/*Sub menus fim -----------*/
+
+#subProduto {
+    position: fixed;
+    left: 226px;
+    top: 140px;
+    
+}
+#subCliente{    
+    position: fixed;
+    left: 226px;
+    top: 183px;
+}
+#subRelatorio{
+    
+    position: fixed;
+    left: 226px;
+    top: 269px;
+}
+#subUsuario {
+    position: fixed;
+    left: 226px;
+    top: 312px;
+}
+
+/* conteudo --------------*/
+
+#direito{    
+    position: absolute;
+    left: 240px;
+}
+
+#cabecalho{
+    width: 1000px;
+    background: #febe10;
+    
+    padding: 25px;
+    border-radius:10px;
+    box-shadow: 0px 2px 4px #000000;
+    
+
+}
+h1{
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+    font-family: "Arial",sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+.logo{
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+#conteudo{
+    align-items: center;
+    border: 2px solid #0a1337;
+    border-radius:10px;
+    width: 1000px;
+    height: 100%;
+    padding: 15px;
+    margin-top: 20px;
+}
+.divisoria{
+    
+    width: 400px;
+    padding-top: 25px; 
+    padding-left: 50px;
+    padding-right: 50px;
+    
+}
+h4{
+    margin: 0px;
+    padding-top: 10px; 
+    padding-bottom: 2px;
+    font-family: "Arial",sans-serif;
+}
+
+input{
+    
+    margin-bottom: 20px;
+    width: 350px;
+    font-family: "Arial",sans-serif;
+    height: 20px;
+    
+}
+select{
+    height:25px;
+    margin-bottom: 20px;
+    width: 350px;
+    font-family: "Arial",sans-serif;
+       
+}
+
+#contEsq{
+    float: left;
+    top: 0px;
+    left: 0px;
+}
+#contEsq input{
+    width: 450px;
+}
+#contDir{
+    float: right;
+    top: 0px;
+    right: 0px;
+}
+.botao{
+    background: gray;
+    border: 2px solid #3A3A3A;
+    color: white;
+    font-size: 18px;
+    text-shadow: 0px 2px 4px #000000;
+    border-radius: 15px;
+
+    width: 300px;
+    height: 40px;
+
+    padding: 5px;
+
+    font-weight: bold;
+
+}
+
+.botao:hover{
+    background: #febe10;
+    border: 2px solid #AC7B01;
+    transition: 250ms;
+}
+.botao:active{
+    
+    border: 2px solid #0a1337;
+    transition: 50ms;
+}
+.botao[name="buscar"]{
+    position: relative;
+    left: 0px;
+    right: 0px;
+    margin-left:350px;
+    margin-right: 350px;
+    
+}
+.boxBotoes{
+    position: relative;
+    float: right;
+    bottom: 60px;
+    
+    
+}
+hr{
+    width: 100%;
+    border: 0.5px solid #0a1337;
+}
+
+
+
+/* TABELA ---------------------*/
+table {
+    top: 200px;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    
+    
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+.divTabela{
+    height: 300px;
+    overflow: auto;
+}
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+tr:first-child{
+    background: #febe10;
+    border-top-right-radius: 50px; 
+    border-top-left-radius: 50px;
+    color: #0a1337;
+    
+    
+}
+tr:first-child th{
+    border-top: none;
+    border-bottom: none;
+
+}
+tr:first-child th:first-child{
+    
+    border-top-left-radius: 10px;
+    
+}
+tr:first-child th:last-child{
+    border-top-right-radius: 10px;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}

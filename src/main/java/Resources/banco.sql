@@ -74,6 +74,7 @@ datas TIMESTAMP NOT NULL,
 filial VARCHAR(255) not null,
 depar VARCHAR(255) not null,
 nome VARCHAR(255) NOT NULL,
+usuario VARCHAR(255) NOT NULL,
 cargo VARCHAR(50) NOT NULL,
 senha VARCHAR(20) NOT NULL,
 PRIMARY KEY (id_funcionario)

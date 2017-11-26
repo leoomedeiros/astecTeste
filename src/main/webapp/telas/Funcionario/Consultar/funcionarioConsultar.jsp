@@ -51,6 +51,7 @@
                         <tr>
                             <th>Codigo:</th>
                             <th>Nome:</th>
+                            <th>Usuário:</th>
                             <th>Departamento:</th>
                             <th>Filial:</th>
                             <th>Cargo:</th>

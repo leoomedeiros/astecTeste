@@ -5,7 +5,7 @@
  */
 package br.com.astec.servlets.funcionario;
 
-import br.com.astec.servlets.funcionario.*;
+
 import br.com.astec.model.dao.funcionario.FuncionarioDao;
 import br.com.astec.model.entidades.Funcionario;
 import br.com.astec.model.entidades.ValidarFuncionario;
@@ -78,15 +78,16 @@ public class FuncionarioConsultarExcluirServlet extends HttpServlet {
         if (request.getServletPath().equalsIgnoreCase("/FuncionarioAlteracaoSalvar")) {//esta path é o SEGUNDO direcionamento vindo do form.
 
             String nome = request.getParameter("nome");
+            String usuario = request.getParameter("usuario");
             String depart = request.getParameter("slcDepar");
-            int iDepart = Integer.parseInt(depart);
+            //int iDepart = Integer.parseInt(depart);
             String filial = request.getParameter("slcFilial");
-            int iFilial = Integer.parseInt(filial);
+            //int iFilial = Integer.parseInt(filial);
             String cargo = request.getParameter("cargo");
             String senha = request.getParameter("senha");
 
-            Funcionario novoFuncionario = new Funcionario(Integer.SIZE, sq, nome,
-                    iDepart, iFilial, cargo, senha);
+            Funcionario novoFuncionario = new Funcionario(sq, nome, usuario,
+                    depart, filial, cargo, senha);
 
             HttpSession sessao = request.getSession();
             sessao.setAttribute("FuncionarioAlterado", novoFuncionario);

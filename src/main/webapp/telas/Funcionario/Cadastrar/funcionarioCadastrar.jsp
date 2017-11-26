@@ -28,29 +28,34 @@
                 <form action="${pageContext.request.contextPath}/FuncionarioCadastrarServlet" method="post">  
                     <div id="contEsq" class="divisoria">
                         <h4>Nome completo:<br></h4>
-                        <input type="text" name="nome"><br>
+                        <input type="text" name="nome" value="Rafael da Silva Sauro"><br>
+                        
+                        <h4>Usuário:<br></h4>
+                        <input type="text" name="usuario" value="rafa"><br>
 
-                        <h4>Departamento:<br></h4>
+                        <h4>Departamento:</h4>
                         <select name="slcDepar">
-                            <option value="" disabled selected>Selecione uma filial</option>
-                            <option value="5">Funcionários da retaguarda</option>
-                            <option value="6">Equipe de vendedores</option>
-                            <option value="7">Equipe de suporte técnico</option>
-                        </select><br>
+                            <option value="diretoria">diretoria</option>
+                            <option value="gerencia">gerência</option>
+                            <option value="backoffice">backoffice</option>
+                            <option value="venda">venda</option>
+                            <option value="suporte">suporte</option>
+                        </select>
 
-                        <h4>Filial:<br></h4>
+                        <h4>Filial:</h4>
                         <select name="slcFilial">
-                            <option value="" disabled selected>Selecione uma filial</option>
-                            <option value="1">São Paulo</option>
-                            <option value="2">Recife</option>
-                            <option value="3">Porto Alegre</option>
-                        </select><br>
+                            
+                            <option value="Sao Paulo">São Paulo</option>
+                            <option value="Recife">Recife</option>
+                            <option value="Porto Alegre">Porto Alegre</option>
+                        </select>
 
                         <h4>Cargo:<br></h4>
-                        <input type="text" name="cargo" <br>
+                        <input type="text" name="cargo" value="admin" <br>
                         
                         <h4>Senha:<br></h4>
-                        <input type="password" name="senha" <br>
+                        <input type="password" name="senha" value="abc123"<br>
+                        
                     </div>
 
                     <input name="enviar" type="submit" value="Cadastrar">
@@ -60,8 +65,7 @@
             </div>
 
         </div>
-
-
+                    
         <div class="menu principal">
             <div class="usuario">
                 <div class="informacoes">

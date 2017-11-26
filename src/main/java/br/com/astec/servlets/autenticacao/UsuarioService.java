@@ -5,9 +5,9 @@
  */
 package br.com.astec.servlets.autenticacao;
 
-import java.util.Arrays;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import br.com.astec.model.dao.funcionario.FuncionarioDao;
+import br.com.astec.model.entidades.Funcionario;
+import java.sql.SQLException;
 
 /**
  *
@@ -15,44 +15,43 @@ import java.util.Map;
  */
 public class UsuarioService {
 
-  private static final Map<String, UsuarioSistema> USUARIOS_CADASTRADOS;
+    //private static final Map<String, UsuarioSistema> USUARIOS_CADASTRADOS;
 
-  static {
-    USUARIOS_CADASTRADOS
-	    = new LinkedHashMap<String, UsuarioSistema>();
-    USUARIOS_CADASTRADOS.put("rale",
-	    new UsuarioSistema("Ralé da Silva",
-		    "rale", "abcd1234", Arrays.asList("BASICO")));
-    USUARIOS_CADASTRADOS.put("fodinha",
-	    new UsuarioSistema("Fodinha de Souza",
-		    "fodinha", "abcd1234", Arrays.asList("BASICO", "ADMIN")));
-    USUARIOS_CADASTRADOS.put("fodao",
-	    new UsuarioSistema("Fodao di Caprio",
-		    "fodao", "abcd1234", Arrays.asList("BASICO", "ADMIN", "GOD")));
-  }
+    /*static {
+        USUARIOS_CADASTRADOS
+                = new LinkedHashMap<String, UsuarioSistema>();
+        USUARIOS_CADASTRADOS.put("rale",
+                new UsuarioSistema("Ralé da Silva",
+                        "rale", "abcd1234", Arrays.asList("BASICO")));
+        USUARIOS_CADASTRADOS.put("fodinha",
+                new UsuarioSistema("Fodinha de Souza",
+                        "fodinha", "abcd1234", Arrays.asList("BASICO", "ADMIN")));
+        USUARIOS_CADASTRADOS.put("fodao",
+                new UsuarioSistema("Fodao di Caprio",
+                        "fodao", "abcd1234", Arrays.asList("BASICO", "ADMIN", "GOD")));
+    }*/
+    public Funcionario autenticar(String username, String senha) throws SQLException, Exception {
+        Funcionario usuario = new Funcionario();
 
-  public UsuarioSistema autenticar(String username, String senha) {
-    // 1) Verifica se username existe
-    UsuarioSistema usuario = USUARIOS_CADASTRADOS.get(username);
-    if (usuario != null) {
-      // 2) Verifica se senha esta correta
-      if (senha != null && usuario.verificarSenha(senha)) {
-	return usuario;
-      }
+        try {
+                FuncionarioDao autenticar = new FuncionarioDao();
+                autenticar.loginFuncionario(username, senha);
+                return usuario;
+        } catch (Exception e) {
+            e.getMessage();
+        }
+
+        return null;
+        
     }
-    // Usuario nao existe ou senha esta incorreta
-    return null;
-  }
 
-  public boolean usuarioAutorizado(UsuarioSistema usuario,
-	  String funcionalidade) {
-    if ("/protegido/home".equals(funcionalidade)
-	    && usuario.temPapel("BASICO")) {
-      return true;
-    } else if ("/cadastro-produto".equals(funcionalidade)
-	    && usuario.temPapel("ADMIN")) {
-      return true;
+    public boolean usuarioAutorizado(Funcionario usuario){
+            //String funcionalidade) {
+        if (usuario.getDepartamento().equalsIgnoreCase("diretoria")){//temPapel("BASICO")) {
+            return true;
+        } //else if (usuario.getDepartamento().equalsIgnoreCase("diretoria")){//usuario.temPapel("ADMIN")) {
+            //return true;
+        //}
+        return false;
     }
-    return false;
-  }
 }

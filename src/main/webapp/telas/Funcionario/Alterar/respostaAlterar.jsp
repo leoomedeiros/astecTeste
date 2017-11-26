@@ -19,34 +19,39 @@
 
             </div>
 
-<!----------------------------------------------------------------------------->
-            
+            <!----------------------------------------------------------------------------->
+
             <div id="conteudo">
                 <form action="${pageContext.request.contextPath}/FuncionarioAlteracaoSalvar" method="post">  
                     <div id="contEsq" class="divisoria">
                         <h4>*Nome completo:<br></h4>
-                        <input type="text" name="nome" value=
-                               "${sessionScope.funcionarioConsultado.nome}"><br>
+                        <input type="text" name="nome" value="${sessionScope.FuncionarioConsultado.nome}"/><br>
+
+                        <h4>*Usuário:<br></h4>
+                        <input type="text" name="usuario" value="${sessionScope.FuncionarioConsultado.usuario}"/><br>
+
 
                         <h4>Departamento:<br></h4>
-                        <select name="slcDepar" >
-                            <option value="" disabled selected>Selecione uma filial</option>
-                            <option value="5">Funcionários da retaguarda</option>
-                            <option value="6">Equipe de vendedores</option>
-                            <option value="7">Equipe de suporte técnico</option>
-                        </select>
-                       <br>
+                        <select name="slcDepar" value="${sessionScope.FuncionarioConsultado.departamento}">
 
-                         <h4>Filial:<br></h4>
-                        <select name="slcFilial">
-                            <option value="" disabled selected>Selecione uma filial</option>
-                            <option value="1">São Paulo</option>
-                            <option value="2">Recife</option>
-                            <option value="3">Porto Alegre</option>
+                            <option value="diretoria">diretoria</option>
+                            <option value="gerencia">gerência</option>
+                            <option value="backoffice">backoffice</option>
+                            <option value="venda">venda</option>
+                            <option value="suporte">suporte técnico</option>
+                        </select>
+                        <br>
+
+                        <h4>Filial:<br></h4>
+                        <select name="slcFilial" value="${sessionScope.FuncionarioConsultado.filial}">
+
+                            <option value="Sao Paulo">São Paulo</option>
+                            <option value="Recife">Recife</option>
+                            <option value="Porto Alegre">Porto Alegre</option>
                         </select><br>
 
                         <h4>Cargo:<br></h4>
-                        <input type="text" name="cargo" value="${sessionScope.funcionarioConsultado.cargo}" /> <br>
+                        <input type="text" name="cargo" value="${sessionScope.FuncionarioConsultado.cargo}" /> <br>
                     </div>
 
                     <input name="enviar" type="submit" value="Alterar">
@@ -55,9 +60,9 @@
                 </form>
             </div>
 
-<!----------------------------------------------------------------------------->
-            
-           
+            <!----------------------------------------------------------------------------->
+
+
         </div>
 
 
@@ -78,7 +83,7 @@
                     <a>Produto</a>
 
                 </li>
-                
+
                 <li type="visible">
                     <a>Cliente</a>
 
@@ -111,7 +116,7 @@
             </ul>
         </div>
 
-        
+
         <div id="subCliente" class="sub">
             <ul class="submenu">
                 <li>
@@ -139,7 +144,7 @@
 
         <div id="subUsuario" class="sub">
             <ul class="submenu" >
-                  <li>
+                <li>
                     <a href="../../Funcionario/Cadastrar/funcionarioCadastrar.jsp">Cadastrar Funcionário</a>
                 </li>
                 <li>

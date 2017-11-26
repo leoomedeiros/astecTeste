@@ -58,15 +58,16 @@ public class FuncionarioCadastrarServlet extends HttpServlet {
 
     
         String nome = request.getParameter("nome");
+        String usuario = request.getParameter("usuario");
         String depart = request.getParameter("slcDepar");
-        int iDepart = Integer.parseInt(depart);
+        //int iDepart = Integer.parseInt(depart);
         String filial = request.getParameter("slcFilial");
-        int iFilial = Integer.parseInt(filial);
+        //int iFilial = Integer.parseInt(filial);
         String cargo = request.getParameter("cargo");
         String senha = request.getParameter("senha");
 
-        Funcionario novoFuncionario = new Funcionario(Integer.SIZE, sq, nome, 
-                iDepart, iFilial, cargo, senha);
+        Funcionario novoFuncionario = new Funcionario(sq, nome, usuario, depart, 
+                filial, cargo, senha);
 
         HttpSession sessao = request.getSession();
         sessao.setAttribute("novoFuncionario", novoFuncionario);

@@ -19,7 +19,7 @@
             </div>
             <div id="conteudo">
 
-                <h2>Funcionário "<c:out value="${sessionScope.funcionarioConsultado.nome}" />" alterado com sucesso.</h2>
+                <h2>Funcionário "<c:out value="${sessionScope.FuncionarioConsultado.nome}" />" alterado com sucesso.</h2>
                 <a id="ok" href="../Consultar/funcionarioConsultar.jsp">Voltar</a>
                 </div>
 
@@ -42,11 +42,6 @@
                 <li type="visible">
                     <a>Produto</a>
 
-                </li>
-                <li type="visible">
-                    <a>Funcionário</a>
-
-                </li>
                 <li type="visible">
                     <a>Cliente</a>
 
