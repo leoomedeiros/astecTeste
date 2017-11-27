@@ -16,108 +16,116 @@
         <script src="programa.js" type="text/javascript" rel="javascript"></script>
     </head>
     <body>
-        
+
         <div id="direito">
             <div id="cabecalho">
                 <img class="logo" src="http://i65.tinypic.com/2uenpch.png"/>
                 <h1>Home:</h1>
-                    
-                
+
+
             </div>
-            
+
             <div id="conteudo">
-                
+
             </div>
 
         </div>
-        
+
 
         <div class="menu principal">
             <div class="usuario">
                 <div class="informacoes">
-                    <h5><c:import url="/WEB-INF/cabecalho.jsp" /></h5>
+                    <h5>Nome do Usuario</h5>
                     <h6>Cargo do Usuario</h6>
                 </div>
                 <img class="imagemPerfil" src="http://i63.tinypic.com/2zspjlh.jpg"/>
             </div>
-             
+
             <ul class="menu">
                 <li type="visible">
                     <a href="perfilDiretoria.jsp">Home</a>
                 </li>
                 <li type="visible">
-                    <a style="color:gray">Produto</a>
-                      
+                    <a >Produto</a>
+
                 </li>
                 <li type="visible" >
-                    <a style="color:gray">Cliente</a>
-                    
+                    <a >Cliente</a>
+
                 </li>
                 <li type="visible" >
-                    <a style="color:gray">Venda</a>                    
+                    <a >Venda</a>                    
                 </li>
                 <li type="visible" >
                     <a>Relatórios</a>
-                    
+
                 </li>
                 <li type="visible">
-                    <a style="color:gray">Usuários</a>
-                    
+                    <a >Usuários</a>
+
                 </li>
                 <li type="visible">
                     <a href="/logout">Sair</a>
-                </li>  
+                    <input id="perfil" value="diretoria" style="color:red" hidden/>
+                </li>
+
+
+
             </ul>
+
+
         </div>
+
+
 
         <div id="subProduto" class="sub">
             <ul class="submenu">
-                    <li>
-                        <a href="../Produto/Cadastrar/produtoCadastrar.jsp">Cadastrar Produto</a>
-                    </li>
-                    <li>
-                        <a href="../Produto/ConsultarExcluir/produtoConsultarExcluir.jsp">Consultar Produto</a>
-                    </li>
+                <li>
+                    <a href="../Produto/Cadastrar/produtoCadastrar.jsp">Cadastrar Produto</a>
+                </li>
+                <li>
+                    <a href="../Produto/ConsultarExcluir/produtoConsultarExcluir.jsp">Consultar Produto</a>
+                </li>
             </ul>
         </div>
 
         <div id="subCliente" class="sub">
             <ul class="submenu">
-                    <li>
-                        <a href="../Cliente/Cadastrar/clienteCadastrar.jsp">Cadastrar Cliente</a>
-                    </li>
-                    <li>
-                        <a href="../Cliente/Consultar/clienteConsultar.jsp">Consultar Cliente</a>
-                    </li>
+                <li>
+                    <a href="../Cliente/Cadastrar/clienteCadastrar.jsp">Cadastrar Cliente</a>
+                </li>
+                <li>
+                    <a href="../Cliente/Consultar/clienteConsultar.jsp">Consultar Cliente</a>
+                </li>
             </ul>
-            </div>
+        </div>
 
-            <div id="subRelatorio" class="sub">
-                <ul class="submenu">
-                        <li id="relProduto" type="hidden">
-                            <a href="../../Relatorio/relatorioProduto_falta/relatorioProduto.jsp">Relatório de Produto</a>
-                        </li>
-                        <li id="relVenda" type="hidden">
-                            <a href="/../Relatorio/RelatorioVenda/relatorioVenda.jsp">Relatório de Venda</a>
-                        </li>
-                        <li id="relLog" type="hidden">
-                            <a href="RelatorioLog_falta/relatorioLog.jsp">Relatório de Log</a>
-                        </li>
-                </ul>
-            </div>
+        <div id="subRelatorio" class="sub">
+            <ul class="submenu">
+                <li id="relProduto" type="hidden">
+                    <a href="../../Relatorio/relatorioProduto_falta/relatorioProduto.jsp">Relatório de Produto</a>
+                </li>
+                <li id="relVenda" type="hidden">
+                    <a href="/../Relatorio/RelatorioVenda/relatorioVenda.jsp">Relatório de Venda</a>
+                </li>
+                <li id="relLog" type="hidden">
+                    <a href="RelatorioLog_falta/relatorioLog.jsp">Relatório de Log</a>
+                </li>
+            </ul>
+        </div>
 
-            <div id="subUsuario" class="sub">
-                 <ul class="submenu">
-                    <li>
-                        <a href="../Funcionario/Cadastrar/funcionarioCadastrar.jsp">Cadastrar Usuário</a>
-                    </li>
-                    <li>
-                        <a href="../Funcionario/Consultar/funcionarioConsultar.jsp">Consultar Usuário</a>
-                    </li>
-                </ul>
-            </div>
+        <div id="subUsuario" class="sub">
+            <ul class="submenu">
+                <li>
+                    <a href="../Funcionario/Cadastrar/funcionarioCadastrar.jsp">Cadastrar Usuário</a>
+                </li>
+                <li>
+                    <a href="../Funcionario/Consultar/funcionarioConsultar.jsp">Consultar Usuário</a>
+                </li>
+            </ul>
+        </div>
+
+
         
-
-               
     </body>
 </html>

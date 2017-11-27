@@ -1,50 +1,68 @@
 //Sub menus ------
 /*
-let subCliente = document.querySelector("#subCliente");
-let subRelatorio = document.querySelector("#subRelatorio");
-let subUsuario = document.querySelector("#subUsuario");
-console.log('ae porra chamou 2');
-*/
- function iniciar() {
+ let subCliente = document.querySelector("#subCliente");
+ let subRelatorio = document.querySelector("#subRelatorio");
+ let subUsuario = document.querySelector("#subUsuario");
+ console.log('ae porra chamou 2');
+ */
+
+
+//funções dos menus
+
+function iniciar() {
+
+    let perfil = document.querySelector("#perfil").value;
+    let resultado = perfil.localeCompare("diretoria");
+    if (resultado === 0) {
+        let relatorio = document.querySelector(".menu li:nth-child(5)");
+        relatorio.addEventListener("click", subRel);
+    }
+
+    let produto = document.querySelector(".menu li:nth-child(2) a");
+    produto.style.color="gray";
+
+    let cliente = document.querySelector(".menu li:nth-child(3) a");
+    cliente.style.color="gray";
     
-    let ladoDireito= document.querySelector("#direito");
-    ladoDireito.addEventListener("click",esconder);
-
-    let relatorio = document.querySelector(".menu li:nth-child(5)");
-    relatorio.addEventListener("click", subRel);
-
+    let venda = document.querySelector(".menu li:nth-child(4) a");
+    venda.style.color="gray";
+       
+    let usuario = document.querySelector(".menu li:nth-child(6) a");
+    usuario.style.color="gray";
 }
 
-function subPro (){
+//funções dos submenus
+function subPro() {
     esconder();
     let subProduto = document.querySelector("#subProduto");
-    subProduto.style.visibility="visible";
+    subProduto.style.visibility = "visible";
 }
 
-function subCli (){
+function subCli() {
     esconder();
     let subCliente = document.querySelector("#subCliente");
-    subCliente.style.visibility="visible";
-}
-    
-function subUsu (){
-    esconder();
-    let subUsuario = document.querySelector("#subUsuario");
-    subUsuario.style.visibility="visible";
+    subCliente.style.visibility = "visible";
 }
 
-function subRel (){
+function subRel() {
     esconder();
     let subRelatorio = document.querySelector("#subRelatorio");
-    subRelatorio.style.visibility="visible";
+    subRelatorio.style.visibility = "visible";
 }
 
+function subUsu() {
+    esconder();
+    let subUsuario = document.querySelector("#subUsuario");
+    subUsuario.style.visibility = "visible";
+}
 
-function esconder (){
+function esconder() {
     let submenus = document.querySelectorAll("div.sub");
-    for (let i=0;i<submenus.length;i++){
-        submenus[i].style.visibility="hidden";
+    for (let i = 0; i < submenus.length; i++) {
+        submenus[i].style.visibility = "hidden";
     }
 }
+
+
 
 window.addEventListener("load", iniciar);
