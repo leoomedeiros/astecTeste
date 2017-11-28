@@ -1,21 +1,20 @@
-//funções dos menus
-
+// está funcionando para logar usuário.
 function iniciar() {
 
     let perfil = document.querySelector('#perfil').value;
     if (perfil.localeCompare('diretoria') === 0) {
-        let relatorio = document.querySelector(".menu li:nth-child(5)");
-        relatorio.addEventListener("click", subRel);
+        diretoria();
     }
+}
 
+function diretoria() {
+    let relatorio = document.querySelector(".menu li:nth-child(5)");
+    relatorio.addEventListener("click", subRel);
+    
     let produto = document.querySelector(".menu li:nth-child(2) a");
-
     let cliente = document.querySelector(".menu li:nth-child(3) a");
-
     let venda = document.querySelector(".menu li:nth-child(4) a");
-
     let usuario = document.querySelector(".menu li:nth-child(6) a");
-
 
     let outrosMenus = [produto, cliente, venda, usuario];
     for (let element of outrosMenus) {

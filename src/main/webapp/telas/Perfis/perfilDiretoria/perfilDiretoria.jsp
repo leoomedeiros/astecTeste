@@ -16,10 +16,6 @@
         <script src="programa.js" rel="javascript" type="text/javascript" ></script>
     </head>
     <body>
-        <c:if test="${not empty msgErro}">
-            <h2><alert value="${msgErro}" /></h2>
-        </c:if>
-
         <div id="direito">
             <div id="cabecalho">
                 <img class="logo" src="http://i65.tinypic.com/2uenpch.png"/>

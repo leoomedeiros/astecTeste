@@ -1,20 +1,11 @@
-//Sub menus ------
-/*
-let subCliente = document.querySelector("#subCliente");
-let subRelatorio = document.querySelector("#subRelatorio");
-let subUsuario = document.querySelector("#subUsuario");
-console.log('ae porra chamou 2');
-*/
+
  function iniciar() {
     
     let ladoDireito= document.querySelector("#direito");
     ladoDireito.addEventListener("click",esconder);
 
-
     let produto = document.querySelector(".menu li:nth-child(2)");
     produto.addEventListener("click",subPro);
-
-
 
     let cliente = document.querySelector(".menu li:nth-child(3)");
     cliente.addEventListener("click", subCli);

@@ -76,6 +76,7 @@ public class LoginServlet extends HttpServlet {
                                 getDepartamento());
                         if (sessao.getAttribute("usuario") != null) {
                             response.sendRedirect("telas/Perfis/perfilDiretoria/perfilDiretoria.jsp");
+                            //response.sendRedirect("telas/home/home.jsp");
                         }
 
                     }
