@@ -8,15 +8,7 @@
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/telas/estilo.css">
     </head>
     <body>
-        <div>
-            <h1></h1>
-            <c:if test="${not empty msgErro}">
-                <h2><c:out value="${msgErro}" /></h2>
-            </c:if>
-            <c:if test="${not empty msgLogout}">
-                <h2><c:out value="${msgLogout}" /></h2>
-            </c:if>
-        </div>
+        
 
             <div id="log">
                 <img src="${pageContext.request.contextPath}/telas/logo.png" id="logo" />
@@ -29,7 +21,7 @@
                     <input type="password" id="txtSenha" name="senha"/>
                     <p/>
                     <input type="submit" id="inpSubmit" />
-                    <!--<a href="#">Esqueceu a senha?</a>-->
+                    
                 </form>
             </div>
             <h1></h1>

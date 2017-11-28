@@ -12,10 +12,13 @@
         <title>Home</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="estiloPi.css" rel="stylesheet" type="text/css">
-        <script src="programa.js" type="text/javascript" rel="javascript"></script>
+        <link href="estiloPi.css" rel="stylesheet" type="text/css"/>
+        <script src="programa.js" rel="javascript" type="text/javascript" ></script>
     </head>
     <body>
+        <c:if test="${not empty msgErro}">
+            <h2><alert value="${msgErro}" /></h2>
+        </c:if>
 
         <div id="direito">
             <div id="cabecalho">
@@ -65,8 +68,8 @@
 
                 </li>
                 <li type="visible">
-                    <a href="/logout">Sair</a>
-                    <input id="perfil" value="diretoria" style="color:red" hidden/>
+                    <a href="${pageContext.request.contextPath}/logout">Sair</a>
+                    <input id="perfil" hidden value="<c:out value="${usuario}"/>">
                 </li>
 
 
@@ -126,6 +129,6 @@
         </div>
 
 
-        
+
     </body>
 </html>

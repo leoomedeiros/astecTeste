@@ -1,34 +1,27 @@
-//Sub menus ------
-/*
- let subCliente = document.querySelector("#subCliente");
- let subRelatorio = document.querySelector("#subRelatorio");
- let subUsuario = document.querySelector("#subUsuario");
- console.log('ae porra chamou 2');
- */
-
-
 //funções dos menus
 
 function iniciar() {
 
-    let perfil = document.querySelector("#perfil").value;
-    let resultado = perfil.localeCompare("diretoria");
-    if (resultado === 0) {
+    let perfil = document.querySelector('#perfil').value;
+    if (perfil.localeCompare('diretoria') === 0) {
         let relatorio = document.querySelector(".menu li:nth-child(5)");
         relatorio.addEventListener("click", subRel);
     }
 
     let produto = document.querySelector(".menu li:nth-child(2) a");
-    produto.style.color="gray";
 
     let cliente = document.querySelector(".menu li:nth-child(3) a");
-    cliente.style.color="gray";
-    
+
     let venda = document.querySelector(".menu li:nth-child(4) a");
-    venda.style.color="gray";
-       
+
     let usuario = document.querySelector(".menu li:nth-child(6) a");
-    usuario.style.color="gray";
+
+
+    let outrosMenus = [produto, cliente, venda, usuario];
+    for (let element of outrosMenus) {
+        element.style.color = "gray";
+        console.log(element);
+    }
 }
 
 //funções dos submenus
@@ -62,7 +55,5 @@ function esconder() {
         submenus[i].style.visibility = "hidden";
     }
 }
-
-
 
 window.addEventListener("load", iniciar);

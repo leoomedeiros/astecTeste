@@ -28,8 +28,8 @@ public class LogoutServlet extends HttpServlet {
     sessao.invalidate(); // Invalida a sessao atual
     
     // Cria uma nova sessao para mostrar mensagem para usuario
-    sessao = request.getSession(true);
-    sessao.setAttribute("msgLogout", "Voce saiu do sistema");
+    request.getSession(true);
+    //sessao.setAttribute("msgLogout", "Voce saiu do sistema");
     response.sendRedirect(request.getContextPath() + "/login");
   }
 

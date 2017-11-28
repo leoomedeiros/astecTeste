@@ -41,71 +41,54 @@ public class LoginServlet extends HttpServlet {
 
         // Usuario nao logado
         // Antes verifica se tem msg do logout na sessao
-        String msgLogout = (String) sessao.getAttribute("msgLogout");
-        sessao.removeAttribute("msgLogout");
-        if (msgLogout != null) {
-            request.setAttribute("msgLogout", msgLogout);
+        String msgErro = (String) sessao.getAttribute("msgErro");
+        //sessao.removeAttribute("msgErro");
+        if (msgErro != null) {
+            request.setAttribute("msgErro", msgErro);
         }
 
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/WEB-INF/login.jsp");
         dispatcher.forward(request, response);
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp sq = new java.sql.Timestamp(utilDate.getTime());
-
         String username = request.getParameter("usuario");
         String senha = request.getParameter("senha");
 
-        //UsuarioService service = new UsuarioService();
-        //Funcionario usuario = new Funcionario();
-        //String nome = usuario.getNome();
-        //String departamento = usuario.getDepartamento();
-        //String filial = usuario.getFilial();
-        //String cargo = usuario.getCargo();
-        //Funcionario novoUsuario = new Funcionario(sq, nome, username, departamento, 
-        //      filial, cargo, senha);
+        HttpSession sessao = request.getSession();
+
         try {
             FuncionarioDao autenticar = new FuncionarioDao();
             List retornoLogin = autenticar.loginFuncionario(username, senha);
 
             for (int i = 0; i < retornoLogin.size(); i++) {
                 if (autenticar.loginFuncionario(username, senha).get(i).
-                        getDepartamento().equalsIgnoreCase("diretoria")){
+                        getDepartamento().equalsIgnoreCase("diretoria")) {
                     if (autenticar.loginFuncionario(username, senha).get(i).
-                            getUsuario().equalsIgnoreCase(username) && 
-                            autenticar.loginFuncionario(username, senha).get(i).
-                                    getHashSenha().equals(senha)){
-                        HttpSession sessao = request.getSession();
-                        sessao.setAttribute("usuario", retornoLogin);
-                        response.sendRedirect("telas/Perfis/perfilDiretoria/perfilDiretoria.jsp");
+                            getUsuario().equalsIgnoreCase(username)
+                            && autenticar.loginFuncionario(username, senha).get(i).
+                                    getHashSenha().equals(senha)) {
+                        sessao.setAttribute("usuario", autenticar.loginFuncionario(username, senha).get(i).
+                                getDepartamento());
+                        if (sessao.getAttribute("usuario") != null) {
+                            response.sendRedirect("telas/Perfis/perfilDiretoria/perfilDiretoria.jsp");
+                        }
+
                     }
                 }
+
             }
-            response.sendRedirect("telas/Funcionario/Erro/erroFuncionario.jsp");
+            sessao.setAttribute("msgErro", "Usuário ou senha inválidos");
+            response.sendRedirect("telas/loginInvalido.jsp");
 
         } catch (Exception ex) {
             Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        /*if (novoUsuario.getUsuario().equals(username)
-                && novoUsuario.getHashSenha().equals(senha)) {
-            // Sucesso - usuario autenticado
-            HttpSession sessao = request.getSession();
-            sessao.setAttribute("usuario", usuario);
-            response.sendRedirect(request.getContextPath()
-                    + "/protegido/home");
-        } else {
-            // Erro - reapresenta tela de login
-            request.setAttribute("msgErro", "Erro no login");
-            RequestDispatcher dispatcher
-                    = request.getRequestDispatcher("/WEB-INF/login.jsp");
-            dispatcher.forward(request, response);
-        }*/
     }
 
 }
