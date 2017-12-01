@@ -35,7 +35,7 @@
         <div class="menu principal">
             <div class="usuario">
                 <div class="informacoes">
-                    <h5><c:import url="/WEB-INF/cabecalho.jsp" /></h5>
+                    <h5>Nome do Usuario</h5>
                     <h6>Cargo do Usuario</h6>
                 </div>
                 <img class="imagemPerfil" src="http://i63.tinypic.com/2zspjlh.jpg"/>

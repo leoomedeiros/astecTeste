@@ -9,7 +9,7 @@
 <!DOCTYPE html do PI>
 <html>
     <head>
-        <title>Perfil Diretoria</title>
+        <title>Perfil Gerencia</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="estiloPi.css" rel="stylesheet" type="text/css"/>
@@ -19,7 +19,7 @@
         <div id="direito">
             <div id="cabecalho">
                 <img class="logo" src="http://i65.tinypic.com/2uenpch.png"/>
-                <h1>Perfil Diretoria</h1>
+                <h1>Peril Gerencia</h1>
 
 
             </div>
@@ -42,7 +42,7 @@
 
             <ul class="menu">
                 <li type="visible">
-                    <a href="perfilDiretoria.jsp">Home</a>
+                    <a href="perfilGerencia.jsp">Home</a>
                 </li>
                 <li type="visible">
                     <a >Produto</a>

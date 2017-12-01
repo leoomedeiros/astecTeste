@@ -76,10 +76,38 @@ public class LoginServlet extends HttpServlet {
                                 getDepartamento());
                         if (sessao.getAttribute("usuario") != null) {
                             response.sendRedirect("telas/Perfis/perfilDiretoria/perfilDiretoria.jsp");
-                            //response.sendRedirect("telas/home/home.jsp");
                         }
 
                     }
+
+                } else if (autenticar.loginFuncionario(username, senha).get(i).
+                        getDepartamento().equalsIgnoreCase("gerencia")) {
+                    if (autenticar.loginFuncionario(username, senha).get(i).
+                            getUsuario().equalsIgnoreCase(username)
+                            && autenticar.loginFuncionario(username, senha).get(i).
+                                    getHashSenha().equals(senha)) {
+                        sessao.setAttribute("usuario", autenticar.loginFuncionario(username, senha).get(i).
+                                getDepartamento());
+                        if (sessao.getAttribute("usuario") != null) {
+                            response.sendRedirect("telas/Perfis/perfilGerencia/perfilGerencia.jsp");
+                        }
+
+                    }
+
+                } else if (autenticar.loginFuncionario(username, senha).get(i).
+                        getDepartamento().equalsIgnoreCase("backoffice")) {
+                    if (autenticar.loginFuncionario(username, senha).get(i).
+                            getUsuario().equalsIgnoreCase(username)
+                            && autenticar.loginFuncionario(username, senha).get(i).
+                                    getHashSenha().equals(senha)) {
+                        sessao.setAttribute("usuario", autenticar.loginFuncionario(username, senha).get(i).
+                                getDepartamento());
+                        if (sessao.getAttribute("usuario") != null) {
+                            response.sendRedirect("telas/Perfis/perfilBackoffice/perfilBackoffice.jsp");
+                        }
+
+                    }
+
                 }
 
             }
