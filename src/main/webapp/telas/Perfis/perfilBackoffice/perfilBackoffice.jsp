@@ -80,10 +80,10 @@
         <div id="subProduto" class="sub">
             <ul class="submenu">
                 <li>
-                    <a href="../Produto/Cadastrar/produtoCadastrar.jsp">Cadastrar Produto</a>
+                    <a href="../../Produto/Cadastrar/produtoCadastrar.jsp">Cadastrar Produto</a>
                 </li>
                 <li>
-                    <a href="../Produto/ConsultarExcluir/produtoConsultarExcluir.jsp">Consultar Produto</a>
+                    <a href="../../Produto/ConsultarExcluir/produtoConsultarExcluir.jsp">Consultar Produto</a>
                 </li>
             </ul>
         </div>
@@ -91,10 +91,10 @@
         <div id="subCliente" class="sub">
             <ul class="submenu">
                 <li>
-                    <a href="../Cliente/Cadastrar/clienteCadastrar.jsp">Cadastrar Cliente</a>
+                    <a href="../../Cliente/Cadastrar/clienteCadastrar.jsp">Cadastrar Cliente</a>
                 </li>
                 <li>
-                    <a href="../Cliente/Consultar/clienteConsultar.jsp">Consultar Cliente</a>
+                    <a href="../../Cliente/Consultar/clienteConsultar.jsp">Consultar Cliente</a>
                 </li>
             </ul>
         </div>
@@ -105,10 +105,10 @@
                     <a href="../../Relatorio/relatorioProduto_falta/relatorioProduto.jsp">Relatório de Produto</a>
                 </li>
                 <li id="relVenda" type="hidden">
-                    <a href="/../Relatorio/RelatorioVenda/relatorioVenda.jsp">Relatório de Venda</a>
+                    <a href="../../Relatorio/RelatorioVenda/relatorioVenda.jsp">Relatório de Venda</a>
                 </li>
                 <li id="relLog" type="hidden">
-                    <a href="RelatorioLog_falta/relatorioLog.jsp">Relatório de Log</a>
+                    <a href="../../RelatorioLog_falta/relatorioLog.jsp">Relatório de Log</a>
                 </li>
             </ul>
         </div>
@@ -116,10 +116,10 @@
         <div id="subUsuario" class="sub">
             <ul class="submenu">
                 <li>
-                    <a href="../Funcionario/Cadastrar/funcionarioCadastrar.jsp">Cadastrar Usuário</a>
+                    <a href="../../Funcionario/Cadastrar/funcionarioCadastrar.jsp">Cadastrar Usuário</a>
                 </li>
                 <li>
-                    <a href="../Funcionario/Consultar/funcionarioConsultar.jsp">Consultar Usuário</a>
+                    <a href="../../Funcionario/Consultar/funcionarioConsultar.jsp">Consultar Usuário</a>
                 </li>
             </ul>
         </div>

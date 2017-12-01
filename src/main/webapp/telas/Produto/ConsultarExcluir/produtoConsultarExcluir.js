@@ -1,20 +1,42 @@
-//Sub menus ------
-/*
-let subCliente = document.querySelector("#subCliente");
-let subRelatorio = document.querySelector("#subRelatorio");
-let subUsuario = document.querySelector("#subUsuario");
-console.log('ae porra chamou 2');
-*/
+// está funcionando para logar usuário.
 function iniciar() {
+
+    let perfil = document.querySelector('#perfil').value;
+    if (perfil.localeCompare('diretoria') === 0) {
+        diretoria();
+    } else if (perfil.localeCompare('gerencia') === 0){
+        gerencia();
+    } else if (perfil.localeCompare('backoffice') === 0){
+        backoffice();
+    }
+}
+
+function diretoria() {
+	let ladoDireito= document.querySelector("#direito");
+    ladoDireito.addEventListener("click",esconder);
+	
+    let relatorio = document.querySelector(".menu li:nth-child(5)");
+    relatorio.addEventListener("click", subRel);
+    
+    let produto = document.querySelector(".menu li:nth-child(2) a");
+    let cliente = document.querySelector(".menu li:nth-child(3) a");
+    let venda = document.querySelector(".menu li:nth-child(4) a");
+    let usuario = document.querySelector(".menu li:nth-child(6) a");
+
+    let outrosMenus = [produto, cliente, venda, usuario];
+    for (let element of outrosMenus) {
+        element.style.color = "gray";
+        console.log(element);
+    }
+}
+
+function gerencia() {
     
     let ladoDireito= document.querySelector("#direito");
     ladoDireito.addEventListener("click",esconder);
 
-
     let produto = document.querySelector(".menu li:nth-child(2)");
     produto.addEventListener("click",subPro);
-
-
 
     let cliente = document.querySelector(".menu li:nth-child(3)");
     cliente.addEventListener("click", subCli);
@@ -25,6 +47,35 @@ function iniciar() {
     let usuario = document.querySelector(".menu li:nth-child(6)");
     usuario.addEventListener("click", subUsu);
     
+}
+
+function backoffice() {
+
+    let ladoDireito = document.querySelector("#direito");
+    ladoDireito.addEventListener("click", esconder);
+
+    let produto = document.querySelector(".menu li:nth-child(2)");
+    produto.addEventListener("click", subPro);
+
+    let relatorio = document.querySelector(".menu li:nth-child(5)");
+    relatorio.addEventListener("click", subRel);
+
+    anularBackoffice();
+
+}
+
+function anularBackoffice() {
+    let cliente = document.querySelector(".menu li:nth-child(3) a");
+
+    let venda = document.querySelector(".menu li:nth-child(4) a");
+
+    let usuario = document.querySelector(".menu li:nth-child(6) a");
+
+    let outrosMenus = [cliente, usuario, venda];
+    for (let element of outrosMenus) {
+        element.style.color = "gray";
+        console.log(element);
+    }
 }
 
 function subPro (){
