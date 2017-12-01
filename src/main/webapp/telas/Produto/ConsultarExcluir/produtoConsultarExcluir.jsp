@@ -20,48 +20,48 @@
             <div id="cabecalho">
                 <img class="logo" src="http://i65.tinypic.com/2uenpch.png"/>
                 <h1>Consulta de Produto:</h1>
-                    
-                
+
+
             </div>
-            
+
             <div id="conteudo">
                 <form class="pesquisa" action="${pageContext.request.contextPath}/ProdutoConsultarExcluirServletConsulta" method="post">  
                     <div id="contEsq" class="divisoria">
                         <h4><br></h4>
                         <input type="text" name="nomeProduto" placeholder="Digite aqui o que deseja buscar..."><br>
 
-                        
+
                     </div>
 
                     <div id="contDir" class="divisoria">
                         <h4>Pesquisar Por:</h4>    
                         <select name="selectConsulta" >
-                            
+
                             <option value="nome">Nome</option>
                             <option value="todos">Todos</option>
-                            
-                            
+
+
                         </select>
-                            
+
                     </div>
-                    
+
                     <input class="botao" name="buscar" type="submit" value="Buscar">
                 </form>
                 <div class="divTabela">
-                        <table>
-                                <tr>
-                                    <th>Codigo:</th>
-                                    <th>Nome:</th>
-                                    <th>Categoria:</th>
-                                    <th>Cor:</th>
-                                    <th>Tamanho:</th>
-                                    <th>Quantidade:</th>
-                                    <th>Descrição:</th>
-                                    <th>Preço:</th>
-                                </tr>
-                                
-                            </table>
-                                
+                    <table>
+                        <tr>
+                            <th>Codigo:</th>
+                            <th>Nome:</th>
+                            <th>Categoria:</th>
+                            <th>Cor:</th>
+                            <th>Tamanho:</th>
+                            <th>Quantidade:</th>
+                            <th>Descrição:</th>
+                            <th>Preço:</th>
+                        </tr>
+
+                    </table>
+
                 </div>
 
                 <hr>
@@ -80,11 +80,11 @@
                         <input class="botao" name="excluir" type="submit" value="Excluir Produto">
                     </div>
                 </form>
-            
+
             </div>
 
         </div>
-        
+
 
         <div class="menu principal">
             <div class="usuario">
@@ -94,44 +94,45 @@
                 </div>
                 <img class="imagemPerfil" src="http://i63.tinypic.com/2zspjlh.jpg"/>
             </div>
-             
+
             <ul class="menu">
                 <li type="visible">
-                    <a href="../../home/home.jsp">Home</a>
+                    <a href="#">Home</a>
                 </li>
                 <li type="visible">
                     <a>Produto</a>
-                      
+
                 </li>
                 <li type="visible">
                     <a>Cliente</a>
-                    
+
                 </li>
                 <li type="visible">
                     <a href="../../venda/venda.html">Venda</a>                    
                 </li>
                 <li type="visible">
                     <a>Relatórios</a>
-                    
+
                 </li>
                 <li type="visible">
                     <a>Usuários</a>
-                    
+
                 </li>
                 <li type="visible">
-                    <a href="#">Sair</a>
+                    <a href="${pageContext.request.contextPath}/logout">Sair</a>
+                    <input id="perfil" hidden value="<c:out value="${usuario}"/>">
                 </li>  
             </ul>
         </div>
 
         <div id="subProduto" class="sub">
             <ul class="submenu">
-                    <li>
-                        <a href="../Cadastrar/produtoCadastrar.jsp">Cadastrar Produto</a>
-                    </li>
-                    <li>
-                        <a href="../ConsultarExcluir/produtoConsultarExcluir.jsp">Consultar Produto</a>
-                    </li>
+                <li>
+                    <a href="../Cadastrar/produtoCadastrar.jsp">Cadastrar Produto</a>
+                </li>
+                <li>
+                    <a href="../ConsultarExcluir/produtoConsultarExcluir.jsp">Consultar Produto</a>
+                </li>
             </ul>
         </div>
 
@@ -146,30 +147,30 @@
             </ul>
         </div>
 
-            <div id="subRelatorio" class="sub">
-                <ul class="submenu">
-                        <li id="relProduto" type="hidden">
-                            <a href="../../Relatorio/relatorioProduto_falta/relatorioProduto.jsp">Relatório de Produto</a>
-                        </li>
-                        <li id="relVenda" type="hidden">
-                            <a href="../../Relatorio/RelatorioVenda/relatorioVenda.jsp">Relatório de Venda</a>
-                        </li>
-                        <li id="relLog" type="hidden">
-                            <a href="../../Relatorio/relatorioLog_falta/relatorioLog.jsp">Relatório de Log</a>
-                        </li>
-                </ul>
-            </div>
+        <div id="subRelatorio" class="sub">
+            <ul class="submenu">
+                <li id="relProduto" type="hidden">
+                    <a href="../../Relatorio/relatorioProduto_falta/relatorioProduto.jsp">Relatório de Produto</a>
+                </li>
+                <li id="relVenda" type="hidden">
+                    <a href="../../Relatorio/RelatorioVenda/relatorioVenda.jsp">Relatório de Venda</a>
+                </li>
+                <li id="relLog" type="hidden">
+                    <a href="../../Relatorio/relatorioLog_falta/relatorioLog.jsp">Relatório de Log</a>
+                </li>
+            </ul>
+        </div>
 
-            <div id="subUsuario" class="sub">
-                 <ul class="submenu" >
-                    <li>
-                        <a href="#">Cadastrar Usuário</a>
-                    </li>
-                    <li>
-                        <a href="#">Consultar Usuário</a>
-                    </li>
-                </ul>
-            </div>
-    
+        <div id="subUsuario" class="sub">
+            <ul class="submenu" >
+                <li>
+                    <a href="#">Cadastrar Usuário</a>
+                </li>
+                <li>
+                    <a href="#">Consultar Usuário</a>
+                </li>
+            </ul>
+        </div>
+
     </body>
 </html>

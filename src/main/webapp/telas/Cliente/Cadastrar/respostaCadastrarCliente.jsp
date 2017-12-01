@@ -44,13 +44,13 @@
 
             <ul class="menu">
                 <li type="visible">
-                    <a href="../../home/home.jsp">Home</a>
+                    <a href="#">Home</a>
                 </li>
                 <li type="visible">
                     <a>Produto</a>
 
                 </li>
-                
+
                 <li type="visible">
                     <a>Cliente</a>
 
@@ -67,12 +67,13 @@
 
                 </li>
                 <li type="visible">
-                    <a href="#">Sair</a>
+                    <a href="${pageContext.request.contextPath}/logout">Sair</a>
+                    <input id="perfil" hidden value="<c:out value="${usuario}"/>">
                 </li>  
             </ul>
         </div>
 
-       <div id="subProduto" class="sub">
+        <div id="subProduto" class="sub">
             <ul class="submenu">
                 <li>
                     <a href="../../Produto/Cadastrar/produtoCadastrar.jsp">Cadastrar Produto</a>
@@ -82,7 +83,7 @@
                 </li>
             </ul>
         </div>
-        
+
         <div id="subCliente" class="sub">
             <ul class="submenu">
                 <li>
@@ -110,8 +111,8 @@
 
         <div id="subUsuario" class="sub">
             <ul class="submenu" >
-               li>
-                    <a href="../../Funcionario/Cadastrar/funcionarioCadastrar.jsp">Cadastrar Funcionário</a>
+                li>
+                <a href="../../Funcionario/Cadastrar/funcionarioCadastrar.jsp">Cadastrar Funcionário</a>
                 </li>
                 <li>
                     <a href="../../Funcionario/Consultar/clienteConsultar.jsp">Consultar Funcionário</a>

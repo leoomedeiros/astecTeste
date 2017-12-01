@@ -46,8 +46,8 @@
                 </form>
                 <div class="divTabela">
                     <table>
-                      
-                        
+
+
                         <tr>
                             <th>Codigo:</th>
                             <th>Nome:</th>
@@ -55,7 +55,7 @@
                             <th>Endereço:</th>
                             <th>Telefone:</th>
                         </tr> 
-                       
+
 
                     </table>
 
@@ -95,13 +95,13 @@
 
             <ul class="menu">
                 <li type="visible">
-                    <a href="../../home/home.jsp">Home</a>
+                    <a href="#">Home</a>
                 </li>
                 <li type="visible">
                     <a>Produto</a>
 
                 </li>
-               
+
                 <li type="visible">
                     <a>Cliente</a>
 
@@ -118,8 +118,9 @@
 
                 </li>
                 <li type="visible">
-                    <a href="#">Sair</a>
-                </li>  
+                    <a href="${pageContext.request.contextPath}/logout">Sair</a>
+                    <input id="perfil" hidden value="<c:out value="${usuario}"/>">
+                </li> 
             </ul>
         </div>
 
@@ -133,7 +134,7 @@
                 </li>
             </ul>
         </div>
-        
+
         <div id="subCliente" class="sub">
             <ul class="submenu">
                 <li>

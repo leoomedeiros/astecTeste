@@ -42,7 +42,7 @@
 
             <ul class="menu">
                 <li type="visible">
-                    <a href="perfilDiretoria.jsp">Home</a>
+                    <a href="#">Home</a>
                 </li>
                 <li type="visible">
                     <a >Produto</a>
@@ -108,7 +108,7 @@
                     <a href="/../Relatorio/RelatorioVenda/relatorioVenda.jsp">Relatório de Venda</a>
                 </li>
                 <li id="relLog" type="hidden">
-                    <a href="RelatorioLog_falta/relatorioLog.jsp">Relatório de Log</a>
+                    <a href="../../Relatorio/RelatorioLog_falta/relatorioLog.jsp">Relatório de Log</a>
                 </li>
             </ul>
         </div>

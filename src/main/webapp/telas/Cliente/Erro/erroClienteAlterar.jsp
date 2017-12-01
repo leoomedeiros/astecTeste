@@ -19,19 +19,19 @@
 
             </div>
 
-<!----------------------------------------------------------------------------->
-            
-              
+            <!----------------------------------------------------------------------------->
+
+
             <div id="conteudo">
 
                 <h2>Ops!! Não deu certo.</h2>
                 <a id="ok" href="../Consultar/clienteConsultar.jsp">Voltar</a>
-                </div>
+            </div>
 
-        
-<!----------------------------------------------------------------------------->
-            
-           
+
+            <!----------------------------------------------------------------------------->
+
+
         </div>
 
 
@@ -46,7 +46,7 @@
 
             <ul class="menu">
                 <li type="visible">
-                    <a href="../../home/home.jsp">Home</a>
+                    <a href="#">Home</a>
                 </li>
                 <li type="visible">
                     <a>Produto</a>
@@ -68,8 +68,9 @@
 
                 </li>
                 <li type="visible">
-                    <a href="#">Sair</a>
-                </li>  
+                    <a href="${pageContext.request.contextPath}/logout">Sair</a>
+                    <input id="perfil" hidden value="<c:out value="${usuario}"/>">
+                </li> 
             </ul>
         </div>
 

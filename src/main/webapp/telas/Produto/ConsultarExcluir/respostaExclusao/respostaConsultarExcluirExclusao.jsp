@@ -25,10 +25,10 @@
 
             </div>
             <div id="conteudo">
-                
+
                 <h2>Produto "<c:out value="${sessionScope.produtoConsultado.nomeProduto}" />" excluído com sucesso.</h2>
                 <a id="ok" href="../produtoConsultarExcluir.jsp">Voltar</a>
-                
+
             </div>
 
         </div>
@@ -45,7 +45,7 @@
 
             <ul class="menu">
                 <li type="visible">
-                    <a href="../../../home/home.jsp">Home</a>
+                    <a href="#">Home</a>
                 </li>
                 <li type="visible">
                     <a>CRUD Produto</a>
@@ -67,8 +67,9 @@
 
                 </li>
                 <li type="visible">
-                    <a href="#">Sair</a>
-                </li>  
+                    <a href="${pageContext.request.contextPath}/logout">Sair</a>
+                    <input id="perfil" hidden value="<c:out value="${usuario}"/>">
+                </li> 
             </ul>
         </div>
 

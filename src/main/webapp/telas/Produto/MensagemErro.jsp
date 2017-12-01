@@ -23,7 +23,7 @@
 
             <div id="conteudo">
                 <h2>Produto inválido ou inexistente.</h2>
-                
+
                 <a id="erro" href="ConsultarExcluir/produtoConsultarExcluir.jsp"><img class="logo" src="imagemErro.ico"/></a>
             </div>
 
@@ -42,7 +42,7 @@
 
             <ul class="menu">
                 <li type="visible">
-                    <a href="../home/home.jsp">Home</a>
+                    <a href="#">Home</a>
                 </li>
                 <li type="visible">
                     <a>Produto</a>
@@ -64,7 +64,8 @@
 
                 </li>
                 <li type="visible">
-                    <a href="#">Sair</a>
+                    <a href="${pageContext.request.contextPath}/logout">Sair</a>
+                    <input id="perfil" hidden value="<c:out value="${usuario}"/>">
                 </li>  
             </ul>
         </div>

@@ -29,7 +29,7 @@
                     <div id="contEsq" class="divisoria">
                         <h4>Nome completo:<br></h4>
                         <input type="text" name="nome" value="Rafael da Silva Sauro"><br>
-                        
+
                         <h4>Usuário:<br></h4>
                         <input type="text" name="usuario" value="rafa"><br>
 
@@ -44,7 +44,7 @@
 
                         <h4>Filial:</h4>
                         <select name="slcFilial">
-                            
+
                             <option value="Sao Paulo">São Paulo</option>
                             <option value="Recife">Recife</option>
                             <option value="Porto Alegre">Porto Alegre</option>
@@ -52,10 +52,10 @@
 
                         <h4>Cargo:<br></h4>
                         <input type="text" name="cargo" value="admin" <br>
-                        
+
                         <h4>Senha:<br></h4>
                         <input type="password" name="senha" value="abc123"<br>
-                        
+
                     </div>
 
                     <input name="enviar" type="submit" value="Cadastrar">
@@ -65,7 +65,7 @@
             </div>
 
         </div>
-                    
+
         <div class="menu principal">
             <div class="usuario">
                 <div class="informacoes">
@@ -77,13 +77,13 @@
 
             <ul class="menu">
                 <li type="visible">
-                    <a href="../../home/home.jsp">Home</a>
+                    <a href="#">Home</a>
                 </li>
                 <li type="visible">
                     <a>Produto</a>
 
                 </li>
-                
+
                 <li type="visible">
                     <a>Cliente</a>
 
@@ -100,8 +100,9 @@
 
                 </li>
                 <li type="visible">
-                    <a href="#">Sair</a>
-                </li>  
+                    <a href="${pageContext.request.contextPath}/logout">Sair</a>
+                    <input id="perfil" hidden value="<c:out value="${usuario}"/>">
+                </li> 
             </ul>
         </div>
 
@@ -116,7 +117,7 @@
             </ul>
         </div>
 
-        
+
         <div id="subCliente" class="sub">
             <ul class="submenu">
                 <li>

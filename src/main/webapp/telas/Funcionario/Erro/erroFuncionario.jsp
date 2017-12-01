@@ -19,108 +19,109 @@
 
             </div>
 
-<!----------------------------------------------------------------------------->
-            
-              </div>
-            <div id="conteudo">
+            <!----------------------------------------------------------------------------->
 
-                <h2>Ops!! Você digitou algo errado. "<c:out value="${sessionScope.funcionarioConsultado.nome}" />"</h2>
-                <a id="ok" href="../../home/home.jsp">Voltar</a>
-                </div>
+        </div>
+        <div id="conteudo">
 
-        
-<!----------------------------------------------------------------------------->
-            
-           
+            <h2>Ops!! Você digitou algo errado. "<c:out value="${sessionScope.funcionarioConsultado.nome}" />"</h2>
+            <a id="ok" href="../../home/home.jsp">Voltar</a>
         </div>
 
 
-        <div class="menu principal">
-            <div class="usuario">
-                <div class="informacoes">
-                    <h5>Nome do Usuario</h5>
-                    <h6>Cargo do Usuario</h6>
-                </div>
-                <img class="imagemPerfil" src="http://i63.tinypic.com/2zspjlh.jpg"/>
+        <!----------------------------------------------------------------------------->
+
+
+    </div>
+
+
+    <div class="menu principal">
+        <div class="usuario">
+            <div class="informacoes">
+                <h5>Nome do Usuario</h5>
+                <h6>Cargo do Usuario</h6>
             </div>
-
-            <ul class="menu">
-                <li type="visible">
-                    <a href="../../home/home.jsp">Home</a>
-                </li>
-                <li type="visible">
-                    <a>Produto</a>
-
-                </li>
-               
-                <li type="visible">
-                    <a>Cliente</a>
-
-                </li>
-                <li type="visible">
-                    <a href="../../venda/venda.html">Venda</a>                    
-                </li>
-                <li type="visible">
-                    <a>Relatórios</a>
-
-                </li>
-                <li type="visible">
-                    <a href="#">Usuários</a>
-
-                </li>
-                <li type="visible">
-                    <a href="#">Sair</a>
-                </li>  
-            </ul>
+            <img class="imagemPerfil" src="http://i63.tinypic.com/2zspjlh.jpg"/>
         </div>
 
-        <div id="subProduto" class="sub">
-            <ul class="submenu">
-                <li>
-                    <a href="../../Produto/Cadastrar/produtoCadastrar.jsp">Cadastrar Produto</a>
-                </li>
-                <li>
-                    <a href="../../Produto/ConsultarExcluir/produtoConsultarExcluir.jsp">Consultar Produto</a>
-                </li>
-            </ul>
-        </div>
+        <ul class="menu">
+            <li type="visible">
+                <a href="#">Home</a>
+            </li>
+            <li type="visible">
+                <a>Produto</a>
 
-        
-        <div id="subCliente" class="sub">
-            <ul class="submenu">
-                <li>
-                    <a href="../../Cliente/Cadastrar/clienteCadastrar.jsp">Cadastrar Cliente</a>
-                </li>
-                <li>
-                    <a href="../../Cliente/Consultar/clienteConsultar.jsp">Consultar Cliente</a>
-                </li>
-            </ul>
-        </div>
+            </li>
 
-        <div id="subRelatorio" class="sub">
-            <ul class="submenu">
-                <li id="relProduto" type="hidden">
-                    <a href="#">Relatório de Produto</a>
-                </li>
-                <li id="relVenda" type="hidden">
-                    <a href="#">Relatório de Venda</a>
-                </li>
-                <li id="relLog" type="hidden">
-                    <a href="#">Relatório de Log</a>
-                </li>
-            </ul>
-        </div>
+            <li type="visible">
+                <a>Cliente</a>
 
-        <div id="subUsuario" class="sub">
-            <ul class="submenu" >
-                <li>
-                    <a href="../../Funcionario/Cadastrar/funcionarioCadastrar.jsp">Cadastrar Funcionário</a>
-                </li>
-                <li>
-                    <a href="../Consultar/respostaConsulta/respostaConsultar.jsp">Consultar Funcionário</a>
-                </li>
-            </ul>
-        </div>
+            </li>
+            <li type="visible">
+                <a href="../../venda/venda.html">Venda</a>                    
+            </li>
+            <li type="visible">
+                <a>Relatórios</a>
 
-    </body>
+            </li>
+            <li type="visible">
+                <a href="#">Usuários</a>
+
+            </li>
+            <li type="visible">
+                <a href="${pageContext.request.contextPath}/logout">Sair</a>
+                <input id="perfil" hidden value="<c:out value="${usuario}"/>">
+            </li>  
+        </ul>
+    </div>
+
+    <div id="subProduto" class="sub">
+        <ul class="submenu">
+            <li>
+                <a href="../../Produto/Cadastrar/produtoCadastrar.jsp">Cadastrar Produto</a>
+            </li>
+            <li>
+                <a href="../../Produto/ConsultarExcluir/produtoConsultarExcluir.jsp">Consultar Produto</a>
+            </li>
+        </ul>
+    </div>
+
+
+    <div id="subCliente" class="sub">
+        <ul class="submenu">
+            <li>
+                <a href="../../Cliente/Cadastrar/clienteCadastrar.jsp">Cadastrar Cliente</a>
+            </li>
+            <li>
+                <a href="../../Cliente/Consultar/clienteConsultar.jsp">Consultar Cliente</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="subRelatorio" class="sub">
+        <ul class="submenu">
+            <li id="relProduto" type="hidden">
+                <a href="#">Relatório de Produto</a>
+            </li>
+            <li id="relVenda" type="hidden">
+                <a href="#">Relatório de Venda</a>
+            </li>
+            <li id="relLog" type="hidden">
+                <a href="#">Relatório de Log</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="subUsuario" class="sub">
+        <ul class="submenu" >
+            <li>
+                <a href="../../Funcionario/Cadastrar/funcionarioCadastrar.jsp">Cadastrar Funcionário</a>
+            </li>
+            <li>
+                <a href="../Consultar/respostaConsulta/respostaConsultar.jsp">Consultar Funcionário</a>
+            </li>
+        </ul>
+    </div>
+
+</body>
 </html>

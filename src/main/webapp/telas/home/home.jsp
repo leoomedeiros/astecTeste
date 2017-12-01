@@ -43,7 +43,7 @@
              
             <ul class="menu">
                 <li type="visible">
-                    <a href="home.jsp">Home</a>
+                    <a href="#">Home</a>
                 </li>
                 <li type="visible">
                     <a>Produto</a>
