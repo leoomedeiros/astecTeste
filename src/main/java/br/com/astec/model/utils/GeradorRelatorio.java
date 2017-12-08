@@ -112,8 +112,6 @@ public class GeradorRelatorio {
     writer.append("Cod. USUARIO:");
     writer.append(';');
 
-    writer.append("Nome do PRODUTO:");
-    writer.append(';');
 
     writer.append("Cod. PRODUTO:");
     writer.append(';');
@@ -132,9 +130,6 @@ public class GeradorRelatorio {
         writer.append(";");
 
         writer.append(logFuncionario.getIdFunc().toString());
-        writer.append(";");
-
-        writer.append(logFuncionario.getNomeTabela());
         writer.append(";");
 
         writer.append(logFuncionario.getIdItem().toString());

@@ -32,6 +32,31 @@ public class LogFuncionario extends AbstractEntity{
         this.qntd = qntd;
     }
 
+    public LogFuncionario(Integer id, Integer idFunc, String acao, String nomeTabela, Integer idItem, Integer qntd) {
+        this.id = id;
+        this.idFunc = idFunc;
+        this.acao = acao;
+        this.nomeTabela = nomeTabela;
+        this.idItem = idItem;
+        this.qntd = qntd;
+    }
+
+    public LogFuncionario(Integer idFunc, String acao, String nomeTabela, Integer idItem) {
+        this.idFunc = idFunc;
+        this.acao = acao;
+        this.nomeTabela = nomeTabela;
+        this.idItem = idItem;
+    }
+
+    public LogFuncionario(Integer idFunc, String acao, String nomeTabela, Integer idItem, Integer qntd) {
+        this.idFunc = idFunc;
+        this.acao = acao;
+        this.nomeTabela = nomeTabela;
+        this.idItem = idItem;
+        this.qntd = qntd;
+    }
+    
+    
 
 
     public LogFuncionario(Integer id,Integer idFunc, String acao, String nomeTabela, Integer idItem,Date dataAcao) {

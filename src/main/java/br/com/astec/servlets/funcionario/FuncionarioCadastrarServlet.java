@@ -5,9 +5,12 @@
  */
 package br.com.astec.servlets.funcionario;
 
+import br.com.astec.model.constants.LogAcao;
+import br.com.astec.model.dao.LogDao;
 import br.com.astec.servlets.funcionario.*;
 import br.com.astec.model.dao.funcionario.FuncionarioDao;
 import br.com.astec.model.entidades.Funcionario;
+import br.com.astec.model.entidades.LogFuncionario;
 import br.com.astec.model.entidades.ValidarFuncionario;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -80,7 +83,19 @@ public class FuncionarioCadastrarServlet extends HttpServlet {
             try {
                 
                 FuncionarioDao funcionario = new FuncionarioDao();
-                funcionario.incluir(novoFuncionario);
+                
+                if (funcionario.incluir(novoFuncionario)){
+                        
+                        int idFunc =(Integer)sessao.getAttribute("id_funcionario");
+                        LogFuncionario logF = new LogFuncionario (idFunc,
+                                LogAcao.INCLUSAO.getValor(),
+                                Funcionario.class.getSimpleName(),
+                                funcionario.lastId());
+                        
+                        LogDao lD = new LogDao();
+                        lD.incluir(logF);
+                        
+                }
 
             } catch (Exception ex) {
                 Logger.getLogger(FuncionarioCadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);

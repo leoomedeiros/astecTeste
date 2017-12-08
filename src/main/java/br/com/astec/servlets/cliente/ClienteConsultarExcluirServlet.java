@@ -5,8 +5,11 @@
  */
 package br.com.astec.servlets.cliente;
 
+import br.com.astec.model.constants.LogAcao;
+import br.com.astec.model.dao.LogDao;
 import br.com.astec.model.dao.cliente.ClienteDao;
 import br.com.astec.model.entidades.Cliente;
+import br.com.astec.model.entidades.LogFuncionario;
 import br.com.astec.model.entidades.ValidarCliente;
 import java.io.IOException;
 import java.util.List;
@@ -53,7 +56,19 @@ public class ClienteConsultarExcluirServlet extends HttpServlet {
                     for (Cliente cliente : atributosCliente) {
                         sessao.setAttribute("clienteConsultado", cliente);
                     }
-                    clienteDao.remover(codigoExclusao);
+                    
+                    if (clienteDao.remover(codigoExclusao)){
+                        Cliente exC = atributosCliente.get(0);
+                        int idFunc =(Integer)sessao.getAttribute("id_funcionario");
+                        LogFuncionario logF = new LogFuncionario (idFunc,
+                                LogAcao.REMOCAO.getValor(),
+                                Cliente.class.getSimpleName(),
+                                exC.getId());
+                        
+                        LogDao lD = new LogDao();
+                        lD.incluir(logF);
+                        
+                    }
                     response.sendRedirect("telas/Cliente/Excluir/respostaClienteExcluido.jsp");
 
                 } else {
@@ -95,8 +110,20 @@ public class ClienteConsultarExcluirServlet extends HttpServlet {
 
                 try {
                     clienteDao.alterar(novoCliente, codigoAltExc);
-
                     Cliente atributosCliente = clienteDao.alterar(novoCliente, codigoAltExc);
+                    
+                    if (atributosCliente!=null){
+
+                        int idFunc =(Integer)sessao.getAttribute("id_funcionario");
+                        LogFuncionario logF = new LogFuncionario (idFunc,
+                            LogAcao.ALTERACAO.getValor(),
+                            Cliente.class.getSimpleName(),
+                            codigoAltExc);
+                    
+                    LogDao lD = new LogDao();
+                    lD.incluir(logF);
+                    }
+                    
                     sessao.setAttribute("clienteConsultado", atributosCliente);
                 } catch (Exception e) {
                     Logger.getLogger(ClienteConsultarExcluirServlet.class.getName()).log(Level.SEVERE, null, e);

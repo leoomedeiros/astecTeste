@@ -6,8 +6,11 @@
 package br.com.astec.servlets.funcionario;
 
 
+import br.com.astec.model.constants.LogAcao;
+import br.com.astec.model.dao.LogDao;
 import br.com.astec.model.dao.funcionario.FuncionarioDao;
 import br.com.astec.model.entidades.Funcionario;
+import br.com.astec.model.entidades.LogFuncionario;
 import br.com.astec.model.entidades.ValidarFuncionario;
 import java.io.IOException;
 import java.util.List;
@@ -54,7 +57,19 @@ public class FuncionarioConsultarExcluirServlet extends HttpServlet {
                     for (Funcionario funcionario : atributosFuncionario) {
                         sessao.setAttribute("FuncionarioConsultado", funcionario);
                     }
-                    FuncionarioDao.remover(codigoExclusao);
+                    
+                    if (FuncionarioDao.remover(codigoExclusao)){
+                        Funcionario exF = atributosFuncionario.get(0);
+                        int idFunc =(Integer)sessao.getAttribute("id_funcionario");
+                        LogFuncionario logF = new LogFuncionario (idFunc,
+                                LogAcao.REMOCAO.getValor(),
+                                Funcionario.class.getSimpleName(),
+                                exF.getId());
+                        
+                        LogDao lD = new LogDao();
+                        lD.incluir(logF);
+                        
+                    }
                     response.sendRedirect("telas/Funcionario/Excluir/respostaFuncionarioExcluido.jsp");
 
                 } else {
@@ -100,8 +115,21 @@ public class FuncionarioConsultarExcluirServlet extends HttpServlet {
 
                 try {
                     FuncionarioDao.alterar(novoFuncionario, codigoAltExc);
-
                     Funcionario atributosFuncionario = FuncionarioDao.alterar(novoFuncionario, codigoAltExc);
+
+                    
+                    if (atributosFuncionario!=null){
+
+                        int idFunc =(Integer)sessao.getAttribute("id_funcionario");
+                        LogFuncionario logF = new LogFuncionario (idFunc,
+                            LogAcao.ALTERACAO.getValor(),
+                            Funcionario.class.getSimpleName(),
+                            codigoAltExc);
+                    
+                    LogDao lD = new LogDao();
+                    lD.incluir(logF);
+                    }
+                    
                     sessao.setAttribute("FuncionarioConsultado", atributosFuncionario);
                 } catch (Exception e) {
                     Logger.getLogger(FuncionarioConsultarExcluirServlet.class.getName()).log(Level.SEVERE, null, e);

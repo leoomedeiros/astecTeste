@@ -23,11 +23,51 @@ import java.util.List;
  * @author Usuário
  */
 public class LogDao extends AbstractDao<LogFuncionario>{
-
+    
+    java.util.Date utilDate = new java.util.Date();
+    java.sql.Timestamp sq = new java.sql.Timestamp(utilDate.getTime());
+    
     @Override
-    public boolean incluir(LogFuncionario entity) {
-        return false;
-        //throw new UnsupportedOperationException("1 Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean incluir(LogFuncionario entity) throws SQLException {
+        
+        
+        
+        String sql = "INSERT INTO log_funcionario (id_funcionario, acao,"
+                + "id_registro, nm_tabela, data_acao,qntd)"
+                + " VALUES (?, ?, ?, ?, ?, ?)";
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            connection = getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setInt(1, entity.getIdFunc());
+            preparedStatement.setString(2, entity.getAcao());
+            preparedStatement.setInt(3, entity.getIdItem());
+            preparedStatement.setString(4, entity.getNomeTabela());
+            preparedStatement.setTimestamp(5, sq);
+            if (entity.getClass().getSimpleName().equalsIgnoreCase(Produto.class.getSimpleName())) {
+                preparedStatement.setInt(6, entity.getQntd());
+                
+            }else{
+                preparedStatement.setInt(6, 1);
+            }
+ 
+
+            boolean val = preparedStatement.executeUpdate() > 0;
+
+           
+            return val;
+
+        } finally {
+            if (preparedStatement != null && !preparedStatement.isClosed()) {
+                preparedStatement.close();
+            }
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        }
+
     }
 
     @Override

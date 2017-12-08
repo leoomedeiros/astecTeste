@@ -25,7 +25,7 @@ import java.util.List;
 public class ClienteDao {
     
     //Id Funcionario Logado
-    private final LogFactory _log = LogFactory.factory();
+    //private final LogFactory _log = LogFactory.factory();
     java.util.Date utilDate = new java.util.Date();
     java.sql.Timestamp sq = new java.sql.Timestamp(utilDate.getTime());
 
@@ -46,9 +46,7 @@ public class ClienteDao {
 
             boolean val = preparedStatement.executeUpdate() > 0;
 
-            if (val) {
-                LogFactory.log(2, Cliente.class.getName(), LogAcao.INCLUSAO);
-            }
+            
             return val;
 
         } finally {
@@ -240,6 +238,39 @@ public class ClienteDao {
                 connection.close();
             }
         } return listaClientes;
-    } 
+    }
+    public int lastId () throws SQLException{
+                String sql = "select id_cliente from cliente "
+                + "where id_cliente=(select max(id_cliente) from cliente)";
+        
+        
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet result = null;
+        int id=0;
+        try {
+            connection = ConnectionUtils.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            result = preparedStatement.executeQuery();
+
+            if(result.next()){
+                id=result.getInt("id_cliente");
+            }
+        } catch (SQLException e){
+            e.getMessage();
+            
+        } finally {
+            if (result != null && !result.isClosed()) {
+                result.close();
+            }
+            if (preparedStatement != null && !preparedStatement.isClosed()) {
+                preparedStatement.close();
+            }
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        } return id;
+        
+    }
 }
 

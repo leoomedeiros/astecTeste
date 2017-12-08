@@ -5,8 +5,11 @@
  */
 package br.com.astec.servlets.cliente;
 
+import br.com.astec.model.constants.LogAcao;
+import br.com.astec.model.dao.LogDao;
 import br.com.astec.model.dao.cliente.ClienteDao;
 import br.com.astec.model.entidades.Cliente;
+import br.com.astec.model.entidades.LogFuncionario;
 import br.com.astec.model.entidades.ValidarCliente;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -85,7 +88,19 @@ public class ClienteCadastrarServlet extends HttpServlet {
             try {
                 
                 ClienteDao cliente = new ClienteDao();
-                cliente.incluir(novoCliente);
+                
+                if (cliente.incluir(novoCliente)){
+                        
+                        int idFunc =(Integer)sessao.getAttribute("id_funcionario");
+                        LogFuncionario logF = new LogFuncionario (idFunc,
+                                LogAcao.INCLUSAO.getValor(),
+                                Cliente.class.getSimpleName(),
+                                cliente.lastId());
+                        
+                        LogDao lD = new LogDao();
+                        lD.incluir(logF);
+                        
+                }
 
             } catch (Exception ex) {
                 Logger.getLogger(ClienteCadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);

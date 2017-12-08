@@ -25,13 +25,14 @@ import java.util.List;
 public class FuncionarioDao {
     
     //Id Funcionario Logado
-    private final LogFactory _log = LogFactory.factory();
+    //private final LogFactory _log = LogFactory.factory();
     java.util.Date utilDate = new java.util.Date();
     java.sql.Timestamp sq = new java.sql.Timestamp(utilDate.getTime());
     
     //autenticar via banco
     public List<Funcionario> loginFuncionario(String username, String senha) throws SQLException, Exception{
-        String sql = "select depar, usuario, senha from funcionario";
+        String sql = "select depar, usuario, senha,id_funcionario from funcionario "
+                + "where usuario=? AND senha=?";
         
         List<Funcionario>usuarioLogado = new ArrayList();
         Connection connection = null;
@@ -41,6 +42,8 @@ public class FuncionarioDao {
         try {
             connection = ConnectionUtils.getConnection();
             preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, senha);
             
             result = preparedStatement.executeQuery();
             
@@ -52,7 +55,7 @@ public class FuncionarioDao {
                 consultado.setUsuario(result.getString("usuario"));
                 //consultado.setCargo(result.getString("cargo"));
                 consultado.setHashSenha(result.getString("senha"));
-                
+                consultado.setId(result.getInt("id_funcionario"));
 
                 usuarioLogado.add(consultado);
 
@@ -95,9 +98,6 @@ public class FuncionarioDao {
 
             boolean val = preparedStatement.executeUpdate() > 0;
 
-            if (val) {
-                LogFactory.log(2, Funcionario.class.getName(), LogAcao.INCLUSAO);
-            }
             return val;
 
         } finally {
@@ -307,5 +307,38 @@ public class FuncionarioDao {
             }
         }
         return listaFuncionario;
+    }
+    public int lastId () throws SQLException{
+                String sql = "select id_funcionario from funcionario "
+                + "where id_funcionario=(select max(id_funcionario) from funcionario)";
+
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet result = null;
+        int id=0;
+        try {
+            connection = ConnectionUtils.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            result = preparedStatement.executeQuery();
+
+            if(result.next()){
+                id=result.getInt("id_funcionario");
+            }
+        } catch (SQLException e){
+            e.getMessage();
+
+        } finally {
+            if (result != null && !result.isClosed()) {
+                result.close();
+            }
+            if (preparedStatement != null && !preparedStatement.isClosed()) {
+                preparedStatement.close();
+            }
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        } return id;
+
     }
 }

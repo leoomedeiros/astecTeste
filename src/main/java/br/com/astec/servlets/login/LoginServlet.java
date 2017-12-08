@@ -56,6 +56,8 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.isRequestedSessionIdValid();
+        
         String username = request.getParameter("usuario");
         String senha = request.getParameter("senha");
 
@@ -63,56 +65,28 @@ public class LoginServlet extends HttpServlet {
 
         try {
             FuncionarioDao autenticar = new FuncionarioDao();
-            List retornoLogin = autenticar.loginFuncionario(username, senha);
+            List<Funcionario> retornoLogin = autenticar.loginFuncionario(username, senha);
 
-            for (int i = 0; i < retornoLogin.size(); i++) {
-                if (autenticar.loginFuncionario(username, senha).get(i).
-                        getDepartamento().equalsIgnoreCase("diretoria")) {
-                    if (autenticar.loginFuncionario(username, senha).get(i).
-                            getUsuario().equalsIgnoreCase(username)
-                            && autenticar.loginFuncionario(username, senha).get(i).
-                                    getHashSenha().equals(senha)) {
-                        sessao.setAttribute("usuario", autenticar.loginFuncionario(username, senha).get(i).
-                                getDepartamento());
-                        if (sessao.getAttribute("usuario") != null) {
-                            response.sendRedirect("telas/Perfis/perfilDiretoria/perfilDiretoria.jsp");
-                        }
+            if(retornoLogin != null && !retornoLogin.isEmpty()){
+                Funcionario func = retornoLogin.get(0);
+                if(func != null){
+                    
+                    sessao.setAttribute("usuario", func.getDepartamento());
+                    sessao.setAttribute("id_funcionario", func.getId());
 
+                    if(func.getDepartamento().equalsIgnoreCase("diretoria")){
+                         response.sendRedirect("telas/Perfis/perfilDiretoria/perfilDiretoria.jsp");
+                    }else if(func.getDepartamento().equalsIgnoreCase("gerencia")){
+                         response.sendRedirect("telas/Perfis/perfilGerencia/perfilGerencia.jsp");
+                    }else if(func.getDepartamento().equalsIgnoreCase("backoffice")){
+                         response.sendRedirect("telas/Perfis/perfilBackoffice/perfilBackoffice.jsp");
                     }
-
-                } else if (autenticar.loginFuncionario(username, senha).get(i).
-                        getDepartamento().equalsIgnoreCase("gerencia")) {
-                    if (autenticar.loginFuncionario(username, senha).get(i).
-                            getUsuario().equalsIgnoreCase(username)
-                            && autenticar.loginFuncionario(username, senha).get(i).
-                                    getHashSenha().equals(senha)) {
-                        sessao.setAttribute("usuario", autenticar.loginFuncionario(username, senha).get(i).
-                                getDepartamento());
-                        if (sessao.getAttribute("usuario") != null) {
-                            response.sendRedirect("telas/Perfis/perfilGerencia/perfilGerencia.jsp");
-                        }
-
-                    }
-
-                } else if (autenticar.loginFuncionario(username, senha).get(i).
-                        getDepartamento().equalsIgnoreCase("backoffice")) {
-                    if (autenticar.loginFuncionario(username, senha).get(i).
-                            getUsuario().equalsIgnoreCase(username)
-                            && autenticar.loginFuncionario(username, senha).get(i).
-                                    getHashSenha().equals(senha)) {
-                        sessao.setAttribute("usuario", autenticar.loginFuncionario(username, senha).get(i).
-                                getDepartamento());
-                        if (sessao.getAttribute("usuario") != null) {
-                            response.sendRedirect("telas/Perfis/perfilBackoffice/perfilBackoffice.jsp");
-                        }
-
-                    }
-
+                    
+                }else{
+                    sessao.setAttribute("msgErro", "Usuário ou senha inválidos");
+                    response.sendRedirect("telas/loginInvalido.jsp");
                 }
-
             }
-            sessao.setAttribute("msgErro", "Usuário ou senha inválidos");
-            response.sendRedirect("telas/loginInvalido.jsp");
 
         } catch (Exception ex) {
             Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);

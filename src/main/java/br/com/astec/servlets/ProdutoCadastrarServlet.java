@@ -5,10 +5,16 @@ package br.com.astec.servlets;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import br.com.astec.model.constants.LogAcao;
+import br.com.astec.model.dao.LogDao;
 import br.com.astec.model.dao.ProdutoDao;
+import br.com.astec.model.entidades.Funcionario;
+import br.com.astec.model.entidades.LogFuncionario;
 import br.com.astec.model.entidades.Produto;
 import br.com.astec.model.entidades.ValidarProduto;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -97,7 +103,21 @@ public class ProdutoCadastrarServlet extends HttpServlet {
                             response.sendRedirect(request.getContextPath() + "/ProdutoCadastrarServlet");
                         }
                     }
-                    produtoDao.incluir(novo);
+                    
+                    
+                    if (produtoDao.incluir(novo)){
+                        
+                        int idFunc =(Integer)sessao.getAttribute("id_funcionario");
+                        LogFuncionario logF = new LogFuncionario (idFunc,
+                                LogAcao.INCLUSAO.getValor(),
+                                Produto.class.getSimpleName(),
+                                produtoDao.lastId(),
+                                novo.getQuantidade());
+                        
+                        LogDao lD = new LogDao();
+                        lD.incluir(logF);
+                        
+                    }
                     response.sendRedirect(request.getContextPath() + "/ProdutoCadastrarServlet");
 
                 } /*else {

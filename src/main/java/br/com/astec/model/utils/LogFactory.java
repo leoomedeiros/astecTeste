@@ -18,27 +18,17 @@ public final class LogFactory {
 
     private static LogFactory INSTANCE = new LogFactory();
     
-    private static  Integer ID_FUNCIONARIO;
+    
     private static final  LogDao DAO = new LogDao();
     
     private LogFactory() {
     }
     
-    public static LogFactory factory(){
-        
-        if(INSTANCE == null){
-            
-            INSTANCE = new LogFactory();
-            //IMPLEMENTA AQUI O METODO PARA PEGAR O USUARIO LOGADO
-            INSTANCE.setIdFuncionario(1);
-        }
-        
-        return INSTANCE;
-    }
     
-    public static void log(Integer idRegistro, String nomeTabela, LogAcao acao) throws SQLException{
+    
+    public static void log(Integer idFunc, Integer idRegistro, String nomeTabela, LogAcao acao) throws SQLException{
         LogFuncionario lf = new LogFuncionario();
-        lf.setId(ID_FUNCIONARIO);
+        lf.setId(idFunc);
         lf.setAcao(acao.getValor());
         lf.setNomeTabela(nomeTabela);
         lf.setIdItem(idRegistro);
@@ -46,10 +36,6 @@ public final class LogFactory {
         //lf.setDate(new Date
         
         DAO.incluir(lf);
-    }
-    
-    private static void setIdFuncionario(Integer idFuncionario){
-        ID_FUNCIONARIO = idFuncionario;
     }
     
     

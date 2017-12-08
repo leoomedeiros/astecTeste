@@ -1,6 +1,9 @@
 package br.com.astec.servlets;
 
+import br.com.astec.model.constants.LogAcao;
+import br.com.astec.model.dao.LogDao;
 import br.com.astec.model.dao.ProdutoDao;
+import br.com.astec.model.entidades.LogFuncionario;
 import br.com.astec.model.entidades.Produto;
 import br.com.astec.model.entidades.ValidarProduto;
 import java.io.IOException;
@@ -92,8 +95,20 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
 
                 try {
                     produtoDao.alterar(novo, codigoAltExc);
-
+                    ///////////////////////////////////////////////////////////////////////////////////
                     Produto atributosProduto = produtoDao.alterar(novo, codigoAltExc);
+                    if (atributosProduto!=null){
+
+                        int idFunc =(Integer)sessao.getAttribute("id_funcionario");
+                        LogFuncionario logF = new LogFuncionario (idFunc,
+                            LogAcao.ALTERACAO.getValor(),
+                            Produto.class.getSimpleName(),
+                            codigoAltExc,
+                            atributosProduto.getQuantidade());
+                    
+                    LogDao lD = new LogDao();
+                    lD.incluir(logF);
+                    }
                     sessao.setAttribute("produtoConsultado", atributosProduto);
                 } catch (Exception e) {
                     Logger.getLogger(ProdutoConsultarExcluirServlet.class.getName()).log(Level.SEVERE, null, e);
@@ -120,7 +135,20 @@ public class ProdutoConsultarExcluirServlet extends HttpServlet {
                     for (Produto c : atributosProduto) {
                         sessao.setAttribute("produtoConsultado", c);
                     }
-                    produtoDao.remover(codigoExclusao);
+                    
+                    if (produtoDao.remover(codigoExclusao)){
+                        Produto exP = atributosProduto.get(0);
+                        int idFunc =(Integer)sessao.getAttribute("id_funcionario");
+                        LogFuncionario logF = new LogFuncionario (idFunc,
+                                LogAcao.REMOCAO.getValor(),
+                                Produto.class.getSimpleName(),
+                                exP.getId(),
+                                exP.getQuantidade());
+                        
+                        LogDao lD = new LogDao();
+                        lD.incluir(logF);
+                        
+                    }
                     response.sendRedirect("telas/Produto/ConsultarExcluir/respostaExclusao/respostaConsultarExcluirExclusao.jsp");
 
                 } else {

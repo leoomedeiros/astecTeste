@@ -56,7 +56,6 @@
                                 <tr>
                                     <th>Cod. Log:</th>
                                     <th>Cod. Usuário:</th>
-                                    <th>Nome do Produto:</th>
                                     <th>Cod. Produto:</th>
                                     <th>Ação:</th>
                                     <th>Data/Hora:</th>
@@ -66,7 +65,6 @@
                                 <tr class="linhas">
                                     <td>${listaLogProduto.id}</td>
                                     <td>${listaLogProduto.idFunc}</td>
-                                    <td>${listaLogProduto.nomeTabela}</td>
                                     <td>${listaLogProduto.idItem}</td>
                                     <td>${listaLogProduto.acao}</td>
                                     <td>${listaLogProduto.dataAcao}</td>
